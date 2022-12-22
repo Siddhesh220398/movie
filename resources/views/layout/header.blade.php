@@ -383,9 +383,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						<ul class="kt-menu__nav ">
 							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="{{route('home')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-protection"></i><span class="kt-menu__link-text">Dashboard</span></a></li>
 							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="User Managment"><a href="{{route('user.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-user-circle"></i><span class="kt-menu__link-text">User Managment</span></a></li>
-							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="User Managment"><a href="{{route('year.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-calendar"></i><span class="kt-menu__link-text">Year</span></a></li>
-                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="User Managment"><a href="{{route('genre.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-calendar"></i><span class="kt-menu__link-text">Genre</span></a></li>
-                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="User Managment"><a href="{{route('type.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-calendar"></i><span class="kt-menu__link-text">Type</span></a></li>
+							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Year Managment"><a href="{{route('year.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-calendar"></i><span class="kt-menu__link-text">Year</span></a></li>
+                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Genre Managment"><a href="{{route('genre.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-file"></i><span class="kt-menu__link-text">Genre</span></a></li>
+                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Type Managment"><a href="{{route('type.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-envelope"></i><span class="kt-menu__link-text">Type</span></a></li>
 
 
                         </ul>
