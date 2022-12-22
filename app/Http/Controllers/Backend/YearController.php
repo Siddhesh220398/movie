@@ -1,15 +1,15 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Modal\Year;
-use Session;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Auth;
 use DataTables;
 use DB;
-use Auth;
+use Illuminate\Http\Request;
+use Session;
 
 class YearController extends Controller
 {

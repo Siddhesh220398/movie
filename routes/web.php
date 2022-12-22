@@ -27,4 +27,6 @@ Route::name('home.')->group(function () {
 });
 
 Route::resource('user','UserController');
-Route::resource('year','YearController');
+Route::resource('year','Backend\YearController');
+Route::resource('genre','Backend\GenreController');
+Route::resource('type','Backend\TypeController');
