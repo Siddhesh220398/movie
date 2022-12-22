@@ -11,10 +11,10 @@
 |
 */
 
+//Route::get('/', function () {
+//    return view('auth.login');
+//});
 Route::get('/', function () {
-    return view('auth.login');
-});
-Route::get('/dashboard', function () {
     return view('front-main');
 });
 
