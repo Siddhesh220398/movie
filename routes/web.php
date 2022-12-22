@@ -26,7 +26,16 @@ Route::name('home.')->group(function () {
     Route::get('/delete-multiple', 'HomeController@deleteMultiple')->name('delete-multiple');
 });
 
+Route::group(['middleware' => 'auth'], function (){
+//User
 Route::resource('user','UserController');
+
+//year
 Route::resource('year','Backend\YearController');
+
+//genre
 Route::resource('genre','Backend\GenreController');
+
+//type
 Route::resource('type','Backend\TypeController');
+});

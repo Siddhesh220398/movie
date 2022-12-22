@@ -14,15 +14,15 @@
 						<i class="kt-menu__link-icon flaticon2-analytics-2"></i>
 					</span>
                         <h3 class="kt-portlet__head-title">
-                            Types
+                            Type
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
                             <div class="kt-portlet__head-actions">
-                                <a href="{{route('type.create')}}" class="btn btn-type btn-elevate btn-icon-sm">
+                                <a href="{{route('type.create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
                                     <i class="la la-plus"></i>
-                                    Add Type
+                                    Add type
                                 </a>
                             </div>
                         </div>
