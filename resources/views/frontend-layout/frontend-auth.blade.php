@@ -631,7 +631,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="javascript:;"><img src="{{asset('frontend/assets/images/post-08.jpg" alt="IMG"></a')}}>
+                                    <a href="javascript:;"><img src="{{asset('frontend/assets/images/post-08.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -652,7 +652,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-09.jpg" alt="IMG"></a')}}>
+                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-09.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -673,7 +673,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-10.jpg" alt="IMG"></a')}}>
+                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-10.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -694,7 +694,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-11.jpg" alt="IMG"></a')}}>
+                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-11.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -715,7 +715,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-12.jpg" alt="IMG"></a')}}>
+                                    <a href="single-video.html"><img src="{{asset('frontend/assets/images/post-12.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -736,7 +736,7 @@
                             </div>
                             <div class="grid-item ">
                                 <div class="post-item">
-                                    <a href="javascript:;"><img src="{{asset('frontend/assets/images/post-13.jpg" alt="IMG"></a')}}>
+                                    <a href="javascript:;"><img src="{{asset('frontend/assets/images/post-13.jpg')}}" alt="IMG"></a>
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
