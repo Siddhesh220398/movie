@@ -15,110 +15,99 @@
                         <a href="">
                             Home
                         </a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a>
+                            Genre
+                        </a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="">
-                                    Home 1
+                                    Action
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Home 2
+                                    Crime
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Director
+                                    Family
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Beauty Vlogger
+                                    Kids
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Music
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    News
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="shop.html">
-                            Movie
+                        <a>
+                            Country
                         </a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="">
-                                    Shop
+                                   Australia
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Single Shop
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="">
-                            Videos
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="">
-                                    List Videos
+                                   Brazil
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Single Video
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="javascript:;">
-                            Features
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="">
-                                    About us
+                                    Canada
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    List Authors
+                                    Hong Kong
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Single Author
+                                    India
                                 </a>
                             </li>
                             <li>
                                 <a href="">
-                                    Submit Video
+                                    Japan
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Poland
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="">
-                            Blog
+                            Movies
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Single Blog
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="">
+                            TV Series
+                        </a>
                     </li>
                     <li>
                         <a href="">
-                            Contact
+                            Top IMDb
                         </a>
                     </li>
                 </ul>
