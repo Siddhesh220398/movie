@@ -27,4 +27,4 @@ Route::name('home.')->group(function () {
 });
 
 Route::resource('user','UserController');
-Route::resource('brand','BrandController');
+Route::resource('year','YearController');
