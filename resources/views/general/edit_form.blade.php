@@ -6,6 +6,7 @@
 $title = $data['title'];
 $module = $data['module'];
 $resourcePath = $data['resourcePath'];
+$resourceRoute = $data['resourceRoute'];
 $url = $data['url'];
 $id = $data['edit']->id;
 @endphp
@@ -35,16 +36,16 @@ $id = $data['edit']->id;
 
                  </div>
                  @php
-                 
-                 $index= route($resourcePath.'.index');
-                 
+
+                 $index= route($resourceRoute.'.index');
+
                  @endphp
 
                  <form class="kt-form kt-form--label-right edit_form" method="put" action="{{$url}}">
 
                     @csrf
                     @method('PUT')
-                    
+
                     @include($resourcePath.'.edit', array('data' => $data))
 
                     <div class="kt-portlet__foot">
@@ -90,17 +91,17 @@ $id = $data['edit']->id;
         {
            e.preventDefault();
            if ($(".edit_form").valid())
-           {   
+           {
             $('.change_button').find('.change_spin').removeClass('d-none');
             $('.change_button').prop('disabled', true);
-            
+
             $.ajax({
 
              type: "POST",
              headers: {
                 'X-CSSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: "{{route($resourcePath.'.update', array($resourcePath=>$id))}}", 
+            url: "{{route($resourceRoute.'.update', array($resourceRoute=>$id))}}",
             data: new FormData($('.edit_form')[0]),
             processData: false,
             contentType: false,

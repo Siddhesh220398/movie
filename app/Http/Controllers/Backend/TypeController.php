@@ -11,7 +11,7 @@ class TypeController extends Controller
 {
     public function __construct(Type $s)
     {
-        $this->view = 'type';
+        $this->view = 'backend.type';
         $this->route = 'type';
         $this->viewName = 'Type';
     }
@@ -45,7 +45,7 @@ class TypeController extends Controller
 
         }
 
-        return view('type.index');
+        return view('backend.type.index');
     }
 
     public function create()
@@ -55,7 +55,7 @@ class TypeController extends Controller
         $data['title'] = 'Add Type';
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.add_form')->with($data);
 
     }
@@ -80,7 +80,7 @@ class TypeController extends Controller
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.edit_form', compact('data'));
     }
 

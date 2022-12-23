@@ -21,25 +21,8 @@
 			</select>
 		</div>
 		<div class="form-group col-sm-3">
-			<label>Phone Number</label>
-			<input type="text" name="phoneno" placeholder="Enter Number"class="form-control" >
-		</div>
-		<div class="form-group col-sm-3">
 			<label>Image</label>
 			<input type="file" name="image" class="form-control">
-		</div>
-		<div class="form-group col-sm-3">
-			<label>Gender</label>
-			<div class="kt-radio-list">
-				<label class="kt-radio kt-radio--bold kt-radio--brand">
-					<input type="radio" value="1" name="gender" checked> Male
-					<span></span>
-				</label>
-				<label class="kt-radio kt-radio--bold kt-radio--brand">
-					<input type="radio" value="2" name="gender"> Female
-					<span></span>
-				</label>
-			</div>
 		</div>
 	</div>
 </div>

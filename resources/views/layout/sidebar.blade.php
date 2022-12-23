@@ -44,7 +44,7 @@
 
                 </div>
 
-                <div class="kt-user-card__name">
+                <div class="kt-user-card__name" style="color: #ffffff!important;">
                     @if(Auth::user()->name)
                         {{ Auth::user()->name }}
                         <!-- {{ Session::get('login_name') }} -->

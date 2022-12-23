@@ -15,7 +15,7 @@ class YearController extends Controller
 {
     public function __construct(Year $s)
     {
-        $this->view = 'year';
+        $this->view = 'backend.year';
         $this->route = 'year';
         $this->viewName = 'Year';
     }
@@ -49,7 +49,7 @@ class YearController extends Controller
 
         }
 
-        return view('year.index');
+        return view('backend.year.index');
     }
 
     public function create()
@@ -59,7 +59,7 @@ class YearController extends Controller
         $data['title'] = 'Add Year';
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.add_form')->with($data);
 
     }
@@ -84,7 +84,7 @@ class YearController extends Controller
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.edit_form', compact('data'));
     }
 

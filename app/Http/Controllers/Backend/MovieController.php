@@ -19,7 +19,7 @@ class MovieController extends Controller
 {
     public function __construct(Movie $s)
     {
-        $this->view = 'movie';
+        $this->view = 'backend.movie';
         $this->route = 'movie';
         $this->viewName = 'Movie';
     }
@@ -53,7 +53,7 @@ class MovieController extends Controller
 
         }
 
-        return view('movie.index');
+        return view('backend.movie.index');
     }
 
     public function create()
@@ -67,6 +67,7 @@ class MovieController extends Controller
         $data['years'] = Year::get();
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
+        $data['resourceRoute'] = $this->route;
 
         return view('general.add_form')->with($data);
 
@@ -117,7 +118,7 @@ class MovieController extends Controller
         $data['years'] = Year::get();
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.edit_form', compact('data'));
     }
 

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="form-group col-sm-2">
             <label>Title<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <input type="text" name="title" value="{{$edit->title}}" placeholder="Enter Title" class="form-control" required>
+            <input type="text" name="title"  placeholder="Enter Title" class="form-control" required>
         </div>
         <div class="form-group col-sm-2 col-lg-2">
             <label>Genre<span class="requied_field" style="color : #e3001b;">*</span></label>
@@ -10,18 +10,18 @@
                 <option value="">Select</option>
                 @if(!empty($genres))
                     @foreach($genres as $genre)
-                        <option value="{{ $genre->id }}" @if($genre->id == $edit->genre_id)>Selected{{ $genre->name }}</option>
+                        <option value="{{ $genre->id }}" >Selected{{ $genre->name }}</option>
                     @endforeach
                 @endif
             </select>
         </div>
         <div class="form-group col-sm-3">
             <label>Cast</label>
-            <input type="text" name="cast" value="{{$edit->cast}}" placeholder="Enter Cast" class="form-control">
+            <input type="text" name="cast"  placeholder="Enter Cast" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Production</label>
-            <input type="text" name="production" value="{{$edit->production}}" placeholder="Enter Production" class="form-control">
+            <input type="text" name="production"  placeholder="Enter Production" class="form-control">
         </div>
         <div class="form-group col-sm-3">
             <label>Description<span class="requied_field" style="color : #e3001b;">*</span></label>

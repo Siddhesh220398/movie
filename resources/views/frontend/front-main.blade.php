@@ -1,5 +1,5 @@
-@extends('frontend-layout.frontend-auth')
-
+@extends('frontend.layout.frontend-auth')
+@section('title',$data['title'])
 @section('content')
     <div class="thim-banner_home-1" style="background-image: url(frontend/assets/images/bg-01.jpg);">
         <div class="overlay-area"></div>
@@ -142,11 +142,11 @@
     </div>
 
 
-    @include('frontend-layout.trending',['type'=>'Trending'])
+    @include('frontend.layout.trending',['type'=>'Trending'])
 
-    @include('frontend-layout.trending',['type'=>'Latest Movies'])
+    @include('frontend.layout.trending',['type'=>'Latest Movies'])
 
-    @include('frontend-layout.trending',['type'=>'Latest TV Series'])
+    @include('frontend.layout.trending',['type'=>'Latest TV Series'])
 
 
     <div class="thim-ads_home-1">

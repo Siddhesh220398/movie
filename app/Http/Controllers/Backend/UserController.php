@@ -1,15 +1,16 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\User;
-use Session;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Auth;
 use DataTables;
 use DB;
-use Auth;
+use Illuminate\Http\Request;
+use Session;
+use function App\Http\Controllers\public_path;
 
 class UserController extends Controller
 {
@@ -28,36 +29,8 @@ class UserController extends Controller
             return Datatables::of($query)
 
             ->addColumn('role', function ($row) {
-                $btn = '';
-                if ($row['role'] == 1)
-                {
-                    $btn = 'Admin';
-                }
-                elseif($row['role'] == 2)
-                {
-                    $btn = 'Back Office';
-                }
-                elseif($row['role'] == 3)
-                {
-                    $btn = 'Sales';
-                }
-                elseif($row['role'] == 4)
-                {
-                    $btn = 'Sales Manager';
-                }
-                elseif($row['role'] == 5)
-                {
-                    $btn = 'Technician';
-                }
-                elseif($row['role'] == 6)
-                {
-                    $btn = 'Office Boy';
-                }
-                elseif($row['role'] == 7)
-                {
-                    $btn = 'Team Leader';
-                }
-                return $btn;
+
+                return $row['role'] == 1 ? 'Admin' : 'User';
 
             })
 
@@ -102,7 +75,7 @@ class UserController extends Controller
         $data['title'] = 'Add User';
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.add_form')->with($data);
 
     }
@@ -144,7 +117,7 @@ class UserController extends Controller
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.edit_form', compact('data'));
     }
 
@@ -155,7 +128,6 @@ class UserController extends Controller
         $data->email  = $request->email;
         $data->password = $request->password ?? 0;
         $data->show_password = $request->password;
-        $data->number = $request->number;
         if($request->image)
         {
             $file = $request->image;
@@ -167,7 +139,6 @@ class UserController extends Controller
             $request->image = NULL;
         }
         $data->role = $request->role;
-        $data->gender = $request->gender;
         $data->status = $request->status;
         $data->save();
 
