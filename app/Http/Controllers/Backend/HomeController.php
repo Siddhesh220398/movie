@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Session;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageHelper;
+use DataTables;
 use DB;
 use File;
-use DataTables;
+use Illuminate\Http\Request;
+use Session;
 
 
 class HomeController extends Controller
@@ -71,13 +72,13 @@ class HomeController extends Controller
                         } catch (\Exception $ex) {
                         }
                     }
-                    
+
                 }
             } else {
 
 
                 DB::table($table_name)->whereIn('id', $id_array)->delete();
-                
+
             }
             $res['status'] = 'Success';
             $res['message'] = 'Deleted successfully';

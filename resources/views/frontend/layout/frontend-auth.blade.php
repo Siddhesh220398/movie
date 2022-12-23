@@ -3,20 +3,23 @@
 
 <!-- Mirrored from html.thimpress.com/vividly/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 10:27:47 GMT -->
 <head>
-    <title>Video 01</title>
+    <title> @yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/favicon-1.png')}}"/>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/libs/bootstrap/bootstrap.min.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{asset('frontend/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/fonts/ionicons-2.0.1/css/ionicons.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{asset('frontend/assets/fonts/ionicons-2.0.1/css/ionicons.min.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/libs/slick/slick.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <style>
@@ -31,6 +34,7 @@
             padding: 0 39px;
             transition: all .2s;
         }
+
         .content-add .btn-readmore:hover {
             background: #b30710;
         }
@@ -44,19 +48,19 @@
 
     <header class="site-header sticky-header layout-1">
         <div class="header-container">
-         @include('frontend-layout.top-header')
-         @include('frontend-layout.bottom-header')
+            @include('frontend.layout.top-header')
+            @include('frontend.layout.bottom-header')
         </div>
     </header>
 
-    @include('frontend-layout.mobile-nav')
+    @include('frontend.layout.mobile-nav')
 
 
     <div id="main-content" style="background: #1e1e1e;">
 
         @yield('content')
 
-        @include('frontend-layout.footer')
+        @include('frontend.layout.footer')
     </div>
 
     <div id="thim-preloading">

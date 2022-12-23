@@ -11,7 +11,7 @@ class GenreController extends Controller
 {
     public function __construct(Genre $s)
     {
-        $this->view = 'genre';
+        $this->view = 'backend.genre';
         $this->route = 'genre';
         $this->viewName = 'Genre';
     }
@@ -45,7 +45,7 @@ class GenreController extends Controller
 
         }
 
-        return view('genre.index');
+        return view('backend.genre.index');
     }
 
     public function create()
@@ -55,7 +55,7 @@ class GenreController extends Controller
         $data['title'] = 'Add Genre';
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.add_form')->with($data);
 
     }
@@ -80,7 +80,7 @@ class GenreController extends Controller
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
-
+        $data['resourceRoute'] = $this->route;
         return view('general.edit_form', compact('data'));
     }
 

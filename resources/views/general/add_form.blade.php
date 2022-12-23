@@ -34,9 +34,9 @@
                     @csrf
                     @php
 
-                    $index= route($resourcePath.'.index');
-                    
-                    $store=route($resourcePath.'.store');
+                    $index= route($resourceRoute.'.index');
+
+                    $store=route($resourceRoute.'.store');
 
                     @endphp
                     @include($resourcePath.'.create')
@@ -86,7 +86,7 @@
             e.preventDefault();
 
             if ($(".add_form").valid()) {
-                
+
                 $('.change_button').find('.change_spin').removeClass('d-none');
                 $('.change_button').prop('disabled', true);
                 $.ajax({
@@ -104,12 +104,12 @@
                     success: function(data) {
 
                         if (data.status === 'success') {
-                            
+
                             window.location = "{{ $index }}";
 
                             toastr["success"]("{{ $module }} Added Successfully", "Success");
 
-                            
+
 
                         } else if (data.status === 'error') {
                             location.reload();
