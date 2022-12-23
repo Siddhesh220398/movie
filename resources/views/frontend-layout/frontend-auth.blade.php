@@ -18,7 +18,24 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
+    <style>
+        .content-add .btn-readmore {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #fff;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: #e40914;
+            padding: 0 39px;
+            transition: all .2s;
+        }
+        .content-add .btn-readmore:hover {
+            background: #b30710;
+        }
+
+    </style>
 
 </head>
 
@@ -38,282 +55,6 @@
     <div id="main-content" style="background: #1e1e1e;">
 
         @yield('content')
-
-        <div class="thim-banner_home-1" style="background-image: url(frontend/assets/images/bg-01.jpg);">
-            <div class="overlay-area"></div>
-            <div class="container">
-
-                <div class="bp-element bp-element-st-list-videos vblog-layout-1">
-                    <div class="wrap-element">
-                        <div class="feature-item">
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="video">
-                                        <img src="{{asset('frontend/assets/images/bg-featurepost-01.jpg')}}" alt="IMG">
-                                        <div class="overlay"></div>
-                                        <div class="meta-info">
-                                            <div class="imdb">
-                                                <span class="value">5</span>IMDb
-                                            </div>
-                                            <div class="label">
-                                                HDRip
-                                            </div>
-                                        </div>
-                                        <a href="https://www.youtube.com/watch?v=hNQFjqDvPhA&amp;feature=youtu.be"
-                                           class="btn-play popup-youtube">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="text">
-                                        <h4 class="title">
-                                            <a href="#">
-                                                MTV Game Awards GraphicPackage The Best Of year 2018
-                                            </a>
-                                        </h4>
-                                        <div class="info">
-                                            <span class="item-info">BY <a href="javascript:;">POLLY</a></span>
-                                            <span class="item-info">MAY 1, 2018</span>
-                                            <span class="item-info">TV show</span>
-                                        </div>
-                                        <div class="description">
-                                            S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
-                                            Galindo you worlds north and south of the border oldcollide.
-                                        </div>
-                                        <a href="#" class="btn-readmore btn-normal shape-round">
-                                            read more
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="bp-element bp-element-st-list-videos vblog-layout-1-1">
-                    <div class="wrap-element">
-                        <div class="normal-items">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="item">
-                                        <div class="pic">
-                                            <a href="#"><img src="{{asset('frontend/assets/images/png-bg-post-01.png')}}"
-                                                                             alt="IMG"></a>
-                                            <div class="label">
-                                                HD
-                                            </div>
-                                        </div>
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                Self-Hosted Video
-                                            </a>
-                                        </h4>
-                                        <div class="info">
-                                            FEBRUARY 10, 2018
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="item">
-                                        <div class="pic">
-                                            <a href="single-video.html"><img src="{{asset('frontend/assets/images/png-bg-post-02.png')}}"
-                                                                             alt="IMG"></a>
-                                            <div class="label">
-                                                CAM
-                                            </div>
-                                        </div>
-                                        <h4 class="title">
-                                            <a href="single- .html">
-                                                Self-Hosted Video
-                                            </a>
-                                        </h4>
-                                        <div class="info">
-                                            FEBRUARY 10, 2018
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="item">
-                                        <div class="pic">
-                                            <a href="single-video.html"><img src="{{asset('frontend/assets/images/png-bg-post-03.png')}}"
-                                                                             alt="IMG"></a>
-                                            <div class="label">
-                                                Trailer
-                                            </div>
-                                        </div>
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                Self-Hosted Video
-                                            </a>
-                                        </h4>
-                                        <div class="info">
-                                            FEBRUARY 10, 2018
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="item">
-                                        <div class="pic">
-                                            <a href="single-video.html"><img src="{{asset('frontend/assets/images/png-bg-post-04.png')}}"
-                                                                             alt="IMG"></a>
-                                            <div class="label">
-                                                HD
-                                            </div>
-                                        </div>
-                                        <h4 class="title">
-                                            <a href="single-video.html">
-                                                Self-Hosted Video
-                                            </a>
-                                        </h4>
-                                        <div class="info">
-                                            FEBRUARY 10, 2018
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        @include('frontend-layout.trending',['type'=>'Trending'])
-
-        @include('frontend-layout.trending',['type'=>'Latest Movies'])
-
-        @include('frontend-layout.trending',['type'=>'Latest TV Series'])
-
-
-        <div class="thim-ads_home-1">
-            <div class="container">
-
-                <div class="bp-element bp-element-call-to-action vblog-layout-1">
-                    <div class="wrap-element" style="background-image: url(frontend/assets/images/ads-01.jpg);">
-                        <div class="overlay"></div>
-                        <a href="javascript:;" class="content">
-                            <div class="text">
-                                GAME SHOW Art line Collection Handmade
-                            </div>
-                            <div class="btn-readmore btn-small shape-round">
-                                read more
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="thim-trending-categories_home-1">
-            <div class="container">
-
-                <div class="bp-element bp-element-st-list-categories vblog-layout-slider-1">
-                    <div class="wrap-element">
-                        <div class="heading-post">
-                            <div class="text">
-                                <h3 class="title">
-                                    TRENDING CATEGORIES
-                                </h3>
-                                <div class="description">
-                                    It is a long established fact that a reader
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-posts">
-                            <div class="slide-posts js-call-slick-col" data-numofshow="3" data-numofscroll="1"
-                                 data-loopslide="1" data-autoscroll="0" data-speedauto="6000"
-                                 data-responsive="[3, 1], [3, 1], [2, 1], [2, 1], [1, 1]">
-                                <div class="wrap-arrow-slick">
-                                    <div class="arow-slick prev-slick">
-                                        <i class="ion ion-ios-arrow-left"></i>
-                                    </div>
-                                    <div class="arow-slick next-slick">
-                                        <i class="ion ion-ios-arrow-right"></i>
-                                    </div>
-                                </div>
-                                <div class="slide-slick">
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-05.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Game</span> 250 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-06.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Animation</span> 380 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-07.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Life Style</span> 180 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-05.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Game</span> 250 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-06.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Animation</span> 380 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-slick">
-                                        <div class="post-item">
-                                            <img src="{{asset('frontend/assets/images/post-07.jpg')}}" alt="IMG">
-                                            <div class="overlay"></div>
-                                            <a href="blog.html" class="content">
-                                                <span class="title">Life Style</span> 180 Movies
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="thim-ads_home-1">
-            <div class="container">
-
-                <div class="bp-element bp-element-call-to-action vblog-layout-2">
-                    <div class="wrap-element" style="background-image: url(frontend/assets/images/ads-01.jpg);">
-                        <div class="overlay"></div>
-                        <a href="javascript:;" class="content">
-                            <div class="text">
-                                GAME SHOW Art line Collection Handmade
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
         @include('frontend-layout.footer')
     </div>
