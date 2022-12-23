@@ -21,177 +21,26 @@
     <link rel="stylesheet" type="text/css"
           href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <style>
-        .header-slider .item {
-            height: 100vh;
-            position: relative;
-        }
-
-        .header-slider .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .header-slider .item .cover {
-            padding: 75px 0;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-        }
-
-        .header-slider .item .cover .header-content {
-            position: relative;
-            padding: 56px;
-            overflow: hidden;
-        }
-
-        .header-slider .item .cover .header-content .line {
-            content: "";
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            position: absolute;
-            border: 9px solid #fff;
-            -webkit-clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
-            clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
-        }
-
-        .header-slider .item .cover .header-content h2 {
-            font-weight: 300;
-            font-size: 35px;
+        .content-add .btn-readmore {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.5;
             color: #fff;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: #e40914;
+            padding: 0 39px;
+            transition: all .2s;
+        }
+        .content-add .btn-readmore:hover {
+            background: #b30710;
         }
 
-        .header-slider .item .cover .header-content h1 {
-            font-size: 56px;
-            font-weight: 600;
-            margin: 5px 0 20px;
-            word-spacing: 3px;
-            color: #fff;
-        }
-
-        .header-slider .item .cover .header-content h4 {
-            font-size: 24px;
-            font-weight: 300;
-            line-height: 36px;
-            color: #fff;
-        }
-
-        .header-slider .owl-item.active h1 {
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-            animation-name: fadeInDown;
-            animation-delay: 0.3s;
-        }
-
-        .header-slider .owl-item.active h2 {
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-            animation-name: fadeInDown;
-            animation-delay: 0.3s;
-        }
-
-        .header-slider .owl-item.active h4 {
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-            animation-name: fadeInUp;
-            animation-delay: 0.3s;
-        }
-
-        .header-slider .owl-item.active .line {
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-            animation-name: fadeInLeft;
-            animation-delay: 0.3s;
-        }
-
-        .header-slider .owl-nav .owl-prev {
-            position: absolute;
-            left: 15px;
-            top: 43%;
-            opacity: 0;
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-            background: rgba(0, 0, 0, 0.5) !important;
-            width: 40px;
-            cursor: pointer;
-            height: 40px;
-            position: absolute;
-            display: block;
-            z-index: 1000;
-            border-radius: 0;
-        }
-
-        .header-slider .owl-nav .owl-prev span {
-            font-size: 1.6875rem;
-            color: #fff;
-        }
-
-        .header-slider .owl-nav .owl-prev:focus {
-            outline: 0;
-        }
-
-        .header-slider .owl-nav .owl-prev:hover {
-            background: #000 !important;
-        }
-
-        .header-slider .owl-nav .owl-next {
-            position: absolute;
-            right: 15px;
-            top: 43%;
-            opacity: 0;
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-            background: rgba(0, 0, 0, 0.5) !important;
-            width: 40px;
-            cursor: pointer;
-            height: 40px;
-            position: absolute;
-            display: block;
-            z-index: 1000;
-            border-radius: 0;
-        }
-
-        .header-slider .owl-nav .owl-next span {
-            font-size: 1.6875rem;
-            color: #fff;
-        }
-
-        .header-slider .owl-nav .owl-next:focus {
-            outline: 0;
-        }
-
-        .header-slider .owl-nav .owl-next:hover {
-            background: #000 !important;
-        }
-
-        .header-slider:hover .owl-prev {
-            left: 0px;
-            opacity: 1;
-        }
-
-        .header-slider:hover .owl-next {
-            right: 0px;
-            opacity: 1;
-        }
     </style>
+
+        
 </head>
 
 <body class="responsive home-1">
@@ -207,84 +56,8 @@
     @include('frontend-layout.mobile-nav')
 
     <div id="main-content" style="background: #1e1e1e;">
-        <div class="header-slider">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <img src="https://cdn.pixabay.com/photo/2019/11/18/02/41/autumn-leaves-4633854_960_720.jpg"
-                         alt="images not found">
-                    <div class="cover">
-                        <div class="container">
-                            <div class="header-content">
-                                <div class="line"></div>
-                                <h2>All Type</h2>
-                                <h1>Movie</h1>
-                                <h4>We help entrepreneurs, start-ups and enterprises shape their ideas into products</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://cdn.pixabay.com/photo/2019/11/18/02/41/autumn-leaves-4633854_960_720.jpg"
-                         alt="images not found">
-                    <div class="cover">
-                        <div class="container">
-                            <div class="header-content">
-                                <div class="line animated bounceInLeft"></div>
-                                <h2>Reimagine Digital Experience with</h2>
-                                <h1>Intelligent solutions</h1>
-                                <h4>We help entrepreneurs, start-ups and enterprises shape their ideas into products</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://cdn.pixabay.com/photo/2020/04/16/02/44/dandelion-5048825_960_720.jpg"
-                         alt="images not found">
-                    <div class="cover">
-                        <div class="container">
-                            <div class="header-content">
-                                <div class="line animated bounceInLeft"></div>
-                                <h2>Peimagine Digital Experience with</h2>
-                                <h1>Intelligent Solutions</h1>
-                                <h4>We help entrepreneurs, start-ups and enterprises shape their ideas into products</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         @yield('content')
-
-        @include('frontend-layout.trending',['type'=>'Trending'])
-
-        @include('frontend-layout.trending',['type'=>'Latest Movies'])
-
-        @include('frontend-layout.trending',['type'=>'Latest TV Series'])
-
-
-        <div class="thim-ads_home-1">
-            <div class="container">
-
-                <div class="bp-element bp-element-call-to-action vblog-layout-1">
-                    <div class="wrap-element" style="background-image: url(frontend/assets/images/ads-01.jpg);">
-                        <div class="overlay"></div>
-                        <a href="javascript:;" class="content">
-                            <div class="text">
-                                GAME SHOW Art line Collection Handmade
-                            </div>
-                            <div class="btn-readmore btn-small shape-round">
-                                read more
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-
 
         @include('frontend-layout.footer')
     </div>
