@@ -40,4 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //movie
     Route::resource('movie', 'Backend\MovieController');
+
+//continue watching
+    Route::resource('watching', 'Backend\WatchingController');
 });

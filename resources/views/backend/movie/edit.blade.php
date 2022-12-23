@@ -9,10 +9,11 @@
 
         <div class="form-group col-sm-2 col-lg-2">
             <label>Genre<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <select class="form-control" name="genre_id" required="">
+
+            <select class="form-control selectpicker" name="genre_id[]" required="" multiple="">
                 <option value="">Select</option>
-                    @foreach($data['genres'] as $genre)
-                        <option value="{{ $genre->id }}" @if($genre->id == $edit->genre_id) Selected @endif>{{ $genre->name }}</option>
+                    @foreach($data['genres'] as $k => $c)
+                        <option value="{{ $c->id }}" @if(in_array($c->id,$edit->genre_id)) selected @endif>{{ $c->name }}</option>
                     @endforeach
             </select>
         </div>
@@ -39,7 +40,7 @@
         </div>
         <div class="form-group col-sm-2">
             <label>Duration</label>
-            <input type="number" name="duration"  value="{{$edit->duration}}" placeholder="Enter Duration (Min)" class="form-control">
+            <input type="time" name="duration"  value="{{$edit->duration}}" placeholder="Enter Duration (Min)" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Imdb_rates</label>
