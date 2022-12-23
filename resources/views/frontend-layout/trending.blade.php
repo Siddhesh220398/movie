@@ -1,6 +1,5 @@
 <div class="thim-popular-video_home-1">
-    <div class="container">
-
+    <div class="container-fluid">
         <div class="bp-element bp-element-st-list-videos vblog-layout-slider-1">
             <div class="wrap-element">
                 <div class="heading-post">
@@ -13,7 +12,7 @@
                 </div>
                 <div class="list-posts">
                     <div class="row isotope-grid">
-                        <div class="col-sm-6 col-md-4 col-lg-3 isotope-item Cinema Animation">
+                        <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                             <div class="post-item">
                                 <div class="pic">
                                     <img src="{{asset('frontend/assets/images/post-01.jpg')}}" alt="IMG">
@@ -40,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 isotope-item Cinema Animation">
+                        <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                             <div class="post-item">
                                 <div class="pic">
                                     <img src="{{asset('frontend/assets/images/post-01.jpg')}}" alt="IMG">
@@ -69,6 +68,13 @@
                         </div>
                     </div>
                 </div>
+
+                <a class="content-add mt-5 d-flex justify-content-center">
+
+                    <div class="btn-readmore btn-small shape-round">
+                        Show more
+                    </div>
+                </a>
             </div>
         </div>
 
