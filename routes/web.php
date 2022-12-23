@@ -12,7 +12,7 @@
 */
 
 //Route::get('/', function () {
-//    return view('auth.login');
+//    return view('front-main');
 //});
 Route::get('/', function () {
     return view('front-main');
@@ -38,4 +38,7 @@ Route::resource('genre','Backend\GenreController');
 
 //type
 Route::resource('type','Backend\TypeController');
+
+//movie
+Route::resource('movie','Backend\MovieController');
 });

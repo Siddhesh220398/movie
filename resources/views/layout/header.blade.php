@@ -509,6 +509,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<ul class="kt-menu__nav ">
 								<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="{{route('home')}}" class="kt-menu__link "><span class="kt-menu__link-text">Dashboard</span></a></li>
 								<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="{{route('user.index')}}" class="kt-menu__link "><span class="kt-menu__link-text">User Master</span></a></li>
+								<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="{{route('movie.index')}}" class="kt-menu__link "><span class="kt-menu__link-text">Movie Master</span></a></li>
 								<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="{{route('year.index')}}" class="kt-menu__link "><span class="kt-menu__link-text">Year Master</span></a></li>
 
 							</ul>
