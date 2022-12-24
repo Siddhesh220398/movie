@@ -78,7 +78,8 @@ class MovieController extends Controller
         $movie = new Movie();
         $movie->title = $request->title;
         $movie->description = $request->description;
-        $movie->genre_id = $request->genre_id;
+//        $movie->genre_id = $request->genre_id;
+        $movie['genre_id'] = serialize($request['genre_id']);
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
@@ -111,6 +112,7 @@ class MovieController extends Controller
     {
         $data['title'] = 'Edit Movie';
         $data['edit'] = Movie::findOrFail($id);
+        $data['edit']->genre_id = unserialize($data['edit']->genre_id);
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['genres'] = Genre::get();
         $data['countrys'] = Country::get();
@@ -127,7 +129,9 @@ class MovieController extends Controller
         $data = Movie::where('id',$id)->first();
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->genre_id = $request->genre_id;
+        $data->genre_id = serialize($request['genre_id']);
+
+//        dd($data->genre_id);
         $data->cast = $request->cast;
         $data->production = $request->production;
         $data->country_id  = $request->country_id;

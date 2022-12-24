@@ -14,11 +14,10 @@ class CreateMoviesTable extends Migration
     public function up()
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->increments('id');
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
-            $table->integer('genre_id')->unsigned();
-            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade');
+            $table->string('genre_id')->nullable();
             $table->string('cast')->nullable();
             $table->string('production')->nullable();
             $table->integer('country_id')->unsigned();
