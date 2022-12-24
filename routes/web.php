@@ -43,6 +43,14 @@ Route::group(['prefix' => 'admin'], function () {
 //movie
 
         Route::resource('movie', 'Backend\MovieController');
+        //setting
+        Route::resource('setting', 'Backend\SettingController');
+//    Route::get('setting/{id}',[\App\Http\Controllers\Backend\SettingController::class,'edit'])->name('setting.edit');
+//    Route::post('setting/update/{id}',[\App\Http\Controllers\Backend\SettingController::class,'update'])->name('setting.update');
+//    Route::get('setting',[\App\Http\Controllers\Backend\SettingController::class,'index'])->name('setting.index');
+
+//Banner
+        Route::resource('banner','Backend\BannerController');
     });
 
 });

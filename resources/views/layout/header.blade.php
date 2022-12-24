@@ -375,9 +375,8 @@ License: You must have a valid license purchased only from themeforest(the above
 							<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Year Managment"><a href="{{route('year.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-calendar"></i><span class="kt-menu__link-text">Year</span></a></li>
                             <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Genre Managment"><a href="{{route('genre.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-file"></i><span class="kt-menu__link-text">Genre</span></a></li>
                             <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Type Managment"><a href="{{route('type.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-envelope"></i><span class="kt-menu__link-text">Type</span></a></li>
-                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Type Managment"><a href="{{route('watching.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-envelope" aria-hidden="true"></i><span class="kt-menu__link-text">Continue Watching</span></a></li>
-
-
+                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Setting"><a href="{{route('setting.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-cog"></i><span class="kt-menu__link-text">Setting</span></a></li>
+                            <li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true" title="Banner"><a href="{{route('banner.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-image"></i><span class="kt-menu__link-text">Banner</span></a></li>
                         </ul>
 					</div>
 				</div>
