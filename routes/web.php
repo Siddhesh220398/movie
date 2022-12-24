@@ -15,29 +15,33 @@
 //    return view('front-main');
 //});
 Route::get('/', 'Frontend\HomeController@home');
+Route::get('/login', 'Frontend\HomeController@login')->name('user.login');
+Route::get('/register', 'Frontend\HomeController@register')->name('user.register');
 
-Auth::routes();
 
+Route::group(['prefix' => 'admin'], function () {
+    Auth::routes();
+    Route::group(['middleware' => 'auth'], function () {
 
-Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/home', 'Backend\HomeController@index')->name('home');
-    Route::name('home.')->group(function () {
-        Route::get('/change-multiple-status', 'Backend\HomeController@changeMultipleStatus')->name('change-multiple-status');
-        Route::get('/delete-multiple', 'Backend\HomeController@deleteMultiple')->name('delete-multiple');
-    });
+        Route::get('/home', 'Backend\HomeController@index')->name('home');
+        Route::name('home.')->group(function () {
+            Route::get('/change-multiple-status', 'Backend\HomeController@changeMultipleStatus')->name('change-multiple-status');
+            Route::get('/delete-multiple', 'Backend\HomeController@deleteMultiple')->name('delete-multiple');
+        });
 //User
-    Route::resource('user', 'Backend\UserController');
+        Route::resource('user', 'Backend\UserController');
 
 //year
-    Route::resource('year', 'Backend\YearController');
+        Route::resource('year', 'Backend\YearController');
 
 //genre
-    Route::resource('genre', 'Backend\GenreController');
+        Route::resource('genre', 'Backend\GenreController');
 
 //type
-    Route::resource('type', 'Backend\TypeController');
+        Route::resource('type', 'Backend\TypeController');
 
 //movie
-    Route::resource('movie', 'Backend\MovieController');
+        Route::resource('movie', 'Backend\MovieController');
+    });
 });
+
