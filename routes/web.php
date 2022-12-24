@@ -53,5 +53,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('banner','Backend\BannerController');
     });
 
+
 });
 
