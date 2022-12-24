@@ -6,13 +6,11 @@
         </div>
         <div class="form-group col-sm-2 col-lg-2">
             <label>Genre<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <select class="form-control" name="genre_id" required="">
+            <select class="form-control selectpicker" name="genre_id[]" required="" multiple="">
                 <option value="">Select</option>
-                @if(!empty($genres))
-                    @foreach($genres as $genre)
-                        <option value="{{ $genre->id }}" >Selected{{ $genre->name }}</option>
+                    @foreach($genres  as $k=>$c)
+                        <option value="{{ $c->id }}" >Selected{{ $c->name }}</option>
                     @endforeach
-                @endif
             </select>
         </div>
         <div class="form-group col-sm-3">
@@ -40,7 +38,7 @@
         </div>
         <div class="form-group col-sm-2">
             <label>Duration</label>
-            <input type="number" name="duration" placeholder="Enter Duration (Min)" class="form-control">
+            <input type="time" name="duration" placeholder="Enter Duration (Min)" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Imdb_rates</label>

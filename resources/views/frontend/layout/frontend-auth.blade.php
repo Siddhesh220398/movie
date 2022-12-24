@@ -39,9 +39,34 @@
             background: #b30710;
         }
 
+        .sub-menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 400px!important;
+            padding: 2rem !important;
+        }
+
+        .sub-menu li{
+            width: 33.33%!important;
+            flex-shrink: 0;
+        }
+
+        .sub-menu li a{
+            display: block;
+            font-weight: 400;
+            padding: 0.3rem 0.6rem;
+            font-size: .9em;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden
+        }
     </style>
 
-        
+
+    @stack('custom-style')
+
 </head>
 
 <body class="responsive home-1">
@@ -86,7 +111,9 @@
 <script src="{{asset('frontend/assets/js/libs/isotope/isotope.pkgd.min.js')}}"></script>
 
 <script src="{{asset('frontend/assets/js/libs/select2/select2.min.js')}}"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <script src="{{asset('frontend/assets/js/thim-custom.js')}}"></script>
 <div id="back-to-top" class="btn-back-to-top">
     <i class="ion ion-ios-arrow-thin-up"></i>
@@ -151,6 +178,7 @@
             };
         }
     })();</script>
+@stack('custom-scripts')
 </body>
 <!-- Mirrored from html.thimpress.com/vividly/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 10:28:11 GMT -->
 </html>
