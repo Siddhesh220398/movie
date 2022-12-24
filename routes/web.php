@@ -41,10 +41,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('type', 'Backend\TypeController');
 
 //movie
+
 Route::resource('movie', 'Backend\MovieController');
 
 //continue watching
     Route::resource('watching', 'Backend\WatchingController');
+
 
 });
 
