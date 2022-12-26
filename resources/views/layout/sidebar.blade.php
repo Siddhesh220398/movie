@@ -30,8 +30,7 @@
 
             <!--begin: Head -->
 
-            <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x"
-                 style="background-image: url(assets/media/misc/bg-1.jpg)">
+            <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-color: blue;">
 
                 <div class="kt-user-card__avatar">
 
