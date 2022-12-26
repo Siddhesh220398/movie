@@ -335,28 +335,27 @@
         {{--            <div class="block-3"></div>--}}
         {{--        </div>--}}
 
-        <div class="overlay"></div>
+{{--        <div class="overlay"></div>--}}
         @php
             $img = 'https://images.unsplash.com/photo-1519011985187-444d62641929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2452&q=80';
         @endphp
         <div class="image-slider">
-            <a href="http://localhost" class="image-slide" id="one"
-               style="background: url({{$img}}) no-repeat 50% 50%; background-size: cover;">
+            @php
+                $banners= \App\Modal\Banner::limit(20)->get();
+            @endphp
+          @foreach($banners as $banner)
 
-            </a>
-            <a href="http://localhost" class="image-slide" id="two"
-               style="background: url({{$img}}) no-repeat 50% 50%; background-size: cover;">
-
-            </a>
+{{--              @dd($banner->$banner)--}}
             <a href="http://localhost" class="image-slide" id="three"
-               style="background: url({{$img}}) no-repeat 50% 50%; background-size: cover;">
+               style="background: url({{$banner->image}}) no-repeat 50% 50%; background-size: cover;">
 
             </a>
+            @endforeach
         </div>
     </div>
 
     <div class="thim-banner_home-1" style="background-image: url(frontend/assets/images/bg-01.jpg);">
-        <div class="overlay-area"></div>
+{{--        <div class="overlay-area"></div>--}}
         <div class="container">
 
             <div class="bp-element bp-element-st-list-videos vblog-layout-1">

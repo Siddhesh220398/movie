@@ -56,8 +56,9 @@
         .sub-menu li a{
             display: block;
             font-weight: 400;
-            padding: 0.3rem 0.6rem;
+            padding: 0.2rem 0.6rem;
             font-size: .9em;
+            line-height: 0.1 !important;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden

@@ -28,7 +28,7 @@ class BannerController extends Controller
 
                 })
                 ->addColumn('image', function ($row) {
-                    return   '<img src="'. url($row->image) .'" width="50px" class="img-thumbnail" />';
+                    return   '<img src="'. url($row->image) .'" width="100px" class="img-thumbnail" />';
 
                 })
 //                ->addColumn('singlecheckbox', function ($row) {

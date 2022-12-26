@@ -1,7 +1,7 @@
 <div class="bottom-header element-to-stick">
     @php
         $genres= \App\Modal\Genre::get();
-        $countries= \App\Modal\Country::limit(20)->get();
+        $countries= \App\Modal\Country::get();
     @endphp
     <div class="container">
         <div class="wrap-content-header">
