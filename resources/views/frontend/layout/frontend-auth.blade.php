@@ -89,11 +89,11 @@
         @include('frontend.layout.footer')
     </div>
 
-    <div id="thim-preloading">
-        <div class="custom-image">
-            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">
-        </div>
-    </div>
+{{--    <div id="thim-preloading">--}}
+{{--        <div class="custom-image">--}}
+{{--            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">--}}
+{{--        </div>--}}
+{{--    </div>--}}
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

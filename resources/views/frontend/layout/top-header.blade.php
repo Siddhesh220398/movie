@@ -19,14 +19,14 @@
                         <div class="bp-element bp-element-st-search-videos vblog-layout-header-1">
                             <div class="wrap-element">
                                 <form class="search-form">
-                                    <label class="wrap-select2" data-style="vblog-search">
-                                        <select>
-                                            <option>Movies</option>
-                                            <option>Videos</option>
-                                            <option>Categories</option>
-                                            <option>Popular</option>
-                                        </select>
-                                    </label>
+{{--                                    <label class="wrap-select2" data-style="vblog-search">--}}
+{{--                                        <select>--}}
+{{--                                            <option>Movies</option>--}}
+{{--                                            <option>Videos</option>--}}
+{{--                                            <option>Categories</option>--}}
+{{--                                            <option>Popular</option>--}}
+{{--                                        </select>--}}
+{{--                                    </label>--}}
                                     <input type="search" class="search-field" name="search"
                                            placeholder="Seach for a Movie..."/>
                                     <button class="btn-search">

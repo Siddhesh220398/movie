@@ -75,31 +75,26 @@ class MovieController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->all());
         $movie = new Movie();
         $movie->title = $request->title;
         $movie->description = $request->description;
-//        $movie->genre_id = $request->genre_id;
+        $movie->short_description = $request->short_description;
+        $movie->video_trailer_url = $request->video_trailer_url;
+        $movie->video_url = $request->video_url;
+        $movie->duration = $request->duration;
         $movie['genre_id'] = serialize($request['genre_id']);
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
-        $movie->duration = $request->duration;
         $movie->imdb_rates = $request->imdb_rates;
-        $movie->type_id = $request->type_id;
-        $movie->quality_ids = $request->quality_ids;
-        $movie->year_id = $request->year_id;
+        $movie->type = 'movies';
+//        $movie->quality_ids = $request->quality_ids;
+        $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
-        if($request->video)
-        {
-            $file = $request->video;
-            $filename = 'video-' . rand() . '.' . $file->getClientOriginalExtension();
-            $request->video->move(public_path('video'), $filename);
-            $movie->video = 'video/' . $filename;
-        }else
-        {
-            $request->$movie = NULL;
-        }
-//        dd($movie);
+
+
+
         $movie->save();
         if ($movie){
             return response()->json(['status'=>'success']);

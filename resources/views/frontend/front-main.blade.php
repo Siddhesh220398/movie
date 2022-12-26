@@ -258,60 +258,60 @@
     <div class="body-slider">
         <div class="text-slider-wrapper">
             <div class="text-slider">
-                <div class="text-slide">
-                    <div class="item-content">
-                        <div class="movie-thumbnail">
-                            <a href="/series/watch-wednesday-90553"><img
-                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"
-                                    alt="Wednesday"></a>
-                        </div>
-                        <div class="movie-info">
-                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>
-                            <div class="info-split">
-                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4
-                                </div>
-                                <div class="dot"></div>
-                                <div>2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-slide">
-                    <div class="item-content">
-                        <div class="movie-thumbnail">
-                            <a href="/series/watch-wednesday-90553"><img
-                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"
-                                    alt="Wednesday"></a>
-                        </div>
-                        <div class="movie-info">
-                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>
-                            <div class="info-split">
-                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4
-                                </div>
-                                <div class="dot"></div>
-                                <div>2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-slide">
-                    <div class="item-content">
-                        <div class="movie-thumbnail">
-                            <a href="/series/watch-wednesday-90553"><img
-                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"
-                                    alt="Wednesday"></a>
-                        </div>
-                        <div class="movie-info">
-                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>
-                            <div class="info-split">
-                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4
-                                </div>
-                                <div class="dot"></div>
-                                <div>2022</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="text-slide">--}}
+{{--                    <div class="item-content">--}}
+{{--                        <div class="movie-thumbnail">--}}
+{{--                            <a href="/series/watch-wednesday-90553"><img--}}
+{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+{{--                                    alt="Wednesday"></a>--}}
+{{--                        </div>--}}
+{{--                        <div class="movie-info">--}}
+{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+{{--                            <div class="info-split">--}}
+{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+{{--                                </div>--}}
+{{--                                <div class="dot"></div>--}}
+{{--                                <div>2022</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="text-slide">--}}
+{{--                    <div class="item-content">--}}
+{{--                        <div class="movie-thumbnail">--}}
+{{--                            <a href="/series/watch-wednesday-90553"><img--}}
+{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+{{--                                    alt="Wednesday"></a>--}}
+{{--                        </div>--}}
+{{--                        <div class="movie-info">--}}
+{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+{{--                            <div class="info-split">--}}
+{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+{{--                                </div>--}}
+{{--                                <div class="dot"></div>--}}
+{{--                                <div>2022</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="text-slide">--}}
+{{--                    <div class="item-content">--}}
+{{--                        <div class="movie-thumbnail">--}}
+{{--                            <a href="/series/watch-wednesday-90553"><img--}}
+{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+{{--                                    alt="Wednesday"></a>--}}
+{{--                        </div>--}}
+{{--                        <div class="movie-info">--}}
+{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+{{--                            <div class="info-split">--}}
+{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+{{--                                </div>--}}
+{{--                                <div class="dot"></div>--}}
+{{--                                <div>2022</div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 
         </div>
