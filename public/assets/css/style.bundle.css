@@ -1791,7 +1791,7 @@ pre {
   .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #5fccff;
+    border-color: #602040;
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(88, 103, 221, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(88, 103, 221, 0.25); }
@@ -4798,7 +4798,7 @@ a.close.disabled {
   max-width: 350px;
   overflow: hidden;
   font-size: 0.875rem;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #602040 !important;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
@@ -10986,6 +10986,7 @@ code {
     margin-bottom: 0px; }
   .form-group label {
     font-size: 1rem;
+      color:#602040;
     font-weight: 400; }
   .form-group .invalid-feedback,
   .form-group .valid-feedback {

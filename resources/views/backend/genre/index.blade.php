@@ -13,14 +13,14 @@
 					<span class="kt-portlet__head-icon">
 						<i class="kt-menu__link-icon flaticon2-analytics-2"></i>
 					</span>
-                        <h3 class="kt-portlet__head-title">
-                            Genres
+                        <h3 class="kt-portlet__head-title animate-charcter" style="font-size: 30px!important;">
+                            Genres Master
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
                             <div class="kt-portlet__head-actions">
-                                <a href="{{route('genre.create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
+                                <a href="{{route('genre.create')}}" class="btn btn-brand btn-elevate btn-icon-sm"  style="font-size: 20px!important;">
                                     <i class="la la-plus"></i>
                                     Add Genre
                                 </a>
@@ -118,4 +118,34 @@
             });
         });
     </script>
+    <style>
+        .animate-charcter {
+            background-image: linear-gradient(
+                -225deg,
+                #231557 0%,
+                #44107a 29%,
+                #ff1361 67%,
+                #fff800 100%
+            );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+        }
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+        .table thead  tr  th{
+            color: #602040 !important;
+            background:#f3d8e5;
+
+        }
+    </style>
 @endpush
