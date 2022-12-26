@@ -24,6 +24,7 @@
                         <a>
                             Genre
                         </a>
+                        <i class="fas fa-angle-down ml-2" style="color: white !important;"></i>
                         <ul class="sub-menu">
                            @foreach($genres as $genre)
                             <li>
@@ -38,6 +39,7 @@
                         <a>
                             Country
                         </a>
+                        <i class="fas fa-angle-down ml-2" style="color: white !important;"></i>
                         <ul class="sub-menu" >
                             @foreach($countries as $country)
                                 <li>
@@ -49,7 +51,7 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="">
+                        <a href="{{route('movieindex')}}">
                             Movies
                         </a>
                     </li>

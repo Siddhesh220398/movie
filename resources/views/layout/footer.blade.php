@@ -12,7 +12,7 @@
 
 
 
-			2022&nbsp;&copy;&nbsp;<a target="_blank" class="kt-link">Plance</a>
+			2022&nbsp;&copy;&nbsp;<a target="_blank" class="kt-link">Demo</a>
 
 
 

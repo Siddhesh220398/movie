@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" type="text/css"
           href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <style>
@@ -98,7 +99,8 @@
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
 
@@ -120,6 +122,9 @@
     <i class="ion ion-ios-arrow-thin-up"></i>
 </div>
 <script>
+    $(function () {
+        $('select').selectpicker();
+    });
     $('.owl-carousel').owlCarousel({
         loop:true,
         margin:10,
