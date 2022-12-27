@@ -1,6 +1,13 @@
 @php $edit = $data['edit'];
 $genres=$data['genres'];
 @endphp
+<style>
+    .table thead  tr  th{
+        color: #602040 !important;
+        background:#f3d8e5;
+
+    }
+</style>
 <div class="kt-portlet__body">
     <div class="row">
         <div class="form-group col-sm-6">
@@ -108,4 +115,5 @@ $genres=$data['genres'];
             </label>
         </div>
     </div>
+
 </div>

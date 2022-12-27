@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Modal\Country;
 use App\Modal\Genre;
 use App\Modal\Movie;
+use App\Modal\Season;
 use App\Modal\Type;
 use App\Modal\Year;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class WebSeriesController extends Controller
             return Datatables::of($query)
 
                 ->addColumn('action', function ($row) {
-                    $btn = view('layout.actionbtnpermission')->with(['id' => $row->id, 'route' => 'movie'])->render();
+                    $btn = view('layout.actionbtnpermission')->with(['id' => $row->id, 'route' => $this->route])->render();
                     return $btn;
 
                 })
@@ -102,8 +103,9 @@ class WebSeriesController extends Controller
 
     public function edit($id)
     {
-        $data['title'] = 'Edit Movie';
-        $data['edit'] = Movie::findOrFail($id);
+        $data['title'] = 'Edit Web-Series';
+        $data['title2'] = 'Seasons';
+        $data['edit'] = Movie::where('id',$id)->with('seasons')->first();
         $data['edit']->genre_id = unserialize($data['edit']->genre_id);
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['genres'] = Genre::get();
@@ -113,11 +115,12 @@ class WebSeriesController extends Controller
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
         $data['resourceRoute'] = $this->route;
-        return view('general.edit_form', compact('data'));
+        return view('backend.web-series.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $movie = Movie::where('id',$id)->first();
         $movie->title = $request->title;
         $movie->description = $request->description;
@@ -151,6 +154,17 @@ class WebSeriesController extends Controller
             return response()->json(['status'=>'error']);
         }
 
+    }
+
+    public function episode(Request $request)
+    {
+        $c_s= Season::where('movie_id',$request->movie_id)->count('id');
+        $c_s +=1;
+        $season = new Season();
+        $season->movie_id = $request->movie_id;
+        $season->title = 'Season-'.$c_s;
+        $season->save();
+        return redirect()->route('web-series.edit',$request->movie_id);
     }
 
 }
