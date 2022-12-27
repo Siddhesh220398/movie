@@ -99,8 +99,7 @@
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
 
@@ -123,7 +122,7 @@
 </div>
 <script>
     $(function () {
-        $('select').selectpicker();
+        $('.selectpicker').selectpicker();
     });
     $('.owl-carousel').owlCarousel({
         loop:true,
