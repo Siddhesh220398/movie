@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="">
+                        <a href="{{route('tvseries')}}">
                             TV Series
                         </a>
                     </li>
