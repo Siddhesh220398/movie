@@ -44,7 +44,13 @@ Route::group(['prefix' => 'admin'], function () {
 //movie
 
         Route::resource('movie', 'Backend\MovieController');
+
+
+
         Route::resource('web-series', 'Backend\WebSeriesController');
+        Route::any('web-series/episode','Backend\WebSeriesController@episode')->name('web-series.episode');
+
+        Route::resource('episode','Backend\EpisodeController');
         //setting
         Route::resource('setting', 'Backend\SettingController');
 //    Route::get('setting/{id}',[\App\Http\Controllers\Backend\SettingController::class,'edit'])->name('setting.edit');

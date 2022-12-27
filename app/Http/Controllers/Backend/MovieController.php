@@ -157,4 +157,10 @@ class MovieController extends Controller
 
     }
 
+    public function episode(Request $request,$id)
+    {
+        dd('v');
+        dd($request->all());
+    }
+
 }

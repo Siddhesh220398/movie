@@ -1,45 +1,18 @@
 <?php
 $edit = route($route.'.edit', ['id' => $id]);
 ?>
-@if($route === 'arid')
-@php $ar_id = App\Models\ARID::where('id',$id)->first(); @endphp
-<a style="background: transparent;" onclick="editmodal('{{$id}}','{{route('arid.update',$id)}}','{{$ar_id->ar_id}}','{{$ar_id->number}}')"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
+@if($route === 'episode')
+@php $episode = \App\Modal\Episode::where('id',$id)->first(); @endphp
+<a style="background: transparent;" onclick="editmodal('{{$id}}','{{route('episode.update',$id)}}','{{$episode->title}}','{{$episode->url}}')"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
     <i style="color: green;" class="la la-edit"></i>
 </a>
 @else
-@if($route === 'complain')
-<?php $check = DB::table('complain')->where('id',$id)->value('status') ?>
-@if(!($check == 3))
+
 <a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
     <i style="color: green;" class="la la-edit"></i>
 </a>
 @endif
-@elseif($route === 'leave')
-<?php $check = DB::table('leaves')->where('id',$id)->value('approval') ?>
-@if(!($check == 2 || $check == 3 ))
-<a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
-    <i style="color: green;" class="la la-edit"></i>
-</a>
-@endif
-@elseif($route === 'expense')
-<?php $check = DB::table('travel_expense_main')->where('id',$id)->value('approval') ?>
-@if(!($check == 2 || $check == 3 ))
-<a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
-    <i style="color: green;" class="la la-edit"></i>
-</a>
-@endif
-@elseif($route === 'lead')
-@if(!(Auth::user()->role == 3))
-<a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
-    <i style="color: green;" class="la la-edit"></i>
-</a>
-@endif
-@else
-<a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
-    <i style="color: green;" class="la la-edit"></i>
-</a>
-@endif
-@endif
+
 @if(Auth::user()->role == 1)
 <button style="background: transparent;" title="Delete" data-id="{{$id }}" class="btn btn-sm btn-clean btn-icon btn-icon-md delete-record">
     <i style="color: red;" class="la la-trash">
@@ -93,12 +66,12 @@ $show = route($route.'.show', ['id' => $id]);
 </a>
 @endif
 @if($route === 'leave' || $route === 'expense' || $route === 'complain' || $route === 'quot' || $route === 'chalans' || $route === 'isocs')
-@php $pdf = route($route.'.pdf'); 
+@php $pdf = route($route.'.pdf');
 if($route === 'quot')
-{ 
+{
     $name = App\Models\QuatationParent::where('id',$id)->value('to');
     $invoiceno = App\Models\QuatationParent::where('id',$id)->value('invoiceno');
-    
+
 }
 else
 {
@@ -112,13 +85,15 @@ else
 @endif
 
 <script type="text/javascript">
-    function editmodal(id,url,ar_id,number)
+    function editmodal(id,url,title,url)
     {
         $('#edit_modal').modal('show');
-        $('#ar_id').val('');
-        $('#ar_id').val(ar_id);
-        $('#number').val('');
-        $('#number').val(number);
+        $('#edit_id').val('');
+        $('#edit_id').val(id);
+        $('#edit_title').val('');
+        $('#edit_title').val(title);
+        $('#edit_url').val("");
+        $('#edit_url').val(url);
         $('#edit_form').attr('action','');
         $('#edit_form').attr('action',url);
     }
@@ -126,7 +101,7 @@ else
     @if($route === 'leave' || $route === 'expense' || $route === 'complain' || $route === 'quot' || $route === 'chalans' || $route === 'isocs')
     function getpdf(id,name,invoiceno)
     {
-        var parent = $('#pdf_'+id);           
+        var parent = $('#pdf_'+id);
 
         parent.attr('disabled',true);
 

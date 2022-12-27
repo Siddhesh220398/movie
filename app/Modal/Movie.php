@@ -23,4 +23,10 @@ class Movie extends Model
     {
         return $this->belongsTo(Year::class,'year_id','id');
     }
+    public function seasons()
+    {
+        return $this->hasMany(Season::class);
+    }
+
+
 }
