@@ -76,8 +76,8 @@
                 </div>
 
                 <div class="bp-element bp-element-button">
-                    <a href="" class="btn">
-                        <i class="ion ion-upload"></i>
+                    <a href="{{route('user.profile')}}" class="btn">
+                        <i class="fa fa-user"></i>
                         Profile
                     </a>
                 </div>
