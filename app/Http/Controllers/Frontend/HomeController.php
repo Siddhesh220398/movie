@@ -23,4 +23,9 @@ class HomeController extends Controller
         return view('frontend.auth.register',compact('data'));
 
     }
+
+    public function movieList($name)
+    {
+        return view('frontend.movie.index');
+    }
 }

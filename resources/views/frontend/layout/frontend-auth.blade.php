@@ -98,8 +98,8 @@
 {{--    </div>--}}
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
+<script src="{{asset('frontend/assets/js/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
 

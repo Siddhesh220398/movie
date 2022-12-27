@@ -18,8 +18,8 @@ Route::get('/', 'Frontend\HomeController@home');
 Route::get('/login', 'Frontend\HomeController@login')->name('user.login');
 Route::get('/register', 'Frontend\HomeController@register')->name('user.register');
 
-Route::get('tv-series','Frontend\TvseriesController@index')->name('tvseries');
-Route::get('movie','Frontend\MovieController@index')->name('movieindex');
+Route::get('/{name}','Frontend\HomeController@movieList')->name('title');
+
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
     Route::group(['middleware' => 'auth'], function () {
