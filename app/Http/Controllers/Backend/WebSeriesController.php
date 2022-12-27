@@ -1,33 +1,29 @@
 <?php
 
-
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Modal\Country;
+use App\Modal\Genre;
 use App\Modal\Movie;
 use App\Modal\Type;
-use App\Modal\Genre;
-use App\Modal\Country;
 use App\Modal\Year;
-use Auth;
-use DataTables;
-use DB;
 use Illuminate\Http\Request;
-use Session;
-
-class MovieController extends Controller
+use App\Http\Controllers\Controller;
+use DataTables;
+class WebSeriesController extends Controller
 {
     public function __construct(Movie $s)
     {
-        $this->view = 'backend.movie';
-        $this->route = 'movie';
-        $this->viewName = 'Movie';
+        $this->view = 'backend.web-series';
+        $this->route = 'web-series';
+        $this->viewName = 'Web Series';
     }
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
 
-            $query = Movie::where('type','movies')->get();
+            $query = Movie::where('type','web-series')->get();
             return Datatables::of($query)
 
                 ->addColumn('action', function ($row) {
@@ -53,14 +49,14 @@ class MovieController extends Controller
 
         }
 
-        return view('backend.movie.index');
+        return view('backend.web-series.index');
     }
 
     public function create()
     {
 
         $data['url'] = route($this->route . '.store');
-        $data['title'] = 'Add Movie';
+        $data['title'] = 'Add Web Series';
         $data['genres'] = Genre::get();
         $data['countrys'] = Country::get();
         $data['types'] = Type::get();
@@ -88,13 +84,13 @@ class MovieController extends Controller
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
         $movie->imdb_rates = $request->imdb_rates;
-        $movie->type = 'movies';
+        $movie->type = 'web-series';
 //        $movie->quality_ids = $request->quality_ids;
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
 
-        $movie->poster= $request->poster ? setImage($request->poster,'movies-poster') : null;
-        $movie->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
+        $movie->poster= $request->poster ? setImage($request->poster,'web-series-poster') : null;
+        $movie->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'web-series-thumbnail') : null;
 
         $movie->save();
         if ($movie){
@@ -134,17 +130,17 @@ class MovieController extends Controller
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
         $movie->imdb_rates = $request->imdb_rates;
-        $movie->type = 'movies';
+        $movie->type = 'web-series';
 //        $movie->quality_ids = $request->quality_ids;
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
         if($request->poster)
         {
-            $movie->poster=setImage($request->poster,'movies-poster','edit');
+            $movie->poster=setImage($request->poster,'web-series-poster','edit');
         }
-       if($request->thumbnail)
+        if($request->thumbnail)
         {
-            $movie->thumbnail=setImage($request->thumbnail,'movies-thumbnail','edit');
+            $movie->thumbnail=setImage($request->thumbnail,'web-series-thumbnail','edit');
         }
 
         $movie->save();
