@@ -3,13 +3,13 @@
         <div class="wrap-content-header">
             <div class="header-logo">
                 <a href="" class="logo">
-                    <img src="{{asset('frontend/assets/images/logo-header-05.png')}}" alt="IMG">
+                    <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
                 <a href="index-2.html" class="mobile-logo">
-                    <img src="{{asset('frontend/assets/images/logo-header-05.png')}}" alt="IMG">
+                    <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
                 <a href="index-2.html" class="sticky-logo">
-                    <img src="{{asset('frontend/assets/images/logo-header-05.png')}}" alt="IMG">
+                    <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
             </div>
             <div class="right-logo">

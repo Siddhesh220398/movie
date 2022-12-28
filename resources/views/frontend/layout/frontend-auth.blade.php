@@ -20,7 +20,8 @@
 
     <link rel="stylesheet" type="text/css"
           href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <style>
@@ -45,17 +46,16 @@
             justify-content: flex-start;
             align-items: center;
             flex-wrap: wrap;
-            width: 400px!important;
+            width: 400px !important;
             padding: 2rem !important;
         }
 
-        .sub-menu li{
-            width: 33.33%!important;
+        .sub-menu li {
+            width: 33.33% !important;
             flex-shrink: 0;
         }
 
-        .sub-menu li a{
-            display: block;
+        .sub-menu li a {
             font-weight: 400;
             padding: 0.2rem 0.6rem;
             font-size: .9em;
@@ -63,6 +63,17 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden
+        }
+
+
+
+        @media screen and (min-width: 1024px) and (max-height: 1310px) {
+            .menu-mobile-effect.navbar-toggle {
+                display: none !important;
+            }
+            .sub-menu li a {
+                display: block;
+            }
         }
     </style>
 
@@ -91,11 +102,11 @@
         @include('frontend.layout.footer')
     </div>
 
-{{--    <div id="thim-preloading">--}}
-{{--        <div class="custom-image">--}}
-{{--            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div id="thim-preloading">--}}
+    {{--        <div class="custom-image">--}}
+    {{--            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 </div>
 
 
@@ -126,22 +137,22 @@
         $('.selectpicker').selectpicker();
     });
     $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        dots:false,
-        nav:true,
-        mouseDrag:false,
-        autoplay:true,
+        loop: true,
+        margin: 10,
+        dots: false,
+        nav: true,
+        mouseDrag: false,
+        autoplay: true,
         animateOut: 'slideOutUp',
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:1
+            600: {
+                items: 1
             },
-            1000:{
-                items:1
+            1000: {
+                items: 1
             }
         }
     });
