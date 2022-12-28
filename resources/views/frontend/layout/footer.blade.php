@@ -21,22 +21,20 @@
                     </form>
                     <div class="bp-element bp-element-social-links vblog-layout-footer">
                         <div class="wrap-element">
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="{{setWebsite('facebook_url')}}" class="social-item">
                                 <i class="ion ion-social-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="{{setWebsite('twitter_url')}}" class="social-item">
                                 <i class="ion ion-social-twitter"></i>
                             </a>
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
-                                <i class="ion ion-social-vimeo"></i>
-                            </a>
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+
+                            <a href="{{setWebsite('youtube_url')}}" class="social-item">
                                 <i class="ion ion-social-youtube"></i>
                             </a>
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="{{setWebsite('website_email')}}" class="social-item">
                                 <i class="ion ion-social-googleplus"></i>
                             </a>
-                            <a href="https://www.facebook.com/ThimPress" class="social-item">
+                            <a href="{{setWebsite('instagram_url')}}" class="social-item">
                                 <i class="ion ion-social-instagram-outline"></i>
                             </a>
                         </div>
@@ -164,8 +162,8 @@
         <div class="container">
             <div class="thim-1-col">
                 <div class="copyright-text">
-                    Copyright 2018 Corporate WordPress Theme by <a
-                        href="https://themeforest.net/user/thimpress?gclid=EAIaIQobChMI5ub2p9bx6wIVlnZgCh0BYQnJEAAYASAAEgIEMvD_BwE">ThimPress</a>
+                    Copyright {{\Carbon\Carbon::now()->format('Y')}}@ <a
+                        href="">{{ setWebsite('website_name') ?? env('APP_NAME') }}</a>
                 </div>
             </div>
         </div>
