@@ -3,7 +3,7 @@
 
 <!-- Mirrored from html.thimpress.com/vividly/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 10:27:47 GMT -->
 <head>
-    <title> @yield('title')</title>
+    <title>{{setWebsite('website_name')}} | @yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/favicon-1.png')}}"/>
@@ -98,12 +98,12 @@
 {{--    </div>--}}
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="{{asset('frontend/assets/js/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
 
 <script src="{{asset('frontend/assets/js/libs/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">

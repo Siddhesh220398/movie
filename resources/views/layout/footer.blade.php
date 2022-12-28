@@ -11,8 +11,7 @@
 		<div class="kt-footer__copyright">
 
 
-
-			2022&nbsp;&copy;&nbsp;<a target="_blank" class="kt-link">Demo</a>
+            {{Carbon\Carbon::now()->format('Y')}}&nbsp;&copy;&nbsp;<a target="_blank" class="kt-link">	{{ setWebsite('website_name') ?? env('APP_NAME') }}</a>
 
 
 
