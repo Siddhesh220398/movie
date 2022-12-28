@@ -25,6 +25,7 @@ class HomeController extends Controller
         return view('frontend.auth.register',compact('data'));
 
     }
+
     public function profile(){
         $data['title']='My Profile';
         $user['user']= Auth::user();
@@ -42,4 +43,10 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+
+
+    public function movieList($name)
+    {
+        return view('frontend.movie.index');
+    }
 }

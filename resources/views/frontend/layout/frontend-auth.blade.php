@@ -98,6 +98,7 @@
 {{--    </div>--}}
 </div>
 
+
 <script src="{{asset('frontend/assets/js/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
