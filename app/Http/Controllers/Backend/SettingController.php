@@ -99,7 +99,7 @@ class SettingController extends Controller
 
     public function edit($id)
     {
-        $data['title'] = 'Edit Setting';
+        $data['title'] = 'Settings';
         $data['edit'] = Setting::findOrFail($id);
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['module'] = $this->viewName;
@@ -114,14 +114,10 @@ class SettingController extends Controller
         $data->website_name = $request->website_name;
         if($request->logo)
         {
-            $file = $request->logo;
-            $filename = 'logo-' . rand() . '.' . $file->getClientOriginalExtension();
-            $request->logo->move(public_path('logo'), $filename);
-            $data->logo = 'logo/' . $filename;
-        }else
-        {
-            $request->$data = NULL;
+            $data->logo =setImage($request->logo,'setting');
+//            dd($request->all());
         }
+//        $data->logo = $request->logo ? setImage($request->logo,'setting') : null;
         $data->website_email = $request->website_email;
         $data->privacy_policy = $request->privacy_policy;
         $data->facebook_url = $request->facebook_url;
@@ -140,5 +136,15 @@ class SettingController extends Controller
             return response()->json(['status'=>'error']);
         }
 
+    }
+
+    public function setting(){
+        $data['title'] = 'Settings';
+        $data['edit'] = Setting::first();
+        $data['url'] = route($this->route . '.update', [$this->view => $data['edit']->id]);
+        $data['module'] = $this->viewName;
+        $data['resourcePath'] = $this->view;
+        $data['resourceRoute'] = $this->route;
+        return view('general.edit_form', compact('data'));
     }
 }
