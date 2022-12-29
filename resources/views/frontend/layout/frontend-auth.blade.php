@@ -82,7 +82,7 @@
 
 </head>
 
-<body class="responsive home-1">
+<body class="responsive home-2  ">
 <div id="wrapper-container">
 
     <header class="site-header sticky-header layout-1">
@@ -95,7 +95,7 @@
 
     @include('frontend.layout.mobile-nav')
 
-    <div id="main-content" style="background: #1e1e1e;">
+    <div id="main-content" >
 
         @yield('content')
 
@@ -132,31 +132,7 @@
 <div id="back-to-top" class="btn-back-to-top">
     <i class="ion ion-ios-arrow-thin-up"></i>
 </div>
-<script>
-    $(function () {
-        $('.selectpicker').selectpicker();
-    });
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        dots: false,
-        nav: true,
-        mouseDrag: false,
-        autoplay: true,
-        animateOut: 'slideOutUp',
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    });
-</script>
+
 <script>(function () {
         var js = "window['__CF$cv$params']={r:'77cfed556b0231e2',m:'_djJCe0FD2r.J.3aguOFEeU9QN4xTQ3i.3htRhqeS.4-1671618466-0-ASc6eSVqyI+fDRJYXxIbaKkuIQI7iNpS72MR4dx4zY+o1w3oW2no2KisgjdvK8jitBTrXK2ufKiYmLz4jq+8dkceBAfCsZsnSC5Igiakn6v47qq9RXldO3JryEaRwe4T3g==',s:[0x8cf5b97e57,0x3f220a2d43],u:'/cdn-cgi/challenge-platform/h/g'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../cdn-cgi/challenge-platform/h/g/scripts/alpha/invisible5615.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";
         var _0xh = document.createElement('iframe');

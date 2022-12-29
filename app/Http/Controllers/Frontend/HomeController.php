@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Modal\Movie;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,9 @@ class HomeController extends Controller
 {
     public function home(){
         $data['title']='Home Page';
-
+        $data['trending_movie']= Movie::where(['type'=>'movies','latest'=>1])->limit(20)->get();
+        $data['trending_web']= Movie::where(['type'=>'web-series','latest'=>1])->limit(20)->get();
+        $data['latest']= Movie::latest()->limit(20)->get();
         return view('frontend.front-main',compact('data'));
     }
 
@@ -32,21 +35,22 @@ class HomeController extends Controller
         return view('frontend.auth.profile',compact('data','user'));
     }
     public function updateProfile(Request $request ){
-//        dd($request->all());
-        $data['title']='Home Page';
-        $user['user']= Auth::user();
-//        dd($user['user']);
-        $user['user']->name = $request->name;
-        $user['user']->email = $request->email;
-        $user['user']->save();
-//        return view('frontend.auth.profile',compact('user','data'));
+        $user= Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
         return redirect()->back();
     }
-
 
 
     public function movieList($name)
     {
         return view('frontend.movie.index');
+    }
+
+    public function singleMovie(Request $request,$type,$name){
+
+        return view('frontend.movie.single-movie');
+
     }
 }
