@@ -26,8 +26,8 @@
                                             Hot
                                         </div>
                                     </div>
-                                    <a href="#"
-                                       class="btn-play">
+                                    <a href="{{route('singleMovie',['type'=>'movie','name'=>'wed'])}}"
+                                       class="btn-play ">
                                     </a>
                                 </div>
                                 <h4 class="title">

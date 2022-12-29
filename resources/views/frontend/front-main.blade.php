@@ -498,11 +498,11 @@
     </div>
 
 
-    @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['latest']])
+    @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['trending_movie']])
 
-    @include('frontend.layout.trending',['type'=>'Latest Movies','movies'=>$data['trending_movie']])
+    @include('frontend.layout.trending',['type'=>'Latest Movies','movies'=>$data['latest']])
 
-    @include('frontend.layout.trending',['type'=>'Latest TV Series','movies'=>$data['trending_web']])
+    @include('frontend.layout.trending',['type'=>'Trending Web Series','movies'=>$data['trending_web']])
 
 @endsection
 @push('custom-scripts')
@@ -542,5 +542,29 @@
 
 
     </script>
-
+    <script>
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            dots: false,
+            nav: true,
+            mouseDrag: false,
+            autoplay: true,
+            animateOut: 'slideOutUp',
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        });
+    </script>
 @endpush

@@ -2,13 +2,13 @@
     <div class="container">
         <div class="wrap-content-header">
             <div class="header-logo">
-                <a href="" class="logo">
+                <a href="{{url('/')}}" class="logo">
                     <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
-                <a href="index-2.html" class="mobile-logo">
+                <a href="{{url('/')}}" class="mobile-logo">
                     <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
-                <a href="index-2.html" class="sticky-logo">
+                <a href="{{url('/')}}" class="sticky-logo">
                     <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
                 </a>
             </div>
