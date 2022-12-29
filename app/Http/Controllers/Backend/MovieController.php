@@ -4,12 +4,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Modal\Movie;
-use App\Modal\MovieImage;
-use App\Modal\Type;
-use App\Modal\Genre;
-use App\Modal\Country;
-use App\Modal\Year;
+use App\Model\Movie;
+use App\Model\MovieImage;
+use App\Model\Type;
+use App\Model\Genre;
+use App\Model\Country;
+use App\Model\Year;
 use Auth;
 use DataTables;
 use DB;
@@ -76,7 +76,6 @@ class MovieController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
         $movie = new Movie();
         $movie->title = $request->title;
         $movie->description = $request->description;
@@ -84,30 +83,27 @@ class MovieController extends Controller
         $movie->video_trailer_url = $request->video_trailer_url;
         $movie->video_url = $request->video_url;
         $movie->duration = $request->duration;
-        $movie['genre_id'] = serialize($request['genre_id']);
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
         $movie->imdb_rates = $request->imdb_rates;
         $movie->type = 'movies';
-//        $movie->quality_ids = $request->quality_ids;
+
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
-
-//        $movie->poster= $request->poster ? setImage($request->poster,'movies-poster') : null;
         $movie->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
-
         $movie->save();
         if($request->image)
         {
             foreach ($request->image as $img)
             {
-                $data = new MovieImage();
-                $data->movie_id = $movie->id;
-                $data->image = setImage($img,'movies-poster');
-                $data->save();
+                $movie->posters()->create(['image'=>setImage($img,'movies-poster') ]);
             }
         }
+        foreach ($request['genre_id'] as $genre_id){
+            $movie->movieGenre()->create(['genre_id'=>$genre_id ]);
+        }
+
         if ($movie){
             return response()->json(['status'=>'success']);
         }else{
@@ -118,8 +114,8 @@ class MovieController extends Controller
     public function edit($id)
     {
         $data['title'] = 'Edit Movie';
-        $data['edit'] = Movie::with('posters')->findOrFail($id);
-        $data['edit']->genre_id = unserialize($data['edit']->genre_id);
+        $data['edit'] = Movie::with('posters','movieGenre')->findOrFail($id);
+
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['genres'] = Genre::get();
         $data['countrys'] = Country::get();
@@ -140,7 +136,7 @@ class MovieController extends Controller
         $movie->video_trailer_url = $request->video_trailer_url;
         $movie->video_url = $request->video_url;
         $movie->duration = $request->duration;
-        $movie['genre_id'] = serialize($request['genre_id']);
+
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
@@ -149,14 +145,22 @@ class MovieController extends Controller
 //        $movie->quality_ids = $request->quality_ids;
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
-        if($request->poster)
+        if($request->image)
         {
-            $movie->poster=setImage($request->poster,'movies-poster','edit');
+            foreach ($request->image as $img)
+            {
+                $movie->posters()->create(['image'=>setImage($img,'movies-poster') ]);
+            }
         }
        if($request->thumbnail)
         {
             $movie->thumbnail=setImage($request->thumbnail,'movies-thumbnail','edit');
         }
+        $movie->movieGenre()->delete();
+        foreach ($request['genre_id'] as $genre_id){
+            $movie->movieGenre()->create(['genre_id'=>$genre_id ]);
+        }
+
 
         $movie->save();
 

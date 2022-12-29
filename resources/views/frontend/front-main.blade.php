@@ -258,60 +258,60 @@
     <div class="body-slider">
         <div class="text-slider-wrapper">
             <div class="text-slider">
-{{--                <div class="text-slide">--}}
-{{--                    <div class="item-content">--}}
-{{--                        <div class="movie-thumbnail">--}}
-{{--                            <a href="/series/watch-wednesday-90553"><img--}}
-{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
-{{--                                    alt="Wednesday"></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="movie-info">--}}
-{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
-{{--                            <div class="info-split">--}}
-{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
-{{--                                </div>--}}
-{{--                                <div class="dot"></div>--}}
-{{--                                <div>2022</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="text-slide">--}}
-{{--                    <div class="item-content">--}}
-{{--                        <div class="movie-thumbnail">--}}
-{{--                            <a href="/series/watch-wednesday-90553"><img--}}
-{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
-{{--                                    alt="Wednesday"></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="movie-info">--}}
-{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
-{{--                            <div class="info-split">--}}
-{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
-{{--                                </div>--}}
-{{--                                <div class="dot"></div>--}}
-{{--                                <div>2022</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="text-slide">--}}
-{{--                    <div class="item-content">--}}
-{{--                        <div class="movie-thumbnail">--}}
-{{--                            <a href="/series/watch-wednesday-90553"><img--}}
-{{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
-{{--                                    alt="Wednesday"></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="movie-info">--}}
-{{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
-{{--                            <div class="info-split">--}}
-{{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
-{{--                                </div>--}}
-{{--                                <div class="dot"></div>--}}
-{{--                                <div>2022</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="text-slide">--}}
+                {{--                    <div class="item-content">--}}
+                {{--                        <div class="movie-thumbnail">--}}
+                {{--                            <a href="/series/watch-wednesday-90553"><img--}}
+                {{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+                {{--                                    alt="Wednesday"></a>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="movie-info">--}}
+                {{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+                {{--                            <div class="info-split">--}}
+                {{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+                {{--                                </div>--}}
+                {{--                                <div class="dot"></div>--}}
+                {{--                                <div>2022</div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="text-slide">--}}
+                {{--                    <div class="item-content">--}}
+                {{--                        <div class="movie-thumbnail">--}}
+                {{--                            <a href="/series/watch-wednesday-90553"><img--}}
+                {{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+                {{--                                    alt="Wednesday"></a>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="movie-info">--}}
+                {{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+                {{--                            <div class="info-split">--}}
+                {{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+                {{--                                </div>--}}
+                {{--                                <div class="dot"></div>--}}
+                {{--                                <div>2022</div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="text-slide">--}}
+                {{--                    <div class="item-content">--}}
+                {{--                        <div class="movie-thumbnail">--}}
+                {{--                            <a href="/series/watch-wednesday-90553"><img--}}
+                {{--                                    src="https://img.goku.to/xxrz/250x400/576/9b/70/9b70e344f895fd9ed9cbac46d95b21a2/9b70e344f895fd9ed9cbac46d95b21a2.jpg"--}}
+                {{--                                    alt="Wednesday"></a>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="movie-info">--}}
+                {{--                            <a href="/series/watch-wednesday-90553" class="movie-name" title="Wednesday">Wednesday</a>--}}
+                {{--                            <div class="info-split">--}}
+                {{--                                <div class="is-rated"><i class="fas fa-star mr-1"></i>8.4--}}
+                {{--                                </div>--}}
+                {{--                                <div class="dot"></div>--}}
+                {{--                                <div>2022</div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
 
         </div>
@@ -335,27 +335,27 @@
         {{--            <div class="block-3"></div>--}}
         {{--        </div>--}}
 
-{{--        <div class="overlay"></div>--}}
+        {{--        <div class="overlay"></div>--}}
         @php
             $img = 'https://images.unsplash.com/photo-1519011985187-444d62641929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2452&q=80';
         @endphp
         <div class="image-slider">
             @php
-                $banners= \App\Modal\Banner::limit(20)->get();
+                $banners= \App\Model\Banner::limit(20)->get();
             @endphp
-          @foreach($banners as $banner)
+            @foreach($banners as $banner)
 
-{{--              @dd($banner->$banner)--}}
-            <a href="http://localhost" class="image-slide" id="three"
-               style="background: url({{$banner->image}}) no-repeat 50% 50%; background-size: cover;">
+                {{--              @dd($banner->$banner)--}}
+                <a href="http://localhost" class="image-slide" id="three"
+                   style="background: url({{$banner->image}}) no-repeat 50% 50%; background-size: cover;">
 
-            </a>
+                </a>
             @endforeach
         </div>
     </div>
 
     <div class="thim-banner_home-1" style="background-image: url(frontend/assets/images/bg-01.jpg);">
-{{--        <div class="overlay-area"></div>--}}
+        {{--        <div class="overlay-area"></div>--}}
         <div class="container">
 
             <div class="bp-element bp-element-st-list-videos vblog-layout-1">

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modal;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Banner extends Model
+class MovieRates extends Model
 {
     //
 }

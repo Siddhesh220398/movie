@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Modal\Year;
+use App\Model\Year;
 use Auth;
 use DataTables;
 use DB;

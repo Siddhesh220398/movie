@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modal;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Genre extends Model
 {
     protected $guarded = ['id'];
 }

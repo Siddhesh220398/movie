@@ -4,11 +4,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Modal\Episode;
-use App\Modal\Type;
-use App\Modal\Genre;
-use App\Modal\Country;
-use App\Modal\Year;
+use App\Model\Episode;
+use App\Model\Type;
+use App\Model\Genre;
+use App\Model\Country;
+use App\Model\Year;
 use Auth;
 use DataTables;
 use DB;

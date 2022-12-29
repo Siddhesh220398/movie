@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modal\Setting;
+use App\Model\Setting;
 use DataTables;
 
 class SettingController extends Controller

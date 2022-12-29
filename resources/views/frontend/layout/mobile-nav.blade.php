@@ -1,12 +1,12 @@
 <nav class="mobile-menu-container mobile-effect">
     @php
-        $genres= \App\Modal\Genre::get();
-        $countries= \App\Modal\Country::get();
+        $genres= \App\Model\Genre::get();
+        $countries= \App\Model\Country::get();
     @endphp
     <div class="inner-menu">
         <ul class="nav navbar-nav">
             <li class="current-menu-item">
-                <a>
+                <a href="{{url('/')}}">
                     Home
                 </a>
             </li>
@@ -28,7 +28,7 @@
                 <a>
                     Country
                 </a>
-                <ul class="sub-menu" >
+                <ul class="sub-menu">
                     @foreach($countries as $country)
                         <li>
                             <a href="">
@@ -54,41 +54,41 @@
                 </a>
             </li>
         </ul>
-{{--        <div class="widget-area">--}}
-{{--            <aside class="widget widget_nav_menu">--}}
-{{--                <div class="menu-useful-links-container">--}}
-{{--                    <ul class="menu">--}}
-{{--                        <li class="menu-item">--}}
-{{--                            <a href="about.html">CLIENTS</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="menu-item menu-item-has-children">--}}
-{{--                            <a href="javascript:;">SERVICES</a>--}}
-{{--                            <ul class="sub-menu">--}}
-{{--                                <li class="menu-item">--}}
-{{--                                    <a href="contact.html">--}}
-{{--                                        Menu item--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="menu-item">--}}
-{{--                                    <a href="contact.html">--}}
-{{--                                        Menu item--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                        <li class="menu-item">--}}
-{{--                            <a href="contact.html">CONTACT US</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </aside>--}}
-{{--            <aside class="widget widget_text">--}}
-{{--                <div class="textwidget">--}}
-{{--                    <div class="copyright-text">--}}
-{{--                        Copyright 2018 Corporate WordPress Theme by ThimPress. <a href="javascript:;">ThimPress</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </aside>--}}
-{{--        </div>--}}
+        {{--        <div class="widget-area">--}}
+        {{--            <aside class="widget widget_nav_menu">--}}
+        {{--                <div class="menu-useful-links-container">--}}
+        {{--                    <ul class="menu">--}}
+        {{--                        <li class="menu-item">--}}
+        {{--                            <a href="about.html">CLIENTS</a>--}}
+        {{--                        </li>--}}
+        {{--                        <li class="menu-item menu-item-has-children">--}}
+        {{--                            <a href="javascript:;">SERVICES</a>--}}
+        {{--                            <ul class="sub-menu">--}}
+        {{--                                <li class="menu-item">--}}
+        {{--                                    <a href="contact.html">--}}
+        {{--                                        Menu item--}}
+        {{--                                    </a>--}}
+        {{--                                </li>--}}
+        {{--                                <li class="menu-item">--}}
+        {{--                                    <a href="contact.html">--}}
+        {{--                                        Menu item--}}
+        {{--                                    </a>--}}
+        {{--                                </li>--}}
+        {{--                            </ul>--}}
+        {{--                        </li>--}}
+        {{--                        <li class="menu-item">--}}
+        {{--                            <a href="contact.html">CONTACT US</a>--}}
+        {{--                        </li>--}}
+        {{--                    </ul>--}}
+        {{--                </div>--}}
+        {{--            </aside>--}}
+        {{--            <aside class="widget widget_text">--}}
+        {{--                <div class="textwidget">--}}
+        {{--                    <div class="copyright-text">--}}
+        {{--                        Copyright 2018 Corporate WordPress Theme by ThimPress. <a href="javascript:;">ThimPress</a>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </aside>--}}
+        {{--        </div>--}}
     </div>
 </nav>

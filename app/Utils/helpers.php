@@ -1,5 +1,5 @@
 <?php
-use App\Modal\Setting;
+use App\Model\Setting;
 function setImage($file,$folder,$type=null){
     if($type == 'edit'){
     }

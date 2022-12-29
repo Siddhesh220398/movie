@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Modal\Movie;
+use App\Model\Movie;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,6 +50,7 @@ class HomeController extends Controller
 
     public function singleMovie(Request $request,$type,$name){
 
+        $movie= Movie::where('title',$name)->first();
         return view('frontend.movie.single-movie');
 
     }

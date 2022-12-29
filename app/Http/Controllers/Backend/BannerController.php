@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Modal\Banner;
+use App\Model\Banner;
 use DataTables;
 
 class BannerController extends Controller

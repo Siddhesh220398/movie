@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modal;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,5 +32,8 @@ class Movie extends Model
         return $this->hasMany(MovieImage::class);
     }
 
-
+    public function movieGenre()
+    {
+        return $this->hasMany(MovieGenre::class,'movie_id','id');
+    }
 }

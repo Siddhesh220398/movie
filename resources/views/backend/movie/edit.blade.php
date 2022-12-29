@@ -55,7 +55,7 @@ $genres=$data['genres'];
                 <option value="">Select</option>
                 @foreach($genres  as $k=>$c)
                     <option value="{{ $c->id }}"
-                            @if(in_array($c->id,$edit->genre_id)) selected @endif>{{ $c->name }}</option>
+                            @if(in_array($c->id,array_values($edit->movieGenre()->pluck('genre_id')->toArray()))) selected @endif>{{ $c->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -138,7 +138,7 @@ $genres=$data['genres'];
             </div>
         @endif
         @if($edit->thumbnail)
-            <div class="form-group col-sm-6">
+            <div class="form-group col-sm-12">
                 <label>Thumbnail</label>
                 <br>
                 <img src="{{url($edit->thumbnail)}}" height="400" width="400" style="border:3px solid black">

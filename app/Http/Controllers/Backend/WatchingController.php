@@ -4,8 +4,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Modal\Movie;
-use App\Modal\ContinueWatching;
+use App\Model\Movie;
+use App\Model\ContinueWatching;
 use App\User;
 use Auth;
 use DataTables;

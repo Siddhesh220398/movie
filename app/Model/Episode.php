@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modal;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Episode extends Model
 {
     protected $guarded = ['id'];
 }

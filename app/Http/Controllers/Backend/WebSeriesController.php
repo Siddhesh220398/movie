@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Modal\Country;
-use App\Modal\Genre;
-use App\Modal\Movie;
-use App\Modal\Season;
-use App\Modal\Type;
-use App\Modal\Year;
+use App\Model\Country;
+use App\Model\Genre;
+use App\Model\Movie;
+use App\Model\Season;
+use App\Model\Type;
+use App\Model\Year;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DataTables;

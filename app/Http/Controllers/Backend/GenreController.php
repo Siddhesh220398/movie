@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Modal\Genre;
+use App\Model\Genre;
 use DataTables;
 use Illuminate\Http\Request;
 

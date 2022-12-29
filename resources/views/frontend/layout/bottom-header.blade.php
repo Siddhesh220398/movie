@@ -1,7 +1,7 @@
 <div class="bottom-header element-to-stick">
     @php
-        $genres= \App\Modal\Genre::get();
-        $countries= \App\Modal\Country::get();
+        $genres= \App\Model\Genre::get();
+        $countries= \App\Model\Country::get();
     @endphp
     <div class="container">
         <div class="wrap-content-header">
@@ -16,7 +16,7 @@
             <nav class="main-navigation">
                 <ul class="menu-lists">
                     <li class="menu-item-has-children">
-                        <a href="">
+                        <a href="{{url('/')}}">
                             Home
                         </a>
                     </li>
@@ -26,12 +26,12 @@
                         </a>
                         <i class="fas fa-angle-down ml-2" style="color: white !important;"></i>
                         <ul class="sub-menu">
-                           @foreach($genres as $genre)
-                            <li>
-                                <a href="{{route('title',$genre->name)}}">
-                                    {{$genre->name}}
-                                </a>
-                            </li>
+                            @foreach($genres as $genre)
+                                <li>
+                                    <a href="{{route('title',$genre->name)}}">
+                                        {{$genre->name}}
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
@@ -40,7 +40,7 @@
                             Country
                         </a>
                         <i class="fas fa-angle-down ml-2" style="color: white !important;"></i>
-                        <ul class="sub-menu" >
+                        <ul class="sub-menu">
                             @foreach($countries as $country)
                                 <li>
                                     <a href="">
@@ -84,9 +84,9 @@
 
                 <div class="bp-element bp-element-button">
                     @if(!Auth::user())
-                    <a class="btn" href="{{route('user.login')}}">
-                        Login
-                    </a>
+                        <a class="btn" href="{{route('user.login')}}">
+                            Login
+                        </a>
                     @else
                         <form id="logout-form" action="{{  route('logout') }}" method="POST">
                             @csrf
