@@ -16,10 +16,21 @@ $genres=$data['genres'];
                    required>
         </div>
         <div class="form-group col-sm-6">
-            <label>Movie Trailer Url - youtube or any hosted video<span class="requied_field"
-                                                                        style="color : #e3001b;">*</span></label>
+            <label>Thumbnail - icon image of the movie</label>
+            <input type="file" name="thumbnail" class="form-control">
+        </div>
+        <div class="form-group col-sm-6">
+            <label>Movie Trailer Url - youtube or any hosted video
+                <span class="requied_field" style="color : #e3001b;">*</span>
+            </label>
             <input type="text" name="video_trailer_url" value="{{$edit->video_trailer_url}}" placeholder="Enter Movie Trailer Url"
                    class="form-control" required>
+        </div>
+        <div class="form-group col-sm-6">
+            <video width="900" height="300" controls>
+                <source src="{{$edit->video_trailer_url}}" type="video/webm">
+
+            </video>
         </div>
         <div class="form-group col-sm-6">
             <label>Movie Url<span class="requied_field" style="color : #e3001b;">*</span></label>
@@ -27,8 +38,10 @@ $genres=$data['genres'];
                    class="form-control" required>
         </div>
         <div class="form-group col-sm-6">
-            <label>Thumbnail - icon image of the movie</label>
-            <input type="file" name="thumbnail" class="form-control">
+        <video width="900" height="300" controls>
+            <source src="{{$edit->video_url}}" type="video/webm">
+
+        </video>
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>

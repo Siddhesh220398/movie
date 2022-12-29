@@ -77,7 +77,7 @@ class BannerController extends Controller
             $banner->image = 'image/' . $filename;
         }else
         {
-            $request->$banner = NULL;
+            $request->image = NULL;
         }
         $banner->url = $request->url;
         $banner->description = $request->description;
