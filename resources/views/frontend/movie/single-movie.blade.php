@@ -11,17 +11,16 @@
                 <div class="overlay-top-header"></div>
                 <div class="content container">
                     <h1>
-                        Modern warfare (2018)
+                        {{$movie->title}} ({{$movie->year}})
                     </h1>
                     <div class="description">
-                        To start the day in the best way, enjoythe extraordinary buffetbreakfast in the our courtyard
-                        caressed
+                        {{$movie->short_description}}
                     </div>
                 </div>
             </div>
         </div>
         <div class="site-content layout-1">
-            <div class="container">
+            <div class="container-fluied">
                 <div class="row">
                     <main class="site-main col-12">
                         <div class="wrap-main-content">
@@ -41,12 +40,12 @@
                                         <div class="inner-info">
                                             <div class="media-video">
                                                 <div class="pic-video">
-                                                    <img src="{{asset('frontend/assets/images/product-05.jpg')}}"
+                                                    <img src="{{asset($movie->poster)}}"
                                                          alt="IMG">
                                                 </div>
                                                 <div class="meta-info">
                                                     <div class="imdb">
-                                                        <span class="value">5</span>IMDb
+                                                        <span class="value">{{$movie->imdb_rates}}</span>IMDb
                                                     </div>
                                                     <div class="label">
                                                         HD
@@ -67,18 +66,18 @@ Rating:
                                             <div class="info-video">
                                                 <div class="item-info">
 <span class="name-item">
-Actors:
+Cast:
 </span>
                                                     <span class="value-item">
-Julia Toufis
+{{$movie->cast}}
 </span>
                                                 </div>
                                                 <div class="item-info">
 <span class="name-item">
-Writer:
+Production:
 </span>
                                                     <span class="value-item">
-Noah
+{{$movie->production}}
 </span>
                                                 </div>
                                                 <div class="item-info">
@@ -107,10 +106,10 @@ USA
                                                 </div>
                                                 <div class="item-info">
 <span class="name-item">
-Runtime:
+Duration:
 </span>
                                                     <span class="value-item">
-60 min
+{{$movie->duration}}
 </span>
                                                 </div>
                                                 <div class="item-info">
@@ -126,7 +125,7 @@ English
 Type:
 </span>
                                                     <span class="value-item">
-Short
+{{$movie->type}}
 </span>
                                                 </div>
                                             </div>
