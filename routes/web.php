@@ -17,6 +17,8 @@
 Route::get('/', 'Frontend\HomeController@home');
 Route::get('/login', 'Frontend\HomeController@login')->name('user.login');
 Route::get('/register', 'Frontend\HomeController@register')->name('user.register');
+Route::get('myprofile','Frontend\HomeController@profile')->name('user.profile');
+Route::post('update-profile','Frontend\HomeController@updateProfile')->name('user.update-profile');
 
 
 Route::get('/{name}','Frontend\HomeController@movieList')->name('title');
