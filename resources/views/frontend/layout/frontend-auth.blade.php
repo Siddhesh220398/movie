@@ -3,7 +3,7 @@
 
 <!-- Mirrored from html.thimpress.com/vividly/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 10:27:47 GMT -->
 <head>
-    <title> @yield('title')</title>
+    <title>{{setWebsite('website_name')}} | @yield('title')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/favicon-1.png')}}"/>
@@ -20,7 +20,8 @@
 
     <link rel="stylesheet" type="text/css"
           href="{{asset('frontend/assets/css/libs/magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <style>
@@ -45,17 +46,16 @@
             justify-content: flex-start;
             align-items: center;
             flex-wrap: wrap;
-            width: 400px!important;
+            width: 400px !important;
             padding: 2rem !important;
         }
 
-        .sub-menu li{
-            width: 33.33%!important;
+        .sub-menu li {
+            width: 33.33% !important;
             flex-shrink: 0;
         }
 
-        .sub-menu li a{
-            display: block;
+        .sub-menu li a {
             font-weight: 400;
             padding: 0.2rem 0.6rem;
             font-size: .9em;
@@ -63,6 +63,17 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden
+        }
+
+
+
+        @media screen and (min-width: 1024px) and (max-height: 1310px) {
+            .menu-mobile-effect.navbar-toggle {
+                display: none !important;
+            }
+            .sub-menu li a {
+                display: block;
+            }
         }
     </style>
 
@@ -91,19 +102,20 @@
         @include('frontend.layout.footer')
     </div>
 
-{{--    <div id="thim-preloading">--}}
-{{--        <div class="custom-image">--}}
-{{--            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div id="thim-preloading">--}}
+    {{--        <div class="custom-image">--}}
+    {{--            <img src="{{asset('frontend/assets/images/wave.gif')}}" alt="Loading">--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script src="{{asset('frontend/assets/js/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/popper.js')}}"></script>
 <script src="{{asset('frontend/assets/js/libs/bootstrap/bootstrap.min.js')}}"></script>
 
 <script src="{{asset('frontend/assets/js/libs/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
@@ -112,7 +124,7 @@
 
 <script src="{{asset('frontend/assets/js/libs/isotope/isotope.pkgd.min.js')}}"></script>
 
-<script src="{{asset('frontend/assets/js/libs/select2/select2.min.js')}}"></script>
+{{--<script src="{{asset('frontend/assets/js/libs/select2/select2.min.js')}}"></script>--}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
       crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -125,22 +137,22 @@
         $('.selectpicker').selectpicker();
     });
     $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        dots:false,
-        nav:true,
-        mouseDrag:false,
-        autoplay:true,
+        loop: true,
+        margin: 10,
+        dots: false,
+        nav: true,
+        mouseDrag: false,
+        autoplay: true,
         animateOut: 'slideOutUp',
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:1
+            600: {
+                items: 1
             },
-            1000:{
-                items:1
+            1000: {
+                items: 1
             }
         }
     });

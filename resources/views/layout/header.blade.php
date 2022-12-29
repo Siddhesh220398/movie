@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-	<title>Demo</title>
+	<title>	{{setWebsite('website_name')}} </title>
 
 
 
@@ -289,7 +289,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 			<a href="{{route('home')}}">
-				<img alt="Logo" src="{{ asset('/assets/media/logos/logo-11.png') }}"  style="height: 50px; width: 50px;" />
+				<img alt="Logo" src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}"  style="height: 50px; width: 50px;" />
 			</a>
 
 
@@ -433,7 +433,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 						<div class="kt-header__brand-logo">
 							<a href="{{route('home')}}">
-								<img alt="Logo" src="{{ asset('/assets/media/logos/logo-11.png') }}" style=" height: 75px; width: 75px;" />
+								<img alt="Logo" src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" style=" height: 75px; width: 75px;" />
 							</a>
 						</div>
 
@@ -461,7 +461,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 					<h3 class="kt-header__title kt-grid__item">
 						<a href="{{route('home')}}" style=" color: #602040;">
-							Demo
+							{{setWebsite('website_name') ?? env('APP_NAME')}}
 						</a>
 					</h3>
 
