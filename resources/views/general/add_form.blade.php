@@ -33,10 +33,12 @@
 
                     @csrf
                     @php
-
-                    $index= route($resourceRoute.'.index');
-
-                    $store=route($resourceRoute.'.store');
+                        $index= route($resourceRoute.'.index');
+                      if($resourceRoute == 'episode')
+                          {
+                                 $index= route('webseries.episodes',$id);
+                          }
+                      $store=route($resourceRoute.'.store');
 
                     @endphp
                     @include($resourcePath.'.create')

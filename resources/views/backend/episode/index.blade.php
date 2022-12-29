@@ -20,10 +20,18 @@
                         <div class="kt-portlet__head-toolbar">
                             <div class="kt-portlet__head-wrapper">
                                 <div class="kt-portlet__head-actions">
-                                    <a style="margin-left:5px !important" data-toggle="modal" href="#add_modal"
-                                       class="btn btn-brand btn-elevate btn-icon-sm">
+{{--                                    <a style="margin-left:5px !important" data-toggle="modal" href="#add_modal"--}}
+{{--                                       class="btn btn-brand btn-elevate btn-icon-sm">--}}
+{{--                                        <i class="la la-plus"></i>--}}
+{{--                                        Add Episode--}}
+{{--                                    </a>--}}
+                                    <a href="{{route('web-series.index')}}" class="btn btn-brand btn-elevate btn-icon-sm">
+                                        <i class="fa fa-arrow-left"></i>
+                                        Back to Web-series
+                                    </a>
+                                    <a href="{{route('webseries.episode.create',$id)}}" class="btn btn-brand btn-elevate btn-icon-sm">
                                         <i class="la la-plus"></i>
-                                        Add Episode
+                                        Add Episodes
                                     </a>
                                 </div>
                             </div>
@@ -72,121 +80,6 @@
             </div>
         </div>@stop
     </div>
-    <div class="modal fade" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Episode</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <form class="add_modal" id="add_modal" method="post" action="{{route('episode.store')}}">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Title:</label>
-                            <input type="text" class="form-control" name="title" id="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Url:</label>
-                            <input type="text" class="form-control" name="url" id="url" required >
-                        </div>
-                        <div class="form-group">
-                            <label>Thumbnail:</label>
-                            <input type="file" class="form-control" name="thumbnail" id="thumbnail">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-{{--                        <button type="submit" class="btn btn-primary change_button" id="importBTN"--}}
-{{--                                style="background: #602040;">Save<i class="la la-spinner change_spin d-none"></i>--}}
-{{--                        </button>--}}
-                        <button type="submit" class="btn btn-dark submit">Add</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-{{--    <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--        <div class="modal-dialog" role="document">--}}
-{{--            <div class="modal-content">--}}
-{{--                <div class="modal-header">--}}
-{{--                    <h5 class="modal-title" id="exampleModalLabel">Edit Episode</h5>--}}
-{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>--}}
-{{--                </div>--}}
-{{--                <form class="edit_modal" method="POST" id="edit_modal">--}}
-{{--                    <div class="modal-body">--}}
-{{--                        @csrf--}}
-{{--                        @method('PUT')--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label>Title:</label>--}}
-{{--                                <input type="text" class="form-control" name="title" id="title">--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label>Url:</label>--}}
-{{--                                <input type="text" class="form-control" name="url" id="url">--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label>Thumbnail:</label>--}}
-{{--                                <input type="file" class="form-control" name="thumbnail" id="thumbnail">--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group col-lg-12">--}}
-{{--                                <label>ARID:</label>--}}
-{{--                                <input type="text" name="ar_id" id="ar_id" class="form-control" required>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-footer">--}}
-{{--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-{{--                        <button type="submit" class="btn btn-dark submit">Update</button>--}}
-{{--                    </div>--}}
-{{--            </div>--}}
-{{--            </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
-
-    <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Episode</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <form class="edit_form" id="edit_modal" method="post">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Title:</label>
-                            <input type="hidden" class="form-control edit_id" name="edit_id" id="edit_id">
-                            <input type="text" class="form-control edit_title" name="edit_title" id="edit_title">
-                        </div>
-                        <div class="form-group">
-                            <label>Url:</label>
-                            <input type="text" class="form-control" name="edit_url" id="edit_url">
-                        </div>
-                        <div class="form-group">
-                            <label>Thumbnail:</label>
-                            <input type="file" class="form-control" name="thumbnail" id="edit_thumbnail">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        {{--                        <button type="submit" class="btn btn-primary change_button" id="importBTN"--}}
-                        {{--                                style="background: #602040;">Save<i class="la la-spinner change_spin d-none"></i>--}}
-                        {{--                        </button>--}}
-                        <button type="submit" class="btn btn-dark submit">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     @push('scripts')
         <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"
                 type="text/javascript"></script>
@@ -206,7 +99,7 @@
 
                     order: [0, false],
 
-                    ajax: "{{ route('episode.index') }}",
+                    ajax: "{{ route('webseries.episodes',$id) }}",
 
                     columns: [
 

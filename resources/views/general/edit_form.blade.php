@@ -37,9 +37,14 @@ $id = $data['edit']->id;
                  </div>
                  @php
 
-                 $index= route($resourceRoute.'.index');
+                            $index= route($resourceRoute.'.index');
+                            if($resourceRoute == 'episode')
+                                     {
+                                            $index= route('webseries.episodes',$data['edit']->season_id);
+                                     }
 
-                 @endphp
+
+                        @endphp
 
                  <form class="kt-form kt-form--label-right edit_form" method="put" action="{{$url}}">
 

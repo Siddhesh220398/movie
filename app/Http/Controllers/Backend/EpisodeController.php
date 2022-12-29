@@ -23,11 +23,13 @@ class EpisodeController extends Controller
         $this->route = 'episode';
         $this->viewName = 'Episode';
     }
-    public function index(Request $request)
+
+    public function index(Request $request,$id)
     {
+        $query = Episode::where('season_id',$id)->get();
         if ($request->ajax()) {
 
-            $query = Episode::get();
+
             return Datatables::of($query)
 
                 ->addColumn('action', function ($row) {
@@ -63,16 +65,17 @@ class EpisodeController extends Controller
 
         }
 
-        return view('backend.episode.index');
+        return view('backend.episode.index',compact('id'));
     }
 
-    public function create()
+    public function create($id)
     {
         $data['url'] = route($this->route . '.store');
         $data['title'] = 'Add Episode';
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
         $data['resourceRoute'] = $this->route;
+        $data['id'] = $id;
 
         return view('general.add_form')->with($data);
 
@@ -80,10 +83,10 @@ class EpisodeController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
         $episode = new Episode();
         $episode->title = $request->title;
         $episode->url = $request->url;
+        $episode->season_id = $request->season_id;
         $episode->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
         $episode->save();
         if ($episode){
@@ -101,6 +104,7 @@ class EpisodeController extends Controller
         $data['module'] = $this->viewName;
         $data['resourcePath'] = $this->view;
         $data['resourceRoute'] = $this->route;
+        $data['season_id'] = $data['edit']->season_id;
         return view('general.edit_form', compact('data'));
     }
 
@@ -112,7 +116,7 @@ class EpisodeController extends Controller
 //        $episode->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
         if($request->thumbnail)
         {
-            $movie->thumbnail=setImage($request->thumbnail,'movies-thumbnail','edit');
+            $episode->thumbnail=setImage($request->thumbnail,'movies-thumbnail','edit');
         }
         $episode->save();
 

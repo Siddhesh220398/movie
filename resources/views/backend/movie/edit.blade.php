@@ -27,21 +27,9 @@ $genres=$data['genres'];
                    class="form-control" required>
         </div>
         <div class="form-group col-sm-6">
-            <video width="900" height="300" controls>
-                <source src="{{$edit->video_trailer_url}}" type="video/webm">
-
-            </video>
-        </div>
-        <div class="form-group col-sm-6">
             <label>Movie Url<span class="requied_field" style="color : #e3001b;">*</span></label>
             <input type="text" name="video_url" value="{{$edit->video_url}}" placeholder="Enter Movie Url"
                    class="form-control" required>
-        </div>
-        <div class="form-group col-sm-6">
-        <video width="900" height="300" controls>
-            <source src="{{$edit->video_url}}" type="video/webm">
-
-        </video>
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>
@@ -123,10 +111,47 @@ $genres=$data['genres'];
         <div class="form-group col-sm-6">
             <br>
             <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
-                <input type="checkbox" name="latest" value="1" @if($edit->latest) checked @endif> Latest
+                <input type="checkbox" name="latest" value="1" @if($edit->latest) checked @endif> Trending
                 <span></span>
             </label>
         </div>
+        <div class="form-group col-sm-6">
+        </div>
+        @if($edit->video_trailer_url)
+            <div class="form-group col-sm-12">
+                <label>Movie Trailer</label>
+                <br>
+                <video width="850" height="300" controls>
+                    <source src="{{$edit->video_trailer_url}}" type="video/webm">
+
+                </video>
+            </div>
+        @endif
+        @if($edit->video_url)
+            <div class="form-group col-sm-12">
+                <label>Movie</label>
+                <br>
+                <video width="850" height="300" controls>
+                    <source src="{{$edit->video_url}}" type="video/webm">
+
+                </video>
+            </div>
+        @endif
+        @if($edit->thumbnail)
+            <div class="form-group col-sm-6">
+                <label>Thumbnail</label>
+                <br>
+                <img src="{{url($edit->thumbnail)}}" height="400" width="400" style="border:3px solid black">
+            </div>
+        @endif
+        @if($edit->poster)
+            <div class="form-group col-sm-6">
+                <label>Poster</label>
+                <br>
+                <img src="{{url($edit->poster)}}" height="400" width="400" style="border:3px solid black">
+            </div>
+        @endif
+
     </div>
 
 </div>

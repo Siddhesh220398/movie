@@ -45,6 +45,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('setting', 'Backend\SettingController@setting')->name('setting.index');
         Route::put('setting/update/{id}', 'Backend\SettingController@update')->name('setting.update');
         Route::resource('banner', 'Backend\BannerController');
+
+        Route::any('web-series/episode','Backend\WebSeriesController@episode')->name('web-series.episode');
+        Route::resource('episode','Backend\EpisodeController',['Except'=> ['index','create']]);
+        Route::get('webseries/episode/{id}','Backend\EpisodeController@index')->name('webseries.episodes');
+        Route::get('webseries/episode/create/{id}','Backend\EpisodeController@create')->name('webseries.episode.create');
+
     });
 });
 

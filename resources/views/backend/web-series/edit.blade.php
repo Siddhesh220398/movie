@@ -169,10 +169,46 @@ $genres=$data['genres'];
                                         <br>
                                         <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
                                             <input type="checkbox" name="latest" value="1"
-                                                   @if($edit->latest) checked @endif> Latest
+                                                   @if($edit->latest) checked @endif> Trending
                                             <span></span>
                                         </label>
                                     </div>
+                                    <div class="form-group col-sm-6">
+                                    </div>
+                                    @if($edit->video_trailer_url)
+                                        <div class="form-group col-sm-12">
+                                            <label>Video Trailer</label>
+                                            <br>
+                                            <video width="850" height="300" controls>
+                                                <source src="{{$edit->video_trailer_url}}" type="video/webm">
+
+                                            </video>
+                                        </div>
+                                    @endif
+                                    @if($edit->video_url)
+                                        <div class="form-group col-sm-12">
+                                            <label>Movie</label>
+                                            <br>
+                                            <video width="850" height="300" controls>
+                                                <source src="{{$edit->video_url}}" type="video/webm">
+
+                                            </video>
+                                        </div>
+                                    @endif
+                                    @if($edit->thumbnail)
+                                        <div class="form-group col-sm-6">
+                                            <label>Thumbnail</label>
+                                            <br>
+                                            <img src="{{url($edit->thumbnail)}}" height="400" width="400" style="border:3px solid black">
+                                        </div>
+                                    @endif
+                                    @if($edit->poster)
+                                        <div class="form-group col-sm-6">
+                                            <label>Poster</label>
+                                            <br>
+                                            <img src="{{url($edit->poster)}}" height="400" width="400" style="border:3px solid black">
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -265,10 +301,15 @@ $genres=$data['genres'];
                                     @forelse($edit->seasons as $data)
                                         <tr>
                                             <td>{{$data->title}}</td>
-                                            <td>Episodes</td>
+                                            <td>{{$data->episodes->count()}}</td>
                                             <td>
-                                                <a href="{{route('episode.index')}}" type="button" class="btn btn-primary">Manage Permission</a>
+                                                <a href="{{route('webseries.episodes',$data->id)}}" type="button"
+                                                   class="btn btn-primary">Manage Episodes</a>
+                                                <a href="{{route('webseries.episodes',$data->id)}}" type="button"
+                                                   class="btn btn-danger">Delete Season</a>
+
                                             </td>
+
                                         </tr>
                                     @empty
 

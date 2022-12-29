@@ -1,17 +1,10 @@
 <?php
 $edit = route($route.'.edit', ['id' => $id]);
 ?>
-@if($route === 'episode')
-@php $episode = \App\Modal\Episode::where('id',$id)->first(); @endphp
-<a style="background: transparent;" onclick="editmodal('{{$id}}','{{route('episode.update',$id)}}','{{$episode->title}}','{{$episode->url}}')"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
-    <i style="color: green;" class="la la-edit"></i>
-</a>
-@else
-
 <a style="background: transparent;" href="{{$edit}}"  title="Edit details" class="btn btn-sm btn-clean btn-icon btn-icon-md">
     <i style="color: green;" class="la la-edit"></i>
 </a>
-@endif
+
 
 @if(Auth::user()->role == 1)
 <button style="background: transparent;" title="Delete" data-id="{{$id }}" class="btn btn-sm btn-clean btn-icon btn-icon-md delete-record">
