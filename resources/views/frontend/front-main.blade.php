@@ -498,11 +498,11 @@
     </div>
 
 
-    @include('frontend.layout.trending',['type'=>'Trending'])
+    @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['latest']])
 
-    @include('frontend.layout.trending',['type'=>'Latest Movies'])
+    @include('frontend.layout.trending',['type'=>'Latest Movies','movies'=>$data['trending_movie']])
 
-    @include('frontend.layout.trending',['type'=>'Latest TV Series'])
+    @include('frontend.layout.trending',['type'=>'Latest TV Series','movies'=>$data['trending_web']])
 
 @endsection
 @push('custom-scripts')

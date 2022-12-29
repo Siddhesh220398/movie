@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Modal\Movie;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,9 @@ class HomeController extends Controller
 {
     public function home(){
         $data['title']='Home Page';
-
+        $data['trending_movie'] = Movie::where(['type'=>'movies','latest'=>1])->limit(20)->get();
+        $data['trending_web'] = Movie::where(['type'=>'web-series','latest'=>1])->limit(20)->get();
+        $data['latest'] = Movie::latest()->limit(20)->get();
         return view('frontend.front-main',compact('data'));
     }
 
