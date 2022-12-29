@@ -18,8 +18,9 @@
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>
-            <input type="file" name="poster" class="form-control">
+            <input type="file" name="image[]" class="form-control" multiple="">
         </div>
+
         <div class="form-group col-sm-6">
             <label>Duration</label>
             <input type="text" name="duration" placeholder="Enter Duration (Min)" class="form-control">

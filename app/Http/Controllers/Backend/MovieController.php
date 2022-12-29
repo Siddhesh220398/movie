@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Modal\Movie;
+use App\Modal\MovieImage;
 use App\Modal\Type;
 use App\Modal\Genre;
 use App\Modal\Country;
@@ -93,10 +94,20 @@ class MovieController extends Controller
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
 
-        $movie->poster= $request->poster ? setImage($request->poster,'movies-poster') : null;
+//        $movie->poster= $request->poster ? setImage($request->poster,'movies-poster') : null;
         $movie->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
 
         $movie->save();
+        if($request->image)
+        {
+            foreach ($request->image as $img)
+            {
+                $data = new MovieImage();
+                $data->movie_id = $movie->id;
+                $data->image = setImage($img,'movies-poster');
+                $data->save();
+            }
+        }
         if ($movie){
             return response()->json(['status'=>'success']);
         }else{
@@ -107,7 +118,7 @@ class MovieController extends Controller
     public function edit($id)
     {
         $data['title'] = 'Edit Movie';
-        $data['edit'] = Movie::findOrFail($id);
+        $data['edit'] = Movie::with('posters')->findOrFail($id);
         $data['edit']->genre_id = unserialize($data['edit']->genre_id);
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['genres'] = Genre::get();

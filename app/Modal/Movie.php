@@ -27,6 +27,10 @@ class Movie extends Model
     {
         return $this->hasMany(Season::class);
     }
+    public function posters()
+    {
+        return $this->hasMany(MovieImage::class);
+    }
 
 
 }

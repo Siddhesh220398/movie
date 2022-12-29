@@ -33,7 +33,7 @@ $genres=$data['genres'];
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>
-            <input type="file" name="poster" class="form-control">
+            <input type="file" name="image[]" class="form-control" multiple="">
         </div>
         <div class="form-group col-sm-6">
             <label>Duration</label>
@@ -144,12 +144,12 @@ $genres=$data['genres'];
                 <img src="{{url($edit->thumbnail)}}" height="400" width="400" style="border:3px solid black">
             </div>
         @endif
-        @if($edit->poster)
-            <div class="form-group col-sm-6">
-                <label>Poster</label>
-                <br>
-                <img src="{{url($edit->poster)}}" height="400" width="400" style="border:3px solid black">
+        @if($edit->posters)
+            @foreach($edit->posters as $posters)
+            <div class="form-group col-sm-2">
+                <img src="{{url($posters->image)}}" height="400" width="400" style="border:3px solid black">
             </div>
+            @endforeach
         @endif
 
     </div>
