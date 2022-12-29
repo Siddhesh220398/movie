@@ -34,6 +34,7 @@
                             @csrf
                             <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -93,7 +94,14 @@
 
                 columns: [
 
+                    {
+                        orderable: true,
 
+                        searchable: true,
+
+                        "data": "id"
+
+                    },
 
                     {
                         orderable: true,
