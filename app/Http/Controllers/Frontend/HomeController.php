@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Model\Movie;
 use App\Model\MovieComments;
 use App\Model\MovieRates;
+use App\Model\WatchList;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,9 +16,9 @@ class HomeController extends Controller
 {
     public function home(){
         $data['title']='Home Page';
-        $data['trending_movie']= Movie::where(['type'=>'movies','latest'=>1])->limit(20)->get();
-        $data['trending_web']= Movie::where(['type'=>'web-series','latest'=>1])->limit(20)->get();
-        $data['latest']= Movie::latest()->limit(20)->get();
+        $data['trending_movie']= Movie::where(['type'=>'movies','latest'=>1])->with('watchListByUser')->limit(20)->get();
+        $data['trending_web']= Movie::where(['type'=>'web-series','latest'=>1])->with('watchListByUser')->limit(20)->get();
+        $data['latest']= Movie::latest()->with('watchListByUser')->limit(20)->get();
         return view('frontend.front-main',compact('data'));
     }
 
@@ -59,11 +60,34 @@ class HomeController extends Controller
     }
 
     public function comments(Request $request){
+        if(!Auth::user()){
+            return response()->json(['status'=>'unauthenticate','message'=>'Commented']);
+        }
         MovieComments::create(['movie_id'=>$request->movie_id,'user_id'=>Auth::user()->id,'comment_id'=>$request->has('comment_id') ? $request->comment_id : Null,'comments'=>$request->comment]);
         return response()->json(['status'=>'success','message'=>'Commented']);
     }
     public function like(Request $request){
+        if(!Auth::user()){
+            return response()->json(['status'=>'unauthenticate','message'=>'Commented']);
+        }
         MovieRates::updateOrCreate(['movie_id'=>$request->id,'user_id'=>Auth::user()->id],['movie_id'=>$request->id,'user_id'=>Auth::user()->id,'like'=>$request->type == 'like' ? 1 : 0]);
+        return response()->json(['status'=>'success','message'=>'Commented']);
+    }
+
+    public function watchlist()
+    {
+        $data['movies']= WatchList::where('user_id',Auth::user()->id)->with('movies','movies.posters','movies.movieGenre')->get();
+
+        return view('frontend.watchlist.index',compact('data'));
+    }
+
+    public function watchlistStore(Request $request)
+    {
+        if($request->type != "remove") {
+            WatchList::updateOrCreate(['movie_id'=>$request->id,'user_id'=>Auth::user()->id],['movie_id'=>$request->id,'user_id'=>Auth::user()->id]);
+        }else{
+            WatchList::where(['movie_id'=>$request->id,'user_id'=>Auth::user()->id])->delete();
+        }
         return response()->json(['status'=>'success','message'=>'Commented']);
     }
 }

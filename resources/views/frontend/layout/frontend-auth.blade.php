@@ -66,11 +66,11 @@
         }
 
 
-
         @media screen and (min-width: 1024px) and (max-height: 1310px) {
             .menu-mobile-effect.navbar-toggle {
                 display: none !important;
             }
+
             .sub-menu li a {
                 display: block;
             }
@@ -95,7 +95,7 @@
 
     @include('frontend.layout.mobile-nav')
 
-    <div id="main-content" >
+    <div id="main-content">
 
         @yield('content')
 
@@ -172,6 +172,9 @@
             };
         }
     })();</script>
+
+
+
 </body>
 <!-- Mirrored from html.thimpress.com/vividly/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Dec 2022 10:28:11 GMT -->
 </html>

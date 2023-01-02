@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Movie extends Model
 {
@@ -22,6 +23,10 @@ class Movie extends Model
     public function year()
     {
         return $this->belongsTo(Year::class,'year_id','id');
+    }
+    public function watchListByUser()
+    {
+        return $this->hasMany(WatchList::class,'movie_id','id');
     }
     public function seasons()
     {

@@ -97,14 +97,7 @@
                                     {{$movie->production}}
                                     </span>
                                                 </div>
-                                                <div class="item-info">
-                                    <span class="name-item">
-                                    Release Date:
-                                    </span>
-                                                    <span class="value-item">
-                                    May 12, 2018
-                                    </span>
-                                                </div>
+
                                                 <div class="item-info">
                                     <span class="name-item">
                                     Genres:
@@ -511,7 +504,12 @@
                             toastr["success"]("Comment Successfully", "Success");
 
 
-                        } else if (data.status === 'error') {
+                        }  else if (data.status === 'unauthenticate') {
+                            window.location ="{{route('user.login')}}"
+
+                            toastr["error"]("Something went wrong", "Error");
+
+                        }else if (data.status === 'error') {
                             location.reload();
 
                             toastr["error"]("Something went wrong", "Error");
@@ -576,6 +574,12 @@
 
                         } else if (data.status === 'error') {
                             location.reload();
+
+                            toastr["error"]("Something went wrong", "Error");
+
+                        }
+                        else if (data.status === 'unauthenticate') {
+                           window.location ="{{route('user.login')}}"
 
                             toastr["error"]("Something went wrong", "Error");
 

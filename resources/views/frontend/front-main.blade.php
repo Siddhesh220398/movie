@@ -354,149 +354,6 @@
         </div>
     </div>
 
-    <div class="thim-banner_home-1" style="background-image: url(frontend/assets/images/bg-01.jpg);">
-        {{--        <div class="overlay-area"></div>--}}
-        <div class="container">
-
-            <div class="bp-element bp-element-st-list-videos vblog-layout-1">
-                <div class="wrap-element">
-                    <div class="feature-item">
-                        <div class="row">
-                            <div class="col-lg-9">
-                                <div class="video">
-                                    <img src="{{asset('frontend/assets/images/bg-featurepost-01.jpg')}}" alt="IMG">
-                                    <div class="overlay"></div>
-                                    <div class="meta-info">
-                                        <div class="imdb">
-                                            <span class="value">5</span>IMDb
-                                        </div>
-                                        <div class="label">
-                                            HDRip
-                                        </div>
-                                    </div>
-                                    <a href="https://www.youtube.com/watch?v=hNQFjqDvPhA&amp;feature=youtu.be"
-                                       class="btn-play popup-youtube">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="text">
-                                    <h4 class="title">
-                                        <a href="#">
-                                            MTV Game Awards GraphicPackage The Best Of year 2018
-                                        </a>
-                                    </h4>
-                                    <div class="info">
-                                        <span class="item-info">BY <a href="javascript:;">POLLY</a></span>
-                                        <span class="item-info">MAY 1, 2018</span>
-                                        <span class="item-info">TV show</span>
-                                    </div>
-                                    <div class="description">
-                                        S1 E2 Escorpión/DzecThe one Mayans seek answers from a local crew as the
-                                        Galindo you worlds north and south of the border oldcollide.
-                                    </div>
-                                    <a href="#" class="btn-readmore btn-normal shape-round">
-                                        read more
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="bp-element bp-element-st-list-videos vblog-layout-1-1">
-                <div class="wrap-element">
-                    <div class="normal-items">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="#"><img src="{{asset('frontend/assets/images/png-bg-post-01.png')}}"
-                                                         alt="IMG"></a>
-                                        <div class="label">
-                                            HD
-                                        </div>
-                                    </div>
-                                    <h4 class="title">
-                                        <a href="single-video.html">
-                                            Self-Hosted Video
-                                        </a>
-                                    </h4>
-                                    <div class="info">
-                                        FEBRUARY 10, 2018
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-video.html"><img
-                                                src="{{asset('frontend/assets/images/png-bg-post-02.png')}}"
-                                                alt="IMG"></a>
-                                        <div class="label">
-                                            CAM
-                                        </div>
-                                    </div>
-                                    <h4 class="title">
-                                        <a href="single- .html">
-                                            Self-Hosted Video
-                                        </a>
-                                    </h4>
-                                    <div class="info">
-                                        FEBRUARY 10, 2018
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-video.html"><img
-                                                src="{{asset('frontend/assets/images/png-bg-post-03.png')}}"
-                                                alt="IMG"></a>
-                                        <div class="label">
-                                            Trailer
-                                        </div>
-                                    </div>
-                                    <h4 class="title">
-                                        <a href="single-video.html">
-                                            Self-Hosted Video
-                                        </a>
-                                    </h4>
-                                    <div class="info">
-                                        FEBRUARY 10, 2018
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="item">
-                                    <div class="pic">
-                                        <a href="single-video.html"><img
-                                                src="{{asset('frontend/assets/images/png-bg-post-04.png')}}"
-                                                alt="IMG"></a>
-                                        <div class="label">
-                                            HD
-                                        </div>
-                                    </div>
-                                    <h4 class="title">
-                                        <a href="single-video.html">
-                                            Self-Hosted Video
-                                        </a>
-                                    </h4>
-                                    <div class="info">
-                                        FEBRUARY 10, 2018
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
 
     @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['trending_movie']])
 
@@ -568,4 +425,73 @@
             }
         });
     </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.watchList').on("click", function (e) {
+            e.preventDefault()
+            var id = $(this).data('id');
+            var type = $(this).data('type');
+            $.ajax({
+
+                type: "POST",
+
+                url: "{{route('movie.watchList')}}",
+
+                data: {
+                    '_token': $('input[name="_token"]').val(),
+                    'id': id,
+                    'type': type,
+                },
+
+                pcache: false,
+
+                success: function (data) {
+
+                    if (data.status === 'success') {
+
+
+                        location.reload();
+                        toastr["success"]("Comment Successfully", "Success");
+
+
+                    } else if (data.status === 'error') {
+                        location.reload();
+
+                        toastr["error"]("Something went wrong", "Error");
+
+                    } else if (data.status === 'type_code') {
+
+                        toastr["error"]("Duplicate code!", "Error");
+
+                        $('.change_button').prop('disabled', false);
+
+                        $('.change_button').find('.change_spin').addClass('d-none');
+                    } else if (data.status === 'email_exists') {
+                        toastr["error"]("Duplicate Email!", "Error");
+                        // location.reload();
+                        $('.change_button').prop('disabled', false);
+                        $('.change_button').find('.change_spin').addClass('d-none');
+                    }
+
+                },
+                error: function (data) {
+                    console.log(data.status)
+                    if (data.status === 422) {
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors.errors, function (key, value) {
+                            console.log(key + " " + value);
+                            $('#' + key).addClass('is-invalid');
+                            $('#' + key).parent().append('<div id="' + key + '-error" class="error invalid-feedback ">' + value + '</div>');
+                        });
+
+                    }
+
+                }
+
+            });
+        });
+    });
+</script>
 @endpush

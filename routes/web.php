@@ -21,16 +21,20 @@ Route::get('myprofile','Frontend\HomeController@profile')->name('user.profile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('user.update-profile');
 
 
-Route::get('/{name}','Frontend\HomeController@movieList')->name('title');
+Route::get('s/{name}','Frontend\HomeController@movieList')->name('title');
 Route::get('movies/{type}/{name}','Frontend\HomeController@singleMovie')->name('singleMovie');
 Route::post('movies/comments','Frontend\HomeController@comments')->name('movie.comment');
 Route::post('movies/like','Frontend\HomeController@like')->name('movie.like');
 
-Route::get('watchlist','Frontend\WatchlistController@index')->name('watchlist.index');
-Route::get('k/watchlist','Frontend\WatchlistController@store')->name('watchlist.store');
+
 // Route::get('tv-series', 'Frontend\TvseriesController@index')->name('tvseries');
 // Route::get('movie', 'Frontend\MovieController@index')->name('movieindex');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('user/watchlist','Frontend\HomeController@watchlist')->name('watchlist.index');
+    Route::post('user/watchlist','Frontend\HomeController@watchlistStore')->name('movie.watchList');
+
+});
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
     Route::group(['middleware' => 'auth'], function () {
