@@ -15,6 +15,6 @@ class MovieComments extends Model
 
     public function subComments()
     {
-        return $this->hasMany(MovieComments::class,'comment_id','id');
+        return $this->hasMany(MovieComments::class,'comment_id','id')->orderBy('id','desc');
     }
 }

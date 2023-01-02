@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Model\Movie;
+use App\Model\MovieComments;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use phpDocumentor\Reflection\Types\Null_;
 
 class HomeController extends Controller
 {
@@ -53,5 +55,10 @@ class HomeController extends Controller
         $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments')->first();
         return view('frontend.movie.single-movie',compact('movie'));
 
+    }
+
+    public function comments(Request $request){
+        MovieComments::create(['movie_id'=>$request->movie_id,'user_id'=>Auth::user()->id,'comment_id'=>$request->has('comment_id') ? $request->comment_id : Null,'comments'=>$request->comment]);
+        return response()->json(['status'=>'success','message'=>'Commented']);
     }
 }

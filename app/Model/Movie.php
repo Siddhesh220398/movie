@@ -38,6 +38,6 @@ class Movie extends Model
     }
     public function movieComments()
     {
-        return $this->hasMany(MovieComments::class,'movie_id','id')->where('comment_id',Null);
+        return $this->hasMany(MovieComments::class,'movie_id','id')->where('comment_id',Null)->orderBy('id','desc');
     }
 }

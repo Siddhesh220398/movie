@@ -3,7 +3,15 @@
 @push('custom-style')
     <style>
         .item-img img {
-            height:800px !important;
+            height: 800px !important;
+        }
+        .bl-video-detail .detail-video .content-detail .comments-area .list-comments .comment-list .comment {
+
+            padding-top: 10px !important;
+        }
+        .bl-video-detail .detail-video .content-detail .comments-area .list-comments .comment-list .comment .content-comment {
+
+             margin-bottom: 5px !important;
         }
     </style>
 @endpush
@@ -168,13 +176,13 @@
                                                     </div>
                                                     <div class="slide-slick">
                                                         @foreach($movie->posters as $poster)
-                                                        <div class="item-slick">
-                                                            <div class="item-img">
-                                                                <img
-                                                                    src="{{asset($poster->image)}}"
-                                                                    alt="IMG">
+                                                            <div class="item-slick">
+                                                                <div class="item-img">
+                                                                    <img
+                                                                        src="{{asset($poster->image)}}"
+                                                                        alt="IMG">
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -192,44 +200,22 @@
                                                         <a href="javascript:;" style="display:none;">Cancel Reply</a>
                                                     </small>
                                                 </h3>
-                                                <form class="comment-form" novalidate="">
-                                                    <p class="comment-notes">
-                                       <span
-                                           id="email-notes">Your email address will not be published.</span>
-                                                        Required fields are marked <span class="required">*</span>
-                                                    </p>
-                                                    <div class="comment-meta">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <p class="comment-form-author">
-                                                                    <input placeholder="Your Name *" id="author"
-                                                                           name="author" type="text" value="" size="30"
-                                                                           aria-required="true">
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <p class="comment-form-email">
-                                                                    <input placeholder="Email *" id="email" name="email"
-                                                                           type="text" value="" size="30"
-                                                                           aria-required="true">
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+                                                <form class="comment-form communicateForm_0">
+                                                    @method('POST')
+                                                    @csrf
                                                     <div class="comment-message">
                                                         <p class="comment-form-comment">
-                                          <textarea placeholder="Enter your comment *" id="comment"
-                                                    name="comment" cols="45" rows="8"
-                                                    aria-required="true"></textarea>
+                                                            <textarea placeholder="Enter your comment *" id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
                                                         </p>
+                                                        <input type="hidden" name="movie_id" value="{{$movie->id}}" class="form-control">
+
                                                     </div>
                                                     <p class="form-submit">
-                                                        <input name="submit" type="submit" id="submit" class="submit"
-                                                               value="submit comment">
-                                                        <input type="hidden" name="comment_post_ID" value="362"
-                                                               id="comment_post_ID">
-                                                        <input type="hidden" name="comment_parent" id="comment_parent"
-                                                               value="0">
+                                                        <button type="submit" id="submit" class="submit main-communicate-btn" data-id="0">
+                                                            submit comment
+                                                        </button>
+
                                                     </p>
                                                 </form>
                                             </div>
@@ -476,3 +462,85 @@
         </div>
     </div>
 @endsection
+@push('custom-scripts')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.main-communicate-btn').on("click", function (e) {
+                e.preventDefault()
+                var id = $(this).data('id');
+                var message = $('#comment_' + id).val();
+                $.ajax({
+
+                    type: "POST",
+
+                    url: "{{route('movie.comment')}}",
+
+                    data: new FormData($('.communicateForm_' + id)[0]),
+
+                    processData: false,
+
+                    contentType: false,
+
+                    success: function (data) {
+
+                        if (data.status === 'success') {
+
+
+                            location.reload();
+                            toastr["success"]("Comment Successfully", "Success");
+
+
+                        } else if (data.status === 'error') {
+                            location.reload();
+
+                            toastr["error"]("Something went wrong", "Error");
+
+                        } else if (data.status === 'type_code') {
+
+                            toastr["error"]("Duplicate code!", "Error");
+
+                            $('.change_button').prop('disabled', false);
+
+                            $('.change_button').find('.change_spin').addClass('d-none');
+                        } else if (data.status === 'email_exists') {
+                            toastr["error"]("Duplicate Email!", "Error");
+                            // location.reload();
+                            $('.change_button').prop('disabled', false);
+                            $('.change_button').find('.change_spin').addClass('d-none');
+                        }
+
+                    },
+                    error: function (data) {
+                        console.log(data.status)
+                        if (data.status === 422) {
+                            var errors = $.parseJSON(data.responseText);
+                            $.each(errors.errors, function (key, value) {
+                                console.log(key + " " + value);
+                                $('#' + key).addClass('is-invalid');
+                                $('#' + key).parent().append('<div id="' + key + '-error" class="error invalid-feedback ">' + value + '</div>');
+                            });
+
+                        }
+
+                    }
+
+                });
+            })
+        })
+
+        function ShowHideDiv(id, type) {
+            if (type == "show") {
+                $('.show-comment_' + id).css('display', 'block')
+                $('.show_btn_' + id).css('display', 'none')
+                $('.hide_btn_' + id).css('display', 'block')
+            } else {
+                $('.show-comment_' + id).css('display', 'none')
+                $('.show_btn_' + id).css('display', 'block')
+                $('.hide_btn_' + id).css('display', 'none')
+
+            }
+        }
+    </script>
+@endpush
