@@ -26,7 +26,8 @@ Route::get('movies/{type}/{name}','Frontend\HomeController@singleMovie')->name('
 Route::post('movies/comments','Frontend\HomeController@comments')->name('movie.comment');
 Route::post('movies/like','Frontend\HomeController@like')->name('movie.like');
 
-
+Route::get('watchlist','Frontend\WatchlistController@index')->name('watchlist.index');
+Route::get('k/watchlist','Frontend\WatchlistController@store')->name('watchlist.store');
 // Route::get('tv-series', 'Frontend\TvseriesController@index')->name('tvseries');
 // Route::get('movie', 'Frontend\MovieController@index')->name('movieindex');
 

@@ -69,7 +69,7 @@
             </nav>
             <div class="menu-right">
                 <div class="bp-element bp-element-button">
-                    <a href="" class="btn">
+                    <a href="{{route('watchlist.index')}}" class="btn">
                         <i class="ion ion-upload"></i>
                         WatchList
                     </a>

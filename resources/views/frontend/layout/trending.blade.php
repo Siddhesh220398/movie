@@ -23,7 +23,7 @@
                                             <span class="value">5</span>IMDb
                                         </div>
                                         <div class="label" style="background: #e40914;">
-                                            Hot
+                                            <button class="watchlist" >+</button>
                                         </div>
                                     </div>
                                     <a href="{{route('singleMovie',['type'=>$movie->type,'name'=>$movie->title])}}"
