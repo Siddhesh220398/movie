@@ -50,7 +50,7 @@ class HomeController extends Controller
 
     public function singleMovie(Request $request,$type,$name){
 
-        $movie= Movie::where('title',$name)->first();
+        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments')->first();
         return view('frontend.movie.single-movie',compact('movie'));
 
     }

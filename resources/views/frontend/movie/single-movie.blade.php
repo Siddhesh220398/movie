@@ -1,10 +1,13 @@
 @extends('frontend.layout.frontend-auth')
 @section('title','Tv-Series')
 @push('custom-style')
-
+    <style>
+        .item-img img {
+            height:800px !important;
+        }
+    </style>
 @endpush
 @section('content')
-
     <div class="content-area">
         <div class="page-title">
             <div class="main-top" style="background-image: {{asset('frontend/assets/images/bg-page-title-04.jpg')}};">
@@ -20,27 +23,25 @@
             </div>
         </div>
         <div class="site-content layout-1">
-            <div class="container-fluied">
+            <div class="container-fluid">
                 <div class="row">
                     <main class="site-main col-12">
                         <div class="wrap-main-content">
-
                             <div class="bl-video-detail">
                                 <div class="player-video">
                                     <div class="bg-video">
                                         <iframe id="Player-1youtube" frameborder="0" allowfullscreen="1"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                 title="YouTube video player" width="100%" height="660px"
-                                                src="https://www.youtube.com/embed/hNQFjqDvPhA"></iframe>
+                                                src="{{$movie->video_trailer_url}}"></iframe>
                                     </div>
-
                                 </div>
                                 <div class="detail-video">
                                     <div class="info-detail sticky-sidebar">
                                         <div class="inner-info">
                                             <div class="media-video">
                                                 <div class="pic-video">
-                                                    <img src="{{asset($movie->poster)}}"
+                                                    <img src="{{asset($movie->posters->first()->value('image'))}}"
                                                          alt="IMG">
                                                 </div>
                                                 <div class="meta-info">
@@ -52,81 +53,83 @@
                                                     </div>
                                                 </div>
                                                 <div class="more-info">
-<span class="item-info">
-Rating:
-<i class="ion ion-android-star"></i>
-8/10
-</span>
+                                    <span class="item-info">
+                                    Rating:
+                                    <i class="ion ion-android-star"></i>
+                                   {{$movie->imdb_rates}}
+                                    </span>
                                                     <span class="item-info">
-<i class="ion ion-eye"></i>
-240 Views
-</span>
+                                    <i class="ion ion-eye"></i>
+                                    240 Views
+                                    </span>
                                                 </div>
                                             </div>
                                             <div class="info-video">
                                                 <div class="item-info">
-<span class="name-item">
-Cast:
-</span>
+                                    <span class="name-item">
+                                    Cast:
+                                    </span>
                                                     <span class="value-item">
-{{$movie->cast}}
-</span>
+                                    {{$movie->cast}}
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Production:
-</span>
+                                    <span class="name-item">
+                                    Production:
+                                    </span>
                                                     <span class="value-item">
-{{$movie->production}}
-</span>
+                                    {{$movie->production}}
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Release Date:
-</span>
+                                    <span class="name-item">
+                                    Release Date:
+                                    </span>
                                                     <span class="value-item">
-May 12, 2018
-</span>
+                                    May 12, 2018
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Genres:
-</span>
+                                    <span class="name-item">
+                                    Genres:
+                                    </span>
                                                     <span class="value-item">
-Action
-</span>
+                                    @foreach($movie->movieGenre as $movieGenre)
+                                                            {{$movieGenre->genre->name}},
+                                                        @endforeach
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Country:
-</span>
+                                    <span class="name-item">
+                                    Country:
+                                    </span>
                                                     <span class="value-item">
-USA
-</span>
+                                    USA
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Duration:
-</span>
+                                    <span class="name-item">
+                                    Duration:
+                                    </span>
                                                     <span class="value-item">
-{{$movie->duration}}
-</span>
+                                    {{$movie->duration}}
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Language:
-</span>
+                                    <span class="name-item">
+                                    Language:
+                                    </span>
                                                     <span class="value-item">
-English
-</span>
+                                    English
+                                    </span>
                                                 </div>
                                                 <div class="item-info">
-<span class="name-item">
-Type:
-</span>
+                                    <span class="name-item">
+                                    Type:
+                                    </span>
                                                     <span class="value-item">
-{{$movie->type}}
-</span>
+                                    {{$movie->type}}
+                                    </span>
                                                 </div>
                                             </div>
                                             <a href="javascript:;" class="btn-watch btn-normal shape-round">
@@ -141,25 +144,9 @@ Type:
                                             </h3>
                                             <div class="content-field">
                                                 <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat.Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est laborum. Sed ut
-                                                    perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                                    inventore veritatis et quasi architecto beatae vitae
+                                                    {{$movie->description}}
                                                 </p>
-                                                <p>
-                                                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                                                    fugit, sed quia magni dolores eos qui ratione voluptatem sequi
-                                                    nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                                    amet, consectetur, adipisci velit, sed quia non numquam eius modi
-                                                    tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                                    voluptatem.
-                                                </p>
+
                                             </div>
                                         </div>
                                         <div class="field-detail">
@@ -180,206 +167,23 @@ Type:
                                                         </div>
                                                     </div>
                                                     <div class="slide-slick">
+                                                        @foreach($movie->posters as $poster)
                                                         <div class="item-slick">
                                                             <div class="item-img">
                                                                 <img
-                                                                    src="{{asset('frontend/assets/images/video-detail-02.jpg')}}"
+                                                                    src="{{asset($poster->image)}}"
                                                                     alt="IMG">
                                                             </div>
                                                         </div>
-                                                        <div class="item-slick">
-                                                            <div class="item-img">
-                                                                <img
-                                                                    src="{{asset('frontend/assets/images/video-detail-02.jpg')}}"
-                                                                    alt="IMG">
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-slick">
-                                                            <div class="item-img">
-                                                                <img
-                                                                    src="{{asset('frontend/assets/images/video-detail-02.jpg')}}"
-                                                                    alt="IMG">
-                                                            </div>
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
-                                                <p>
-                                                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                                                    fugit, sed quia magni dolores eos qui ratione voluptatem sequi
-                                                    nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                                    amet, consectetur, adipisci velit, sed quia non numquam eius modi
-                                                    tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                                    voluptatem.
-                                                </p>
+
                                             </div>
                                         </div>
 
-                                        <div class="entry-tag-share">
-                                            <div class="tags-links">
-                                                <span class="name-field">Tags:</span>
-                                                <a href="javascript:;" class="tag-item">film maker,</a>
-                                                <a href="javascript:;" class="tag-item">film studio</a>
-                                            </div>
-                                            <div class="share-video">
-                                                <span class="name-field">SHARE:</span>
-                                                <a href="javascript:;" class="share-item">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                                                <a href="javascript:;" class="share-item">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                                                <a href="javascript:;" class="share-item">
-                                                    <i class="fa fa-pinterest-p"></i>
-                                                </a>
-                                                <a href="javascript:;" class="share-item">
-                                                    <i class="fa fa-linkedin"></i>
-                                                </a>
-                                            </div>
-                                        </div>
 
-                                        <div class="author-blog">
-                                            <div class="pic-author">
-                                                <div class="ava-author">
-                                                    <a href="javascript:;"><img
-                                                            src="{{asset('frontend/assets/images/ava-02.jpg')}}" alt="
-                                                            IMG"></a>
-                                                </div>
-                                                <div class="socials-author">
-                                                    <a href="javascript:;" class="item-social">
-                                                        <i class="ion ion-social-facebook"></i>
-                                                    </a>
-                                                    <a href="javascript:;" class="item-social">
-                                                        <i class="ion ion-social-twitter"></i>
-                                                    </a>
-                                                    <a href="javascript:;" class="item-social">
-                                                        <i class="ion ion-social-googleplus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="text-author">
-                                                <div class="name-author">
-                                                    <a href="javascript:;">
-                                                        Michael Mikado
-                                                    </a>
-                                                </div>
-                                                <div class="info-aothor">
-                                                    Front-end dev
-                                                </div>
-                                                <div class="content-author">
-                                                    If you are a newbie to managing a WordPress website, then tions! You
-                                                    are here at the right track with us be we are going to introduce you
-                                                    one of the most basic knowledge when owning a WordPress page: how to
-                                                    find your site
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="navigate-blog">
-                                            <div class="navi-item prev-blog">
-                                                <a href="javascript:;" class="navi-arrow">
-                                                    <i class="ion ion-ios-arrow-thin-left"></i>
-                                                </a>
-                                                <div class="navi-text">
-                                                    <div class="name-navi">
-                                                        PREVIOUS
-                                                    </div>
-                                                    <div class="title-navi">
-                                                        <a href="javascript:;">
-                                                            Exploring the New York
-                                                        </a>
-                                                    </div>
-                                                    <div class="info-navi">
-                                                        October 15, 2018
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="navi-item next-blog">
-                                                <div class="navi-text">
-                                                    <div class="name-navi">
-                                                        Next
-                                                    </div>
-                                                    <div class="title-navi">
-                                                        <a href="javascript:;">
-                                                            Exploring the New York
-                                                        </a>
-                                                    </div>
-                                                    <div class="info-navi">
-                                                        October 15, 2018
-                                                    </div>
-                                                </div>
-                                                <a href="javascript:;" class="navi-arrow">
-                                                    <i class="ion ion-ios-arrow-thin-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="comments-area">
-                                            <div class="list-comments">
-                                                <h3 class="comments-title">
-                                                    2 comments
-                                                </h3>
-                                                <ul class="comment-list">
-                                                    <li class="comment">
-                                                        <img class="avatar"
-                                                             src="{{asset('frontend/assets/images/ava-01.jpg')}}"
-                                                             alt="IMG">
-                                                        <div class="content-comment">
-                                                            <div class="author">
-<span class="author-name">
-Edugate
-</span>
-                                                                <span class="comment-extra-info">
-November 11, 2016 at 9:10 AM
-</span>
-                                                                <span class="link-reply-edit">
-<a href="javascript:;" class="comment-reply-link">
-Reply
-</a>
-</span>
-                                                            </div>
-                                                            <div class="message">
-                                                                <p>
-                                                                    So far, the conversion increase is more due to plain
-                                                                    blunt force, but the quality of boss conversions and
-                                                                    subsequent leads can be increased
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="children">
-                                                            <li class="comment">
-                                                                <img class="avatar"
-                                                                     src="{{asset('frontend/assets/images/ava-01.jpg')}}"
-                                                                     alt="IMG">
-                                                                <div class="content-comment">
-                                                                    <div class="author">
-<span class="author-name">
-Edugate
-</span>
-                                                                        <span class="comment-extra-info">
-November 11, 2016 at 9:10 AM
-</span>
-                                                                        <span class="link-reply-edit">
-<a href="javascript:;" class="comment-reply-link">
-Reply
-</a>
-</span>
-                                                                    </div>
-                                                                    <div class="message">
-                                                                        <p>
-                                                                            So far, the conversion increase is more due
-                                                                            to plain blunt force, but the quality of
-                                                                            boss conversions and subsequent leads can be
-                                                                            increased
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
+                                        @include('frontend.movie.comment')
                                         <div class="form-comment">
                                             <div id="respond" class="comment-respond">
                                                 <h3 id="reply-title" class="comment-reply-title">
@@ -390,8 +194,8 @@ Reply
                                                 </h3>
                                                 <form class="comment-form" novalidate="">
                                                     <p class="comment-notes">
-                                                        <span
-                                                            id="email-notes">Your email address will not be published.</span>
+                                       <span
+                                           id="email-notes">Your email address will not be published.</span>
                                                         Required fields are marked <span class="required">*</span>
                                                     </p>
                                                     <div class="comment-meta">
@@ -414,9 +218,9 @@ Reply
                                                     </div>
                                                     <div class="comment-message">
                                                         <p class="comment-form-comment">
-                                                            <textarea placeholder="Enter your comment *" id="comment"
-                                                                      name="comment" cols="45" rows="8"
-                                                                      aria-required="true"></textarea>
+                                          <textarea placeholder="Enter your comment *" id="comment"
+                                                    name="comment" cols="45" rows="8"
+                                                    aria-required="true"></textarea>
                                                         </p>
                                                     </div>
                                                     <p class="form-submit">
@@ -665,12 +469,10 @@ Reply
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </main>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

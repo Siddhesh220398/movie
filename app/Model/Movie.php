@@ -36,4 +36,8 @@ class Movie extends Model
     {
         return $this->hasMany(MovieGenre::class,'movie_id','id');
     }
+    public function movieComments()
+    {
+        return $this->hasMany(MovieComments::class,'movie_id','id')->where('comment_id',Null);
+    }
 }

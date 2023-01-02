@@ -16,6 +16,7 @@ class CreateMovieCommentsTable extends Migration
         Schema::create('movie_comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('movie_id');
+            $table->integer('user_id');
             $table->integer('comment_id')->nullable();
             $table->longText('comments');
             $table->timestamps();

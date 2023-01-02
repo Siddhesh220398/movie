@@ -16,7 +16,7 @@
                         <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                             <div class="post-item">
                                 <div class="pic">
-                                    <img src="{{ asset($movie->poster) }}" alt="IMG">
+                                    <img src="{{ asset($movie->posters->first()->value('image')) }}" alt="IMG">
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     <a href="{{route('singleMovie',['type'=>$movie->type,'name'=>$movie->title])}}"
-                                       class="btn-play ">
+                                       class="btn-play">
                                     </a>
                                 </div>
                                 <h4 class="title">
