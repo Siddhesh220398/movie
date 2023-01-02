@@ -12,7 +12,7 @@
                     <div class="content-comment">
                         <div class="author">
                   <span class="author-name">
-                  {{$movieComment->user->name}}  [  {{\Carbon\Carbon::parse($movieComment->created_at)->format('d-M-Y')}}]
+                  {{$movieComment->user->name}}  on  {{\Carbon\Carbon::parse($movieComment->created_at)->format('d-M-Y')}}
                   </span>
 
 

@@ -7,7 +7,7 @@
             <div class="content-comment">
                 <div class="author">
                         <span class="author-name">
-                        {{$comment->user->name}} [  {{\Carbon\Carbon::parse($comment->created_at)->format('d-M-Y')}}]
+                        {{$comment->user->name}} 0n  {{\Carbon\Carbon::parse($comment->created_at)->format('d-M-Y')}}
                         </span>
 
                 </div>

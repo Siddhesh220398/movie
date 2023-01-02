@@ -40,4 +40,12 @@ class Movie extends Model
     {
         return $this->hasMany(MovieComments::class,'movie_id','id')->where('comment_id',Null)->orderBy('id','desc');
     }
+    public function movieRates()
+    {
+        return $this->hasMany(MovieRates::class,'movie_id','id')->where('like',1);
+    }
+    public function movieRateDisLikes()
+    {
+        return $this->hasMany(MovieRates::class,'movie_id','id')->where('like',0);
+    }
 }

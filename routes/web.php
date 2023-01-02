@@ -24,6 +24,7 @@ Route::post('update-profile','Frontend\HomeController@updateProfile')->name('use
 Route::get('/{name}','Frontend\HomeController@movieList')->name('title');
 Route::get('movies/{type}/{name}','Frontend\HomeController@singleMovie')->name('singleMovie');
 Route::post('movies/comments','Frontend\HomeController@comments')->name('movie.comment');
+Route::post('movies/like','Frontend\HomeController@like')->name('movie.like');
 
 
 // Route::get('tv-series', 'Frontend\TvseriesController@index')->name('tvseries');

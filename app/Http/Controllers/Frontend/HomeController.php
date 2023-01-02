@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Model\Movie;
 use App\Model\MovieComments;
+use App\Model\MovieRates;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -52,13 +53,17 @@ class HomeController extends Controller
 
     public function singleMovie(Request $request,$type,$name){
 
-        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments')->first();
+        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments','movieRates','movieRateDisLikes')->first();
         return view('frontend.movie.single-movie',compact('movie'));
 
     }
 
     public function comments(Request $request){
         MovieComments::create(['movie_id'=>$request->movie_id,'user_id'=>Auth::user()->id,'comment_id'=>$request->has('comment_id') ? $request->comment_id : Null,'comments'=>$request->comment]);
+        return response()->json(['status'=>'success','message'=>'Commented']);
+    }
+    public function like(Request $request){
+        MovieRates::updateOrCreate(['movie_id'=>$request->id,'user_id'=>Auth::user()->id],['movie_id'=>$request->id,'user_id'=>Auth::user()->id,'like'=>$request->type == 'like' ? 1 : 0]);
         return response()->json(['status'=>'success','message'=>'Commented']);
     }
 }
