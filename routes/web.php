@@ -21,7 +21,7 @@ Route::get('myprofile','Frontend\HomeController@profile')->name('user.profile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('user.update-profile');
 
 
-Route::get('s/{name}','Frontend\HomeController@movieList')->name('title');
+Route::get('filter','Frontend\HomeController@movieList')->name('title');
 Route::get('movies/{type}/{name}','Frontend\HomeController@singleMovie')->name('singleMovie');
 Route::post('movies/comments','Frontend\HomeController@comments')->name('movie.comment');
 Route::post('movies/like','Frontend\HomeController@like')->name('movie.like');

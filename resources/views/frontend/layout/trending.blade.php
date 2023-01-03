@@ -24,7 +24,7 @@
                                             </div>
                                             <div class="label" style="background: #e40914;">
                                                 @if(Auth::user())
-                                                    @if(count($movie->watchListByUser) == 0 )
+                                                    @if(count($movie->watchListByUser->where('user_id',Auth::user()->id)) == 0 )
                                                         <button class="watchList" title="watchlist"
                                                                 data-id="{{$movie->id}}" data-type="add"><i
                                                                 class="fa fa-plus text-white"></i></button>
@@ -46,7 +46,9 @@
                                         </a>
                                     </h4>
                                     <div class="info">
-                                        Action, Drama
+                                        @foreach($movie->movieGenre as $movieGenre)
+                                            {{$movieGenre->genre->name}},
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

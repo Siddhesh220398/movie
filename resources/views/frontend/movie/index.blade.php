@@ -13,6 +13,22 @@
             color: white !important;
             border:none !important;
         }
+        .btn-fliter:hover {
+            background: #b30710;
+            color: #ffffff;
+
+        }
+        .btn-fliter {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #fff;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: #e40914;
+            padding: 0 39px;
+            transition: all .2s;
+        }
     </style>
 @endpush
 @section('content')
@@ -22,95 +38,86 @@
         <div class="bp-element bp-element-st-list-videos vblog-layout-slider-1">
 
             <div class="list-posts">
+                @php
+                    $genres = \App\Model\Genre::get();
+                    $countrys = \App\Model\Country::get();
+                    $years = \App\Model\Year::get();
+                @endphp
+                <form method="get" action="" >
+                    <div class="new d-flex justify-flex-start" style="margin-bottom: 2%;">
+                        <select name="type[]" class="form-control selectpicker" multiple="" title="All" >
+                            <option value="movies" @if(in_array("movies", $type)) selected @endif>Movies</option>
+                            <option value="tv-series" @if(in_array("tv-series", $type)) selected @endif>TV Series</option>
+                        </select>
 
-                  <div class="new d-flex justify-flex-start" style="margin-bottom: 2%;">
-                    <select name="" class="form-control selectpicker" multiple="" title="All" >
-                        <option value="movies">Movies</option>
-                        <option value="tv-series">TV Series</option>
-                    </select>
-                    <select name="" class="form-control selectpicker" multiple="" title="Genre">
-                        <option value="action">Action</option>
-                        <option value="kids">Kids</option>
-                    </select>
-                    <select name="" class="form-control selectpicker" multiple="" title="Country">
-                        <option value="india">India</option>
-                        <option value="canada">Canada</option>
-                        <option value="china">China</option>
-                        <option value="japan">Japan</option>
-                    </select>
-                    <select name="" class="form-control selectpicker" multiple="" title="Quality">
-                        <option value="hd">HD</option>
-                        <option value="sd">SD</option>
-                        <option value="ts">TS</option>
-                    </select>
-                    <select name="" class="form-control selectpicker" multiple="" title="Year">
-                        <option value="">2022</option>
-                        <option value="">2021</option>
-                        <option value="">2020</option>
-                        <option value="">2019</option>
-                    </select>
-                    <select name="" class="form-control selectpicker" multiple="" title="Sort">
-                        <option value="">Default</option>
-                        <option value="">Latest Update</option>
-                        <option value="">iMDb</option>
-                    </select>
-                  </div>
+                        <select name="genre_id[]" class="form-control selectpicker" multiple="" title="Genre">
+                            @foreach($genres as $genre)
+                                <option value="{{$genre->id}}"  @if(in_array($genre->id, $genre_id)) selected @endif>{{$genre->name}}</option>
+                            @endforeach
+                        </select>
+                        <select name="country_id[]" class="form-control selectpicker" multiple="" title="Country">
+                            @foreach($countrys as $country)
+                                <option value="{{$country->id}}" @if(in_array($country->id, $country_id)) selected @endif>{{$country->name}}</option>
+                            @endforeach
+                        </select>
 
+
+                        <select name="year_id[]" class="form-control selectpicker" multiple="" title="Year">
+                            @foreach($years as $year)
+                                <option value="{{$year->id}}" @if(in_array($year->id, $year_id)) selected @endif>{{$year->name}}</option>
+                            @endforeach
+                        </select>
+                        <select name="featured" class="form-control selectpicker" multiple="" title="Sort">
+                            <option value="" @if($featured == "default") selected @endif>Default</option>
+                            <option value="featured" @if($featured == "featured") selected @endif>Featured Update</option>
+                            <option value="topimdb"  @if($featured == "topimdb") selected @endif>iMDb</option>
+                        </select>
+                        <button type="submit" class="btn btn-fliter"><i class="fa fa-filter"></i>  Filter</button>
+                    </div>
+                </form>
                 <div class="row isotope-grid">
+                    @forelse($movies as $movie)
                     <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                         <div class="post-item">
                             <div class="pic">
-                                <img src="{{asset('frontend/assets/images/post-01.jpg')}}" alt="IMG">
+                                <img src="{{ asset($movie->posters->first()->value('image')) }}" alt="IMG">
                                 <div class="overlay"></div>
                                 <div class="meta-info">
                                     <div class="imdb">
                                         <span class="value">5</span>IMDb
                                     </div>
                                     <div class="label" style="background: #e40914;">
-                                        Hot
+                                        @if(Auth::user())
+                                            @if(count($movie->watchListByUser->where('user_id',Auth::user()->id)) == 0 )
+                                                <button class="watchList" title="watchlist"
+                                                        data-id="{{$movie->id}}" data-type="add"><i
+                                                        class="fa fa-plus text-white"></i></button>
+                                            @else
+                                                <button class="watchList" title="watchlist"
+                                                        data-id="{{$movie->id}}" data-type="remove"><i
+                                                        class="fa fa-minus text-white"></i></button>
+                                            @endif
+                                        @endif
                                     </div>
                                 </div>
-                                <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                   class="btn-play popup-youtube">
+                                <a href="{{route('singleMovie',['type'=>$movie->type,'name'=>$movie->title])}}"
+                                   class="btn-play">
                                 </a>
                             </div>
                             <h4 class="title">
-                                <a href="javascript:;">
-                                    How To Make a Pimple Disappear With Makeup
+                                <a href="{{route('singleMovie',['type'=>$movie->type,'name'=>$movie->title])}}">
+                                    {{$movie->title}}
                                 </a>
                             </h4>
                             <div class="info">
-                                Action, Drama
+                                @foreach($movie->movieGenre as $movieGenre)
+                                    {{$movieGenre->genre->name}},
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
-                        <div class="post-item">
-                            <div class="pic">
-                                <img src="{{asset('frontend/assets/images/post-01.jpg')}}" alt="IMG">
-                                <div class="overlay"></div>
-                                <div class="meta-info">
-                                    <div class="imdb">
-                                        <span class="value">5</span>IMDb
-                                    </div>
-                                    <div class="label" style="background: #e40914;">
-                                        Hot
-                                    </div>
-                                </div>
-                                <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                   class="btn-play popup-youtube">
-                                </a>
-                            </div>
-                            <h4 class="title">
-                                <a href="javascript:;">
-                                    How To Make a Pimple Disappear With Makeup
-                                </a>
-                            </h4>
-                            <div class="info">
-                                Action, Drama
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    @endforelse
                 </div>
             </div>
 
@@ -129,4 +136,74 @@
 @push('custom-scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.watchList').on("click", function (e) {
+                e.preventDefault()
+                var id = $(this).data('id');
+                var type = $(this).data('type');
+                $.ajax({
+
+                    type: "POST",
+
+                    url: "{{route('movie.watchList')}}",
+
+                    data: {
+                        '_token': $('input[name="_token"]').val(),
+                        'id': id,
+                        'type': type,
+                    },
+
+                    pcache: false,
+
+                    success: function (data) {
+
+                        if (data.status === 'success') {
+
+
+                            location.reload();
+                            toastr["success"]("Comment Successfully", "Success");
+
+
+                        } else if (data.status === 'error') {
+                            location.reload();
+
+                            toastr["error"]("Something went wrong", "Error");
+
+                        } else if (data.status === 'type_code') {
+
+                            toastr["error"]("Duplicate code!", "Error");
+
+                            $('.change_button').prop('disabled', false);
+
+                            $('.change_button').find('.change_spin').addClass('d-none');
+                        } else if (data.status === 'email_exists') {
+                            toastr["error"]("Duplicate Email!", "Error");
+                            // location.reload();
+                            $('.change_button').prop('disabled', false);
+                            $('.change_button').find('.change_spin').addClass('d-none');
+                        }
+
+                    },
+                    error: function (data) {
+                        console.log(data.status)
+                        if (data.status === 422) {
+                            var errors = $.parseJSON(data.responseText);
+                            $.each(errors.errors, function (key, value) {
+                                console.log(key + " " + value);
+                                $('#' + key).addClass('is-invalid');
+                                $('#' + key).parent().append('<div id="' + key + '-error" class="error invalid-feedback ">' + value + '</div>');
+                            });
+
+                        }
+
+                    }
+
+                });
+            });
+        });
+    </script>
 @endpush

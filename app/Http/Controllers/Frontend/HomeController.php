@@ -16,9 +16,9 @@ class HomeController extends Controller
 {
     public function home(){
         $data['title']='Home Page';
-        $data['trending_movie']= Movie::where(['type'=>'movies','latest'=>1])->with('watchListByUser')->limit(20)->get();
-        $data['trending_web']= Movie::where(['type'=>'web-series','latest'=>1])->with('watchListByUser')->limit(20)->get();
-        $data['latest']= Movie::latest()->with('watchListByUser')->limit(20)->get();
+        $data['trending_movie']= Movie::where(['type'=>'movies','latest'=>1])->with('movieGenre','watchListByUser')->limit(20)->get();
+        $data['trending_web']= Movie::where(['type'=>'web-series','latest'=>1])->with('movieGenre','watchListByUser')->limit(20)->get();
+        $data['latest']= Movie::latest()->with('movieGenre','watchListByUser')->limit(20)->get();
         return view('frontend.front-main',compact('data'));
     }
 
@@ -47,9 +47,49 @@ class HomeController extends Controller
     }
 
 
-    public function movieList($name)
+    public function movieList(Request $request)
     {
-        return view('frontend.movie.index');
+        $movies = Movie::orderBy('id','desc')->with('movieGenre','watchListByUser');
+        $genre_id=[];
+        $country_id=[];
+        $year_id=[];
+        $type=[];
+        $featured="";
+        if($request->has('genre_id')){
+            $genre_id=$request->genre_id;
+            $movies = $movies->whereHas('movieGenre', function ($q) use ($request) {
+                $q->whereIn('genre_id', $request->genre_id);
+            });
+        }
+
+        if($request->has('country_id')){
+            $country_id=$request->country_id;
+            $movies = $movies->orWhereIn('country_id', $request->country_id);
+        }
+
+        if($request->has('type')){
+            $type=$request->type;
+
+            $movies = $movies->orWhereIn('type', $request->type);
+        }
+        if($request->has('year_id')){
+            $year_id=$request->year_id;
+
+            $movies = $movies->orWhereIn('year', $request->year_id);
+        }
+        if($request->has('featured')){
+            $featured=$request->featured;
+
+            if($request->featured == "topimdb"){
+                $movies = $movies->orderBy('imdb_rates','desc');
+            }elseif ($request->featured == "featured"){
+                $movies = $movies->where('latest',1);
+            }
+        }
+
+        $movies=$movies->get();
+//        dd();
+        return view('frontend.movie.index',compact('movies','genre_id','country_id','type','featured','year_id'));
     }
 
     public function singleMovie(Request $request,$type,$name){
