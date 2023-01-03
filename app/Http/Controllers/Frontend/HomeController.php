@@ -87,7 +87,7 @@ class HomeController extends Controller
             }
         }
 
-        $movies=$movies->get();
+        $movies=$movies->paginate(20);
 //        dd();
         return view('frontend.movie.index',compact('movies','genre_id','country_id','type','featured','year_id'));
     }

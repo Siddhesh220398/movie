@@ -29,6 +29,37 @@
             padding: 0 39px;
             transition: all .2s;
         }
+        .pagination{
+            display: flex!important;
+            flex-wrap: wrap!important;
+            justify-content: center!important;
+            align-items: center!important;
+        }
+        .pagination .page-item .page-link {
+            font-weight: 300 !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            color: #111 !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 39px !important;
+            height: 39px !important;
+            border-radius: 50% !important;
+            border: 1px solid #e1e1e1 !important;
+            margin: 5px !important;
+            transition: all .2s !important;
+        }
+        .pagination .page-item .page-link:hover {
+            border-color: #e40914!important;
+            color: #e40914!important;
+        }
+
+        .pagination .page-item.active .page-link{
+            background: #e40914 !important;
+            border-color: #e40914 !important;
+            color: #fff !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -84,7 +115,7 @@
                                 <div class="overlay"></div>
                                 <div class="meta-info">
                                     <div class="imdb">
-                                        <span class="value">5</span>IMDb
+                                        <span class="value">{{ $movie->imdb_rates}}</span>IMDb
                                     </div>
                                     <div class="label" style="background: #e40914;">
                                         @if(Auth::user())
@@ -116,17 +147,14 @@
                             </div>
                         </div>
                     </div>
+
                     @empty
                     @endforelse
+
                 </div>
             </div>
 
-            <a class="content-add mt-5 d-flex justify-content-center">
-
-                <div class="btn-readmore btn-small shape-round">
-                    Show more
-                </div>
-            </a>
+            {{$movies->links()}}
         </div>
     </div>
 

@@ -20,7 +20,7 @@
                                         <div class="overlay"></div>
                                         <div class="meta-info">
                                             <div class="imdb">
-                                                <span class="value">5</span>IMDb
+                                                <span class="value">{{ $movie->imdb_rates}}</span>IMDb
                                             </div>
                                             <div class="label" style="background: #e40914;">
                                                 @if(Auth::user())
