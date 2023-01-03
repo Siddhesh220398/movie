@@ -6,19 +6,19 @@
         </div>
         <div class="form-group col-sm-6">
             <label>Movie Trailer Url - youtube or any hosted video<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <input type="text" name="video_trailer_url"  placeholder="Enter Movie Trailer Url" class="form-control" required>
+            <input type="url" name="video_trailer_url"  placeholder="Enter Movie Trailer Url" class="form-control" required>
         </div>
         <div class="form-group col-sm-6">
             <label>Movie Url<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <input type="text" name="video_url"  placeholder="Enter Movie Url" class="form-control" required>
+            <input type="url" name="video_url"  placeholder="Enter Movie Url" class="form-control" required>
         </div>
         <div class="form-group col-sm-6">
             <label>Thumbnail - icon image of the movie</label>
-            <input type="file" name="thumbnail" class="form-control">
+            <input type="file" name="thumbnail" class="form-control" required>
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>
-            <input type="file" name="image[]" class="form-control" multiple="">
+            <input type="file" name="image[]" class="form-control" multiple="" required>
         </div>
 
         <div class="form-group col-sm-6">

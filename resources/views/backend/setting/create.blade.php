@@ -19,27 +19,27 @@
         </div>
         <div class="form-group col-sm-2">
             <label>Facebook Url</label>
-            <input type="text" name="facebook_url"  placeholder="Enter Facebook Url" class="form-control">
+            <input type="url" name="facebook_url"  placeholder="Enter Facebook Url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Twitter Url</label>
-            <input type="text" name="twitter_url"  placeholder="Enter Twitter Url" class="form-control">
+            <input type="url" name="twitter_url"  placeholder="Enter Twitter Url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Reddit Url</label>
-            <input type="text" name="reddit_url"  placeholder="Enter Reddit Url" class="form-control">
+            <input type="url" name="reddit_url"  placeholder="Enter Reddit Url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Instagram Url</label>
-            <input type="text" name="instagram_url"  placeholder="Enter Instagram Url" class="form-control">
+            <input type="url" name="instagram_url"  placeholder="Enter Instagram Url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Telegram Url</label>
-            <input type="text" name="telegram_url"  placeholder="Enter Telegram Url" class="form-control">
+            <input type="url" name="telegram_url"  placeholder="Enter Telegram Url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>YouTube Url</label>
-            <input type="text" name="youtube_url"  placeholder="Enter YouTube Url" class="form-control">
+            <input type="url" name="youtube_url"  placeholder="Enter YouTube Url" class="form-control">
         </div>
     </div>
 </div>

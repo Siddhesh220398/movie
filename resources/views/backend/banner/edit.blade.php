@@ -11,7 +11,7 @@
 
         <div class="form-group col-sm-3">
             <label>Url</label>
-            <input type="text" name="url" value="{{$data['edit']->url}}" placeholder="Enter url" class="form-control">
+            <input type="url" name="url" value="{{$data['edit']->url}}" placeholder="Enter url" class="form-control">
         </div>
         <div class="form-group col-sm-2">
             <label>Description</label>

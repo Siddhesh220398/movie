@@ -7,11 +7,11 @@
         </div>
         <div class="form-group col-sm-2">
             <label>Url<span class="requied_field" style="color : #e3001b;">*</span></label>
-            <input type="text" name="url"  placeholder="Enter Url" class="form-control" required>
+            <input type="url" name="url"  placeholder="Enter Url" class="form-control" required>
         </div>
         <div class="form-group col-sm-2">
             <label>Thumbnail</label>
-            <input type="file" name="thumbnail" class="form-control">
+            <input type="file" name="thumbnail" class="form-control" required>
         </div>
     </div>
 </div>
