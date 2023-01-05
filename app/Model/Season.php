@@ -16,4 +16,14 @@ class Season extends Model
     {
         return $this->belongsTo(Movie::class,'movie_id','id');
     }
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($movie) { // before delete() method call this
+            $movie->episodes()->each(function($episode) {
+                $episode->delete();
+            });
+
+        });
+    }
+
 }

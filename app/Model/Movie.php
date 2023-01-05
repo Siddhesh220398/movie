@@ -53,4 +53,31 @@ class Movie extends Model
     {
         return $this->hasMany(MovieRates::class,'movie_id','id')->where('like',0);
     }
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($movie) { // before delete() method call this
+            $movie->movieGenre()->each(function($genre) {
+                $genre->delete();
+            });
+            $movie->watchListByUser()->each(function($watchList) {
+                $watchList->delete();
+            });
+           $movie->seasons()->each(function($season) {
+                $season->delete();
+            });
+           $movie->posters()->each(function($poster) {
+                $poster->delete();
+            });
+           $movie->movieComments()->each(function($comment) {
+                $comment->delete();
+            });
+           $movie->movieRates()->each(function($rate) {
+                $rate->delete();
+            });
+            $movie->movieRateDisLikes()->each(function ($rate) {
+                $rate->delete();
+            });
+
+        });
+    }
 }

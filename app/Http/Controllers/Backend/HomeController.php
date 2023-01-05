@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ImageHelper;
+use App\Model\Movie;
 use DataTables;
 use DB;
 use File;
@@ -76,8 +77,11 @@ class HomeController extends Controller
                 }
             } else {
 
-
-                DB::table($table_name)->whereIn('id', $id_array)->delete();
+                if($table_name == 'movies'){
+                    Movie::whereIn('movie_id', $id_array)->delete();
+                }else{
+                    DB::table($table_name)->whereIn('id', $id_array)->delete();
+                }
 
             }
             $res['status'] = 'Success';

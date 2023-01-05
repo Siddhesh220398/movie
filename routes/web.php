@@ -14,7 +14,7 @@
 //Route::get('/', function () {
 //    return view('front-main');
 //});
-Route::get('/', 'Frontend\HomeController@home');
+Route::get('/', 'Frontend\HomeController@home')->name('user.home');
 Route::get('/login', 'Frontend\HomeController@login')->name('user.login');
 Route::get('/register', 'Frontend\HomeController@register')->name('user.register');
 Route::get('myprofile','Frontend\HomeController@profile')->name('user.profile');
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'is_admin'], function () {
         Route::get('/home', 'Backend\HomeController@index')->name('home');
         Route::name('home.')->group(function () {
             Route::get('/change-multiple-status', 'Backend\HomeController@changeMultipleStatus')->name('change-multiple-status');
