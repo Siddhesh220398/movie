@@ -69,16 +69,7 @@ class BannerController extends Controller
     {
         $banner = new Banner();
         $banner->title = $request->title;
-        if($request->image)
-        {
-            $file = $request->image;
-            $filename = 'image-' . rand() . '.' . $file->getClientOriginalExtension();
-            $request->image->move(public_path('image'), $filename);
-            $banner->image = 'image/' . $filename;
-        }else
-        {
-            $request->image = NULL;
-        }
+        $banner->image= $request->image  ? setImage($request->image,'banners') : null ;
         $banner->url = $request->url;
         $banner->description = $request->description;
 
@@ -109,13 +100,7 @@ class BannerController extends Controller
         $data->title = $request->title;
         if($request->image)
         {
-            $file = $request->image;
-            $filename = 'image-' . rand() . '.' . $file->getClientOriginalExtension();
-            $request->image->move(public_path('image'), $filename);
-            $data->image = 'image/' . $filename;
-        }else
-        {
-            $request->$data = NULL;
+            $data->image =setImage($request->image,'banners');
         }
         $data->url = $request->url;
         $data->description = $request->description;

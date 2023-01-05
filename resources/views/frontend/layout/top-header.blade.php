@@ -18,7 +18,7 @@
 
                         <div class="bp-element bp-element-st-search-videos vblog-layout-header-1">
                             <div class="wrap-element">
-                                <form class="search-form">
+                                <form class="search-form" action="{{route('title')}}">
 {{--                                    <label class="wrap-select2" data-style="vblog-search">--}}
 {{--                                        <select>--}}
 {{--                                            <option>Movies</option>--}}

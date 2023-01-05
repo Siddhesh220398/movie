@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <a class="content-add mt-5 d-flex justify-content-center">
+                <a class="content-add mt-5 d-flex justify-content-center" href="{{$route}}">
 
                     <div class="btn-readmore btn-small shape-round">
                         Show more

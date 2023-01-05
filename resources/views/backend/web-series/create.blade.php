@@ -21,8 +21,8 @@
             <input type="file" name="image[]" class="form-control" multiple="" required>
         </div>
         <div class="form-group col-sm-6">
-            <label>Duration</label>
-            <input type="time" name="duration" placeholder="Enter Duration (Min)" class="form-control">
+            <label>Duration (In Minutes)</label>
+            <input type="text" name="duration" placeholder="Enter Duration (Min)" class="form-control">
         </div>
         <div class="form-group col-sm-6">
             <label>Long Description<span class="requied_field" style="color : #e3001b;">*</span></label>

@@ -17,7 +17,7 @@
                 <ul class="sub-menu">
                     @foreach($genres as $genre)
                         <li>
-                            <a href="{{route('title',$genre->name)}}">
+                            <a href="{{route('title',['genre_id[]'=>$genre->id])}}">
                                 {{$genre->name}}
                             </a>
                         </li>
@@ -31,7 +31,7 @@
                 <ul class="sub-menu">
                     @foreach($countries as $country)
                         <li>
-                            <a href="">
+                            <a href="{{route('title',['country_id[]'=>$country->id])}}">
                                 {{$country->name}}
                             </a>
                         </li>
@@ -39,17 +39,17 @@
                 </ul>
             </li>
             <li>
-                <a href="{{route('title','movie')}}">
+                <a href="{{route('title',['type[]'=>'movies'])}}">
                     Movies
                 </a>
             </li>
             <li>
-                <a href="{{route('title','tv-series')}}">
+                <a href="{{route('title',['type[]'=>'web-series'])}}">
                     Tv Series
                 </a>
             </li>
             <li>
-                <a href="{{route('title','top-imdb')}}">
+                <a href="{{route('title',['featured[]'=>'topimdb'])}}">
                     Top IMDb
                 </a>
             </li>

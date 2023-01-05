@@ -87,7 +87,7 @@ class EpisodeController extends Controller
         $episode->title = $request->title;
         $episode->url = $request->url;
         $episode->season_id = $request->season_id;
-        $episode->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
+        $episode->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'episode-thumbnail') : null;
         $episode->save();
         if ($episode){
             return response()->json(['status'=>'success']);
@@ -116,7 +116,7 @@ class EpisodeController extends Controller
 //        $episode->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'movies-thumbnail') : null;
         if($request->thumbnail)
         {
-            $episode->thumbnail=setImage($request->thumbnail,'movies-thumbnail','edit');
+            $episode->thumbnail=setImage($request->thumbnail,'episode-thumbnail','edit');
         }
         $episode->save();
 

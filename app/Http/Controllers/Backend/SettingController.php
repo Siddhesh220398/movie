@@ -69,16 +69,8 @@ class SettingController extends Controller
     {
         $setting = new Setting();
         $setting->website_name = $request->website_name;
-        if($request->logo)
-        {
-            $file = $request->logo;
-            $filename = 'logo-' . rand() . '.' . $file->getClientOriginalExtension();
-            $request->logo->move(public_path('logo'), $filename);
-            $setting->logo = 'logo/' . $filename;
-        }else
-        {
-            $request->$setting = NULL;
-        }
+        $setting->logo = $request->logo ? setImage($request->logo,'logo') : Null;
+
         $setting->website_email = $request->website_email;
         $setting->privacy_policy = $request->privacy_policy;
         $setting->facebook_url = $request->facebook_url;
@@ -115,7 +107,6 @@ class SettingController extends Controller
         if($request->logo)
         {
             $data->logo =setImage($request->logo,'setting');
-//            dd($request->all());
         }
 //        $data->logo = $request->logo ? setImage($request->logo,'setting') : null;
         $data->website_email = $request->website_email;

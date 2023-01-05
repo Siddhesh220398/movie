@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group col-sm-6">
-            <label>Duration</label>
+            <label>Duration (In Minutes)</label>
             <input type="text" name="duration" placeholder="Enter Duration (Min)" class="form-control">
         </div>
         <div class="form-group col-sm-6">

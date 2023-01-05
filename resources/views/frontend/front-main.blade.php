@@ -19,7 +19,7 @@
             margin: 0 auto;
             padding: 0;
             width: 100%;
-            height: 100vh;
+            height: 80vh;
         }
 
         .image-slide {
@@ -116,7 +116,7 @@
         .text-slider {
             margin: 0%;
             padding: 0%;
-            height: 100vh;
+            /*height: 100vh;*/
         }
 
         .box-slider {
@@ -355,11 +355,11 @@
     </div>
 
 
-    @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['trending_movie']])
+    @include('frontend.layout.trending',['type'=>'Trending','movies'=>$data['trending_movie'], 'route'=> route('title') ])
 
-    @include('frontend.layout.trending',['type'=>'Latest Movies','movies'=>$data['latest']])
+    @include('frontend.layout.trending',['type'=>'Latest Movies','movies'=>$data['latest'],'route'=> route('title',['type[]'=>'movies' ,'featured'=>'featured'])])
 
-    @include('frontend.layout.trending',['type'=>'Trending Web Series','movies'=>$data['trending_web']])
+    @include('frontend.layout.trending',['type'=>'Trending Web Series','movies'=>$data['trending_web'],'route'=> route('title',['type[]'=>'web-series' ,'featured'=>'featured'])])
 
 @endsection
 @push('custom-scripts')

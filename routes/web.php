@@ -23,8 +23,11 @@ Route::post('update-profile','Frontend\HomeController@updateProfile')->name('use
 
 Route::get('filter','Frontend\HomeController@movieList')->name('title');
 Route::get('movies/{type}/{name}','Frontend\HomeController@singleMovie')->name('singleMovie');
+Route::get('movies/{type}/{name}/{season}','Frontend\HomeController@singleSeason')->name('singleSeason');
 Route::post('movies/comments','Frontend\HomeController@comments')->name('movie.comment');
 Route::post('movies/like','Frontend\HomeController@like')->name('movie.like');
+Route::get('movie/{type}/{name}/play','Frontend\HomeController@play')->name('movie.play');
+Route::post('season/episode','Frontend\HomeController@episode')->name('season.episode');
 
 
 // Route::get('tv-series', 'Frontend\TvseriesController@index')->name('tvseries');

@@ -7,6 +7,9 @@ $genres=$data['genres'];
         background:#f3d8e5;
 
     }
+    .poster:hover{
+        background: linear-gradient(to top, #3204fdba, #9907facc)
+    }
 </style>
 <div class="kt-portlet__body">
     <div class="row">
@@ -17,14 +20,14 @@ $genres=$data['genres'];
         </div>
         <div class="form-group col-sm-6">
             <label>Thumbnail - icon image of the movie</label>
-            <input type="file" name="thumbnail" class="form-control" required>
+            <input type="file" name="thumbnail" class="form-control" >
         </div>
         <div class="form-group col-sm-6">
             <label>Movie Trailer Url - youtube or any hosted video
                 <span class="requied_field" style="color : #e3001b;">*</span>
             </label>
             <input type="url" name="video_trailer_url" value="{{$edit->video_trailer_url}}" placeholder="Enter Movie Trailer Url"
-                   class="form-control" required>
+                   class="form-control" >
         </div>
         <div class="form-group col-sm-6">
             <label>Movie Url<span class="requied_field" style="color : #e3001b;">*</span></label>
@@ -36,8 +39,8 @@ $genres=$data['genres'];
             <input type="file" name="image[]" class="form-control" multiple="" required>
         </div>
         <div class="form-group col-sm-6">
-            <label>Duration</label>
-            <input type="time" name="duration" value="{{$edit->duration}}" placeholder="Enter Duration (Min)"
+            <label>Duration (In Minutes)</label>
+            <input type="text" name="duration" value="{{$edit->duration}}" placeholder="Enter Duration (Min)"
                    class="form-control">
         </div>
         <div class="form-group col-sm-6">
@@ -146,12 +149,18 @@ $genres=$data['genres'];
         @endif
         @if($edit->posters)
             @foreach($edit->posters as $posters)
-            <div class="form-group col-sm-2">
-                <img src="{{url($posters->image)}}" height="400" width="400" style="border:3px solid black">
+            <div class="form-group col-sm-3" >
+                <div class="d-flex ">
+                <img src="{{url($posters->image)}}" height="400" width="400"  >
+
+                </div>
+
             </div>
+                <div class="form-group col-sm-1"><a class="btn btn-danger btn-delete" style="height: 50px;"> <i class="fa fa-trash"></i></a></div>
             @endforeach
         @endif
 
     </div>
 
 </div>
+

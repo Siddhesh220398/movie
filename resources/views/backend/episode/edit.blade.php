@@ -14,7 +14,7 @@
 
         <div class="form-group col-sm-4">
             <label>Thumbnail</label>
-            <input type="file" name="thumbnail" class="form-control" required>
+            <input type="file" name="thumbnail" class="form-control" >
         </div>
         @if($edit->url)
         <div class="form-group col-sm-6">

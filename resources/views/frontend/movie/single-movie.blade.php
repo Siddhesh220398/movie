@@ -11,18 +11,23 @@
         }
         .bl-video-detail .detail-video .content-detail .comments-area .list-comments .comment-list .comment .content-comment {
 
-             margin-bottom: 5px !important;
+            margin-bottom: 5px !important;
         }
         .bl-video-detail .detail-video .content-detail .comments-area .list-comments .comment-list .comment .avatar {
             width: 60px !important;
 
         }
+
+        .page-title {
+            margin-bottom: 5%;
+        }
+
     </style>
 @endpush
 @section('content')
     <div class="content-area">
         <div class="page-title">
-            <div class="main-top" style="background-image: {{asset('frontend/assets/images/bg-page-title-04.jpg')}};">
+            <div class="main-top" style="background-image: url(/frontend/assets/images/bg-page-title-04.jpg);">
                 <div class="overlay-top-header"></div>
                 <div class="content container">
                     <h1>
@@ -76,7 +81,7 @@
                                     </span>
                                                     <span class="item-info">
                                     <i class="ion ion-thumbsdown"></i>
-                                        {{$movie->movieRateDisLikes->count()}} Likes
+                                        {{$movie->movieRateDisLikes->count()}} DisLikes
                                     </span>
                                                 </div>
                                             </div>
@@ -142,14 +147,20 @@
                                                 </div>
 
                                             </div>
-                                            <a href="javascript:;" class="btn-watch btn-normal shape-round">
+                                            @if($movie->type == "movies")
+                                            <a href="{{route('movie.play',['type'=>$movie->type,'name'=>$movie->title,])}}" class="btn-watch btn-normal shape-round">
                                                 watch video
                                             </a>
+                                            @endif
                                             <div class="d-flex">
-                                                <button class="btn-watch btn-normal shape-round likeBtn" data-id="{{$movie->id}}"  data-type="like" style="width:45px!important;">
-                                                    <i class="fa fa-thumbs-up" ></i>
+                                                <button class="btn-watch btn-normal shape-round likeBtn"
+                                                        data-id="{{$movie->id}}" data-type="like"
+                                                        style="width:45px!important;">
+                                                    <i class="fa fa-thumbs-up"></i>
                                                 </button>
-                                                <button class="btn-watch btn-normal shape-round likeBtn" data-id="{{$movie->id}}" data-type="dislike" style="width:45px!important;">
+                                                <button class="btn-watch btn-normal shape-round likeBtn"
+                                                        data-id="{{$movie->id}}" data-type="dislike"
+                                                        style="width:45px!important;">
                                                     <i class="fa fa-thumbs-down"></i>
                                                 </button>
                                             </div>
@@ -167,6 +178,35 @@
 
                                             </div>
                                         </div>
+                                        @if(count($movie->seasons) > 0)
+                                        <div class="field-detail">
+                                            <h3 class="title-field">
+                                               Seasons And Episodes
+                                            </h3>
+                                            <div class="content-field">
+                                               <table class="table-bordered table-striped table">
+                                                   <tr>
+                                                       <td>Seasons</td>
+                                                       <td>Episodes</td>
+                                                       <td></td>
+                                                   </tr>
+                                                   @foreach($movie->seasons as $season)
+                                                   <tr>
+                                                       <td>{{$season->title}}</td>
+                                                       <td>{{count($season->episodes)}}</td>
+                                                       <td><a class="content-add mt-5" href="{{route('singleSeason',['type'=>$movie->type,'name'=>$movie->title,'season'=>$season->id])}}">
+
+                                                               <div class="btn-readmore btn-small shape-round">
+                                                                   Watch Episodes
+                                                               </div>
+                                                           </a></td>
+                                                   </tr>
+                                                   @endforeach
+                                               </table>
+
+                                            </div>
+                                        </div>
+                                        @endif
                                         <div class="field-detail">
                                             <h3 class="title-field">
                                                 Video & Photo
@@ -216,13 +256,17 @@
                                                     @csrf
                                                     <div class="comment-message">
                                                         <p class="comment-form-comment">
-                                                            <textarea placeholder="Enter your comment *" id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
+                                                            <textarea placeholder="Enter your comment *" id="comment"
+                                                                      name="comment" cols="45" rows="8"
+                                                                      aria-required="true" required></textarea>
                                                         </p>
-                                                        <input type="hidden" name="movie_id" value="{{$movie->id}}" class="form-control">
+                                                        <input type="hidden" name="movie_id" value="{{$movie->id}}"
+                                                               class="form-control">
 
                                                     </div>
                                                     <p class="form-submit">
-                                                        <button type="submit" id="submit" class="submit main-communicate-btn" data-id="0">
+                                                        <button type="submit" id="submit"
+                                                                class="submit main-communicate-btn" data-id="0">
                                                             submit comment
                                                         </button>
 
@@ -230,238 +274,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="related-blog">
-                                            <h3 class="related-title">
-                                                You May Also Like
-                                            </h3>
-                                            <div class="wrap-element">
-                                                <div class="list-posts">
-                                                    <div class="slide-posts js-call-slick-col" data-numofshow="3"
-                                                         data-numofscroll="1" data-loopslide="1" data-autoscroll="0"
-                                                         data-speedauto="6000"
-                                                         data-responsive="[3, 1], [3, 1], [2, 1], [2, 1], [1, 1]">
-                                                        <div class="wrap-arrow-slick">
-                                                            <div class="arow-slick prev-slick">
-                                                                <i class="ion ion-chevron-left"></i>
-                                                            </div>
-                                                            <div class="arow-slick next-slick">
-                                                                <i class="ion ion-chevron-right"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="slide-slick">
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-01.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                Hot
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-02.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #ff6c00;">
-                                                                                Trend
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-03.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                NEW
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-04.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                HDRip
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-01.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                Hot
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-02.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #ff6c00;">
-                                                                                Trend
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-03.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                NEW
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-slick">
-                                                                <div class="post-item">
-                                                                    <div class="pic">
-                                                                        <img
-                                                                            src="{{asset('frontend/assets/images/post-04.jpg')}}"
-                                                                            alt="IMG">
-                                                                        <div class="overlay"></div>
-                                                                        <div class="meta-info">
-                                                                            <div class="imdb">
-                                                                                <span class="value">5</span>IMDb
-                                                                            </div>
-                                                                            <div class="label"
-                                                                                 style="background: #e40914;">
-                                                                                HDRip
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="https://www.youtube.com/watch?v=NEqtQYxzQaE"
-                                                                           class="btn-play popup-youtube"></a>
-                                                                    </div>
-                                                                    <h4 class="title">
-                                                                        <a href="single-video.html">
-                                                                            How To Make a Pimple Disappear With Makeup
-                                                                        </a>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -490,10 +303,10 @@
                     data: {
                         '_token': $('input[name="_token"]').val(),
                         'id': id,
-                        'type':type
+                        'type': type
                     },
 
-                    pcache: false,
+                    cache: false,
 
                     success: function (data) {
 
@@ -504,12 +317,12 @@
                             toastr["success"]("Comment Successfully", "Success");
 
 
-                        }  else if (data.status === 'unauthenticate') {
-                            window.location ="{{route('user.login')}}"
+                        } else if (data.status === 'unauthenticate') {
+                            window.location = "{{route('user.login')}}"
 
                             toastr["error"]("Something went wrong", "Error");
 
-                        }else if (data.status === 'error') {
+                        } else if (data.status === 'error') {
                             location.reload();
 
                             toastr["error"]("Something went wrong", "Error");
@@ -577,9 +390,8 @@
 
                             toastr["error"]("Something went wrong", "Error");
 
-                        }
-                        else if (data.status === 'unauthenticate') {
-                           window.location ="{{route('user.login')}}"
+                        } else if (data.status === 'unauthenticate') {
+                            window.location = "{{route('user.login')}}"
 
                             toastr["error"]("Something went wrong", "Error");
 

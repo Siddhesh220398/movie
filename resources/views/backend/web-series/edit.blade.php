@@ -83,8 +83,8 @@ $genres=$data['genres'];
                                         <input type="file" name="image[]" class="form-control" multiple="">
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label>Duration</label>
-                                        <input type="time" name="duration" value="{{$edit->duration}}"
+                                        <label>Duration (In Minutes)</label>
+                                        <input type="text" name="duration" value="{{$edit->duration}}"
                                                placeholder="Enter Duration (Min)"
                                                class="form-control">
                                     </div>
@@ -108,7 +108,7 @@ $genres=$data['genres'];
                                             <option value="">Select</option>
                                             @foreach($genres  as $k=>$c)
                                                 <option value="{{ $c->id }}"
-                                                        @if(in_array($c->id,$edit->genre_id)) selected @endif>{{ $c->name }}</option>
+                                                        @if(in_array($c->id,array_values($edit->movieGenre()->pluck('genre_id')->toArray()))) selected @endif>{{ $c->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -177,7 +177,7 @@ $genres=$data['genres'];
                                     </div>
                                     @if($edit->video_trailer_url)
                                         <div class="form-group col-sm-12">
-                                            <label>Video Trailer</label>
+                                            <label>Movie Trailer</label>
                                             <br>
                                             <video width="850" height="300" controls>
                                                 <source src="{{$edit->video_trailer_url}}" type="video/webm">
@@ -196,18 +196,18 @@ $genres=$data['genres'];
                                         </div>
                                     @endif
                                     @if($edit->thumbnail)
-                                        <div class="form-group col-sm-6">
+                                        <div class="form-group col-sm-12">
                                             <label>Thumbnail</label>
                                             <br>
                                             <img src="{{url($edit->thumbnail)}}" height="400" width="400" style="border:3px solid black">
                                         </div>
                                     @endif
-                                    @if($edit->poster)
-                                        <div class="form-group col-sm-6">
-                                            <label>Poster</label>
-                                            <br>
-                                            <img src="{{url($edit->poster)}}" height="400" width="400" style="border:3px solid black">
-                                        </div>
+                                    @if($edit->posters)
+                                        @foreach($edit->posters as $posters)
+                                            <div class="form-group col-sm-2">
+                                                <img src="{{url($posters->image)}}" height="400" width="400" style="border:3px solid black">
+                                            </div>
+                                        @endforeach
                                     @endif
                                 </div>
                             </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Model\Episode;
 use App\Model\Movie;
 use App\Model\MovieComments;
 use App\Model\MovieRates;
+use App\Model\Season;
 use App\Model\WatchList;
 use App\User;
 use Illuminate\Http\Request;
@@ -61,6 +63,9 @@ class HomeController extends Controller
                 $q->whereIn('genre_id', $request->genre_id);
             });
         }
+        if($request->has('search')){
+            $movies = $movies->where('title','Like','%'.$request->search .'%');
+        }
 
         if($request->has('country_id')){
             $country_id=$request->country_id;
@@ -88,14 +93,26 @@ class HomeController extends Controller
         }
 
         $movies=$movies->paginate(20);
-//        dd();
         return view('frontend.movie.index',compact('movies','genre_id','country_id','type','featured','year_id'));
     }
 
     public function singleMovie(Request $request,$type,$name){
 
-        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments','movieRates','movieRateDisLikes')->first();
+        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments','movieRates','movieRateDisLikes','seasons')->first();
         return view('frontend.movie.single-movie',compact('movie'));
+
+    }
+    public function play(Request $request,$type,$name){
+
+        $movie= Movie::where('title',$name)->with('movieGenre','movieGenre.genre','movieComments','movieComments.subComments','movieRates','movieRateDisLikes','seasons')->first();
+
+        return view('frontend.movie.watch-movie',compact('movie'));
+
+    }
+    public function singleSeason(Request $request,$type,$name,$season){
+
+        $season= Season::where('id',$season)->with('episodes','movie','movie.movieGenre')->first();
+        return view('frontend.movie.single-season',compact('season'));
 
     }
 
@@ -112,6 +129,15 @@ class HomeController extends Controller
         }
         MovieRates::updateOrCreate(['movie_id'=>$request->id,'user_id'=>Auth::user()->id],['movie_id'=>$request->id,'user_id'=>Auth::user()->id,'like'=>$request->type == 'like' ? 1 : 0]);
         return response()->json(['status'=>'success','message'=>'Commented']);
+    }
+
+    public function episode(Request $request){
+        $episode= Episode::where('id',$request->id)->first();
+        if($episode){
+            return response()->json(['status'=>'success','message'=>'Commented','episode'=>$episode,'renderData'=>view('frontend.movie.episode')->with('url', $episode->url)->render()]);
+        }else{
+            return response()->json(['status'=>'error','message'=>'Commented',]);
+        }
     }
 
     public function watchlist()

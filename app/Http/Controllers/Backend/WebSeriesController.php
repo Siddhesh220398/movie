@@ -80,7 +80,7 @@ class WebSeriesController extends Controller
         $movie->video_trailer_url = $request->video_trailer_url;
         $movie->video_url = $request->video_url;
         $movie->duration = $request->duration;
-        $movie['genre_id'] = serialize($request['genre_id']);
+
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
@@ -89,11 +89,21 @@ class WebSeriesController extends Controller
 //        $movie->quality_ids = $request->quality_ids;
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
+        $movie->save();
+        if($request->image)
+        {
+            foreach ($request->image as $img)
+            {
+                $movie->posters()->create(['image'=>setImage($img,'web-series-poster') ]);
+            }
+        }
+        foreach ($request['genre_id'] as $genre_id){
+            $movie->movieGenre()->create(['genre_id'=>$genre_id ]);
+        }
 
-        $movie->poster= $request->poster ? setImage($request->poster,'web-series-poster') : null;
         $movie->thumbnail= $request->thumbnail ? setImage($request->thumbnail,'web-series-thumbnail') : null;
 
-        $movie->save();
+
         if ($movie){
             return response()->json(['status'=>'success']);
         }else{
@@ -106,7 +116,6 @@ class WebSeriesController extends Controller
         $data['title'] = 'Edit Web-Series';
         $data['title2'] = 'Seasons';
         $data['edit'] = Movie::where('id',$id)->with('seasons')->first();
-        $data['edit']->genre_id = unserialize($data['edit']->genre_id);
         $data['url'] = route($this->route . '.update', [$this->view => $id]);
         $data['genres'] = Genre::get();
         $data['countrys'] = Country::get();
@@ -128,7 +137,7 @@ class WebSeriesController extends Controller
         $movie->video_trailer_url = $request->video_trailer_url;
         $movie->video_url = $request->video_url;
         $movie->duration = $request->duration;
-        $movie['genre_id'] = serialize($request['genre_id']);
+
         $movie->cast = $request->cast;
         $movie->production = $request->production;
         $movie->country_id = $request->country_id;
@@ -137,16 +146,25 @@ class WebSeriesController extends Controller
 //        $movie->quality_ids = $request->quality_ids;
         $movie->year = $request->year_id;
         $movie->latest = $request->latest ?? 0;
-        if($request->poster)
+        $movie->save();
+
+        if($request->image)
         {
-            $movie->poster=setImage($request->poster,'web-series-poster','edit');
+            foreach ($request->image as $img)
+            {
+                $movie->posters()->create(['image'=>setImage($img,'web-series-poster') ]);
+            }
+        }
+
+        $movie->movieGenre()->delete();
+        foreach ($request['genre_id'] as $genre_id){
+            $movie->movieGenre()->create(['genre_id'=>$genre_id ]);
         }
         if($request->thumbnail)
         {
             $movie->thumbnail=setImage($request->thumbnail,'web-series-thumbnail','edit');
         }
 
-        $movie->save();
 
         if ($movie){
             return response()->json(['status'=>'success']);
