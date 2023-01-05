@@ -3,7 +3,7 @@
         <div class="wrap-content-header">
             <div class="header-logo">
                 <a href="{{url('/')}}" class="logo">
-                    <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">
+                    <img src="{{ asset('frontend/assets/images/logoimage.png') }}" alt="IMG">
                 </a>
                 <a href="{{url('/')}}" class="mobile-logo">
                     <img src="{{ asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="IMG">

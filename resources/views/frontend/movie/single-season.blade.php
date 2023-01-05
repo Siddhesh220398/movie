@@ -64,6 +64,7 @@
                                    Episodes
                                 </h3>
                                 <ul class="product-categories">
+                                    @if(count($season->episodes) > 0)
                                     @foreach($season->episodes as $episode)
                                     <li class="cat-item" id="active-{{$episode->id}}" @if($season->episodes->first()->id ==$episode->id) style="    color: rgb(228, 9, 20);" @endif>
                                         <a href="javascript:;" class="episode-change" data-id="{{$episode->id}}">
@@ -72,7 +73,7 @@
 
                                     </li>
                                     @endforeach
-
+                                    @endif
                                 </ul>
                             </aside>
 
@@ -96,13 +97,15 @@
                                     <div class="heading-products">
                                         <div class="results" style="font-size: 25px; font-weight: 500;">
                                         <label>   {{$season->movie->title}} / {{$season->title}} / </label>
-                                            <label class="episodeName">{{$season->episodes->first()->title}}</label>
+                                            @if(count($season->episodes) > 0)  <label class="episodeName">{{$season->episodes->first()->title}}</label>@endif
                                         </div>
                                     </div>
                                     <div class="row">
+                                        @if(count($season->episodes) > 0)
                                         <div class="pic col-12 changeEpisode">
                                             @include('frontend.movie.episode',['url'=>$season->episodes->first()->url])
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

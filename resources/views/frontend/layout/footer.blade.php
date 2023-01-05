@@ -4,7 +4,8 @@
             <div class="thim-3-col">
                 <aside class="widget widget_thim_layout_builder">
                     <div class="wpb_single_image">
-                        <img src="{{asset(setWebsite('logo') ?? 'frontend/assets/images/logo-header-05.png') }}" alt="logo"/>
+                        <img src="{{ asset('frontend/assets/images/logoimage.png') }}" alt="IMG">
+
                     </div>
                     <div class="wpb_text_column">
                         <p>

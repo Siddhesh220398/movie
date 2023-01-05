@@ -16,7 +16,7 @@
                             <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                                 <div class="post-item">
                                     <div class="pic">
-                                        <img src="{{ asset($movie->posters->first()->value('image')) }}" alt="IMG">
+                                        <img src="{{ count($movie->posters)> 0 ? asset($movie->posters->first()->image): asset('frontend/assets/images/post-50.jpg') }}" alt="IMG">
                                         <div class="overlay"></div>
                                         <div class="meta-info">
                                             <div class="imdb">
@@ -46,8 +46,14 @@
                                         </a>
                                     </h4>
                                     <div class="info">
-                                        @foreach($movie->movieGenre as $movieGenre)
-                                            {{$movieGenre->genre->name}},
+                                        @foreach($movie->movieGenre as $key=> $movieGenre)
+                                            @if($key > 4)
+                                                @php
+                                                    break;
+                                                @endphp
+                                            @endif
+                                            {{$movieGenre->genre->name}}
+                                            ,
                                         @endforeach
                                     </div>
                                 </div>

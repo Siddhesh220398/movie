@@ -58,7 +58,7 @@
                                         <div class="inner-info">
                                             <div class="media-video">
                                                 <div class="pic-video">
-                                                    <img src="{{asset($movie->posters->first()->value('image'))}}"
+                                                    <img src="{{count($movie->posters)> 0 ?asset($movie->posters->first()->value('image')) : asset('frontend/assets/images/post-50.jpg')}}"
                                                          alt="IMG">
                                                 </div>
                                                 <div class="meta-info">
@@ -118,7 +118,7 @@
                                     Country:
                                     </span>
                                                     <span class="value-item">
-                                    USA
+                                    {{$movie->country->name}}
                                     </span>
                                                 </div>
                                                 <div class="item-info">

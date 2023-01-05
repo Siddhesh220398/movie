@@ -346,7 +346,7 @@
             @foreach($banners as $banner)
 
                 {{--              @dd($banner->$banner)--}}
-                <a href="http://localhost" class="image-slide" id="three"
+                <a href="https://assets.mixkit.co/videos/preview/mixkit-aerial-tour-over-a-beach-at-sunset-44366-large.mp4" class="image-slide" id="three"
                    style="background: url({{$banner->image}}) no-repeat 50% 50%; background-size: cover;">
 
                 </a>
