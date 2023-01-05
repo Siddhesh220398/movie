@@ -36,7 +36,7 @@ $genres=$data['genres'];
         </div>
         <div class="form-group col-sm-6">
             <label>Poster - large banner image of the movie</label>
-            <input type="file" name="image[]" class="form-control" multiple="" required>
+            <input type="file" name="image[]" class="form-control" multiple="">
         </div>
         <div class="form-group col-sm-6">
             <label>Duration (In Minutes)</label>
@@ -156,11 +156,50 @@ $genres=$data['genres'];
                 </div>
 
             </div>
-                <div class="form-group col-sm-1"><a class="btn btn-danger btn-delete" style="height: 50px;"> <i class="fa fa-trash"></i></a></div>
+                <div class="form-group col-sm-1">
+                    <a class="btn btn-danger btn-delete" data-id="{{$posters->id}}" style="height: 50px;"> <i class="fa fa-trash"></i></a>
+                </div>
             @endforeach
         @endif
 
     </div>
 
 </div>
+<script>
+    $(document).ready(function () {
+        $('.btn-delete').on("click", function (e) {
+            e.preventDefault()
+            var id = $(this).data('id');
+            $.ajax({
 
+                type: "POST",
+
+                url: "{{route('movie.delete')}}",
+
+                data: {
+                    '_token': $('input[name="_token"]').val(),
+                    'id': id,
+                },
+                cache: false,
+
+                success: function (data) {
+
+                    if (data.status === 'success') {
+
+
+                        location.reload();
+                        toastr["success"]("Delete Successfully", "Success");
+
+
+                    }  else {
+                        location.reload();
+                        toastr["error"]("Something went wrong", "Error");
+
+                    }
+                },
+
+
+            });
+        });
+    })
+</script>

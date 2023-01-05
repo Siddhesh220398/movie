@@ -204,8 +204,15 @@ $genres=$data['genres'];
                                     @endif
                                     @if($edit->posters)
                                         @foreach($edit->posters as $posters)
-                                            <div class="form-group col-sm-2">
-                                                <img src="{{url($posters->image)}}" height="400" width="400" style="border:3px solid black">
+                                            <div class="form-group col-sm-3" >
+                                                <div class="d-flex ">
+                                                    <img src="{{url($posters->image)}}" height="400" width="400"  >
+
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group col-sm-1">
+                                                <a class="btn btn-danger btn-delete" data-id="{{$posters->id}}" style="height: 50px;"> <i class="fa fa-trash"></i></a>
                                             </div>
                                         @endforeach
                                     @endif
@@ -380,6 +387,49 @@ $genres=$data['genres'];
             });
         });
 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete').on("click", function (e) {
+                e.preventDefault()
+                var id = $(this).data('id');
+                $.ajax({
+
+                    type: "POST",
+
+                    url: "{{route('movie.delete')}}",
+
+                    data: {
+                        '_token': $('input[name="_token"]').val(),
+                        'id': id,
+                    },
+
+                    cache: false,
+
+                    success: function (data) {
+
+                        if (data.status === 'success') {
+
+
+                            location.reload();
+                            toastr["success"]("Delete Successfully", "Success");
+
+
+                        }  else {
+                            location.reload();
+
+                            toastr["error"]("Something went wrong", "Error");
+
+                        }
+
+                    },
+
+
+                });
+            });
+
+
+        })
     </script>
 
 

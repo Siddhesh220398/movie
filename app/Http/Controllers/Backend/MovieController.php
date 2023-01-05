@@ -178,4 +178,14 @@ class MovieController extends Controller
         dd($request->all());
     }
 
+    public function deleteImage(Request  $request)
+    {
+        $posters = MovieImage::findOrFail($request->id)->delete();
+        if ($posters){
+            return response()->json(['status'=>'success']);
+        }else{
+            return response()->json(['status'=>'error']);
+        }
+    }
+
 }

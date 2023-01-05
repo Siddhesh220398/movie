@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('genre', 'Backend\GenreController');
         Route::resource('type', 'Backend\TypeController');
         Route::resource('movie', 'Backend\MovieController');
+        Route::post('movies/img-delete','Backend\MovieController@deleteImage')->name('movie.delete');
         Route::resource('web-series', 'Backend\WebSeriesController');
         Route::get('setting', 'Backend\SettingController@setting')->name('setting.index');
         Route::put('setting/update/{id}', 'Backend\SettingController@update')->name('setting.update');
