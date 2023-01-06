@@ -142,7 +142,7 @@ class HomeController extends Controller
 
     public function watchlist()
     {
-        $data['movies']= WatchList::where('user_id',Auth::user()->id)->with('movies','movies.posters','movies.movieGenre')->get();
+        $data['movies']= WatchList::where('user_id',Auth::user()->id)->with('movies','movies.posters','movies.movieGenre')->paginate(20);
 
         return view('frontend.watchlist.index',compact('data'));
     }

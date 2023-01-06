@@ -111,7 +111,7 @@
                     <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                         <div class="post-item">
                             <div class="pic">
-                                <img src="{{ asset($movie->posters->first()->value('image')) }}" alt="IMG">
+                                <img src="{{ count($movie->posters) > 0 ? asset($movie->posters->first()->image) : asset('frontend/assets/images/post-50.jpg') }}" alt="IMG">
                                 <div class="overlay"></div>
                                 <div class="meta-info">
                                     <div class="imdb">

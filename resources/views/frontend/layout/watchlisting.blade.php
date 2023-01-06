@@ -1,3 +1,39 @@
+@push('custom-style')
+    <style>
+        .pagination{
+            display: flex!important;
+            flex-wrap: wrap!important;
+            justify-content: center!important;
+            align-items: center!important;
+        }
+        .pagination .page-item .page-link {
+            font-weight: 300 !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            color: #111 !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 39px !important;
+            height: 39px !important;
+            border-radius: 50% !important;
+            border: 1px solid #e1e1e1 !important;
+            margin: 5px !important;
+            transition: all .2s !important;
+        }
+        .pagination .page-item .page-link:hover {
+            border-color: #e40914!important;
+            color: #e40914!important;
+        }
+
+        .pagination .page-item.active .page-link{
+            background: #e40914 !important;
+            border-color: #e40914 !important;
+            color: #fff !important;
+        }
+    </style>
+@endpush
+
 <div class="thim-popular-video_home-1">
     <div class="container-fluid">
         <div class="bp-element bp-element-st-list-videos vblog-layout-slider-1">
@@ -16,7 +52,7 @@
                         <div class="col-sm-2 col-md-3 col-lg-2 isotope-item Cinema Animation">
                             <div class="post-item">
                                 <div class="pic">
-                                    <img src="{{ asset($watchList->movies->posters->first()->value('image')) }}" alt="IMG">
+                                    <img src="{{ count($watchList->movies->posters) > 0 ? asset($watchList->movies->posters->first()->image) : asset('frontend/assets/images/post-50.jpg') }}" alt="IMG">
                                     <div class="overlay"></div>
                                     <div class="meta-info">
                                         <div class="imdb">
@@ -46,12 +82,7 @@
                     </div>
                 </div>
 
-                <a class="content-add mt-5 d-flex justify-content-center">
-
-                    <div class="btn-readmore btn-small shape-round">
-                        Show more
-                    </div>
-                </a>
+                {{$watchLists->links()}}
             </div>
         </div>
 
